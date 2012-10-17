@@ -72,6 +72,11 @@
                                  userInfo:nil];
 }    
 
+- (BOOL)tileSourceHasTile:(RMTile)tile
+{
+    return YES;
+}
+
 - (void)cancelAllDownloads
 {
 }

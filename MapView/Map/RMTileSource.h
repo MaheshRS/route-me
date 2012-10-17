@@ -99,6 +99,11 @@
 *   @return An image to display. */
 - (UIImage *)imageForTile:(RMTile)tile inCache:(RMTileCache *)tileCache;
 
+/** Check if the tile source contains the requested tile at all.
+ *   @param tile The map tile in question.
+ *   @return A Boolean value indicating whether the tile source contains the requested tile. */
+- (BOOL)tileSourceHasTile:(RMTile)tile;
+
 - (void)cancelAllDownloads;
 
 - (void)didReceiveMemoryWarning;
