@@ -74,6 +74,7 @@
 
 - (void)correctPositionOfAllAnnotations;
 - (void)correctPositionOfAllAnnotationsIncludingInvisibles:(BOOL)correctAllLayers animated:(BOOL)animated;
+- (void)correctOrderingOfAllAnnotations;
 
 - (void)correctMinZoomScaleForBoundingMask;
 
@@ -183,6 +184,7 @@
 @synthesize quadTree = _quadTree;
 @synthesize enableClustering = _enableClustering;
 @synthesize positionClusterMarkersAtTheGravityCenter = _positionClusterMarkersAtTheGravityCenter;
+@synthesize orderMarkersByYPosition = _orderMarkersByYPosition;
 @synthesize orderClusterMarkersAboveOthers = _orderClusterMarkersAboveOthers;
 @synthesize clusterMarkerSize = _clusterMarkerSize, clusterAreaSize = _clusterAreaSize;
 @synthesize adjustTilesForRetinaDisplay = _adjustTilesForRetinaDisplay;
@@ -212,7 +214,7 @@
     self.backgroundColor = [UIColor grayColor];
 
     self.clipsToBounds = YES;
-    
+
     _tileSourcesContainer = [RMTileSourcesContainer new];
     _tiledLayersSuperview = nil;
 
@@ -227,6 +229,9 @@
     _adjustTilesForRetinaDisplay = NO;
     _missingTilesDepth = 0;
     _debugTiles = NO;
+
+    _orderMarkersByYPosition = NO;
+    _orderClusterMarkersAboveOthers = YES;
 
     _annotations = [NSMutableSet new];
     _visibleAnnotations = [NSMutableSet new];
@@ -2551,35 +2556,7 @@
         }
     }
 
-    NSMutableArray *sortedAnnotations = [NSMutableArray arrayWithArray:[_visibleAnnotations allObjects]];
-
-    [sortedAnnotations filterUsingPredicate:[NSPredicate predicateWithFormat:@"isUserLocationAnnotation = NO"]];
-
-    [sortedAnnotations sortUsingComparator:^(id obj1, id obj2)
-    {
-        RMAnnotation *annotation1 = (RMAnnotation *)obj1;
-        RMAnnotation *annotation2 = (RMAnnotation *)obj2;
-
-        if (   [annotation1.annotationType isEqualToString:kRMClusterAnnotationTypeName] && ! [annotation2.annotationType isEqualToString:kRMClusterAnnotationTypeName])
-            return (_orderClusterMarkersAboveOthers ? NSOrderedDescending : NSOrderedAscending);
-
-        if ( ! [annotation1.annotationType isEqualToString:kRMClusterAnnotationTypeName] &&   [annotation2.annotationType isEqualToString:kRMClusterAnnotationTypeName])
-            return (_orderClusterMarkersAboveOthers ? NSOrderedAscending : NSOrderedDescending);
-
-        CGPoint obj1Point = [self convertPoint:annotation1.position fromView:_overlayView];
-        CGPoint obj2Point = [self convertPoint:annotation2.position fromView:_overlayView];
-
-        if (obj1Point.y > obj2Point.y)
-            return NSOrderedDescending;
-
-        if (obj1Point.y < obj2Point.y)
-            return NSOrderedAscending;
-
-        return NSOrderedSame;
-    }];
-
-    for (CGFloat i = 0; i < [sortedAnnotations count]; i++)
-        ((RMAnnotation *)[sortedAnnotations objectAtIndex:i]).layer.zPosition = (CGFloat)i;
+    [self correctOrderingOfAllAnnotations];
 
     [CATransaction commit];
 }
@@ -2587,6 +2564,56 @@
 - (void)correctPositionOfAllAnnotations
 {
     [self correctPositionOfAllAnnotationsIncludingInvisibles:YES animated:NO];
+}
+
+- (void)correctOrderingOfAllAnnotations
+{
+    if ( ! _orderMarkersByYPosition)
+        return;
+
+    // sort annotation layer z-indexes so that they overlap properly
+    //
+    NSMutableArray *sortedAnnotations = [NSMutableArray arrayWithArray:[_visibleAnnotations allObjects]];
+
+    [sortedAnnotations filterUsingPredicate:[NSPredicate predicateWithFormat:@"isUserLocationAnnotation = NO"]];
+
+    [sortedAnnotations sortUsingComparator:^(id obj1, id obj2)
+     {
+         RMAnnotation *annotation1 = (RMAnnotation *)obj1;
+         RMAnnotation *annotation2 = (RMAnnotation *)obj2;
+
+         // clusters above/below non-clusters (based on _orderClusterMarkersAboveOthers)
+         //
+         if (   [annotation1.annotationType isEqualToString:kRMClusterAnnotationTypeName] && ! [annotation2.annotationType isEqualToString:kRMClusterAnnotationTypeName])
+             return (_orderClusterMarkersAboveOthers ? NSOrderedDescending : NSOrderedAscending);
+
+         if ( ! [annotation1.annotationType isEqualToString:kRMClusterAnnotationTypeName] &&   [annotation2.annotationType isEqualToString:kRMClusterAnnotationTypeName])
+             return (_orderClusterMarkersAboveOthers ? NSOrderedAscending : NSOrderedDescending);
+
+         // markers above shapes
+         //
+         if ([annotation1.layer isKindOfClass:[RMMarker class]] && [annotation2.layer isKindOfClass:[RMShape class]])
+             return NSOrderedDescending;
+
+         if ([annotation1.layer isKindOfClass:[RMShape class]] && [annotation2.layer isKindOfClass:[RMMarker class]])
+             return NSOrderedAscending;
+
+         // the rest in increasing y-position
+         //
+         CGPoint obj1Point = [self convertPoint:annotation1.position fromView:_overlayView];
+         CGPoint obj2Point = [self convertPoint:annotation2.position fromView:_overlayView];
+
+         if (obj1Point.y > obj2Point.y)
+             return NSOrderedDescending;
+
+         if (obj1Point.y < obj2Point.y)
+             return NSOrderedAscending;
+
+         return NSOrderedSame;
+     }];
+
+    for (CGFloat i = 0; i < [sortedAnnotations count]; i++)
+        ((RMAnnotation *)[sortedAnnotations objectAtIndex:i]).layer.zPosition = (CGFloat)i;
 }
 
 - (NSArray *)annotations
@@ -2623,6 +2650,8 @@
             [_overlayView addSublayer:annotation.layer];
             [_visibleAnnotations addObject:annotation];
         }
+
+        [self correctOrderingOfAllAnnotations];
     }
 }
 
