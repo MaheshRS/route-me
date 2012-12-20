@@ -3003,6 +3003,7 @@
         _accuracyCircleAnnotation = [[RMAnnotation annotationWithMapView:self coordinate:newLocation.coordinate andTitle:nil] retain];
         _accuracyCircleAnnotation.annotationType = kRMAccuracyCircleAnnotationTypeName;
         _accuracyCircleAnnotation.clusteringEnabled = NO;
+        _accuracyCircleAnnotation.enabled = NO;
         _accuracyCircleAnnotation.layer = [[RMCircle alloc] initWithView:self radiusInMeters:newLocation.horizontalAccuracy];
         _accuracyCircleAnnotation.layer.zPosition = -MAXFLOAT;
         _accuracyCircleAnnotation.isUserLocationAnnotation = YES;
@@ -3026,6 +3027,7 @@
         _trackingHaloAnnotation = [[RMAnnotation annotationWithMapView:self coordinate:newLocation.coordinate andTitle:nil] retain];
         _trackingHaloAnnotation.annotationType = kRMTrackingHaloAnnotationTypeName;
         _trackingHaloAnnotation.clusteringEnabled = NO;
+        _trackingHaloAnnotation.enabled = NO;
 
         // create image marker
         //
@@ -3069,9 +3071,15 @@
 
     self.userLocation.layer.hidden = ( ! CLLocationCoordinate2DIsValid(self.userLocation.coordinate) || self.userTrackingMode == RMUserTrackingModeFollowWithHeading);
 
+    if (_userLocationTrackingView)
+        _userLocationTrackingView.hidden = ! CLLocationCoordinate2DIsValid(self.userLocation.coordinate);
+
     _accuracyCircleAnnotation.layer.hidden = newLocation.horizontalAccuracy <= 10;
 
     _trackingHaloAnnotation.layer.hidden = ( ! CLLocationCoordinate2DIsValid(self.userLocation.coordinate) || newLocation.horizontalAccuracy > 10 || self.userTrackingMode == RMUserTrackingModeFollowWithHeading);
+
+    if (_userHaloTrackingView)
+        _userHaloTrackingView.hidden = ( ! CLLocationCoordinate2DIsValid(self.userLocation.coordinate) || newLocation.horizontalAccuracy > 10);
 
     if ( ! [_annotations containsObject:self.userLocation])
         [self addAnnotation:self.userLocation];
