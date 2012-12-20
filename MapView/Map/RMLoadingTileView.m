@@ -27,7 +27,7 @@
         _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width * 3, frame.size.height * 3)];
         [self addSubview:_contentView];
 
-        [self setMapZooming:YES];
+        [self setMapZooming:NO];
         
         self.userInteractionEnabled = NO;
         self.showsHorizontalScrollIndicator = NO;

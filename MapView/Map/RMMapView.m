@@ -244,16 +244,7 @@
 
     [self setTileCache:[[[RMTileCache alloc] init] autorelease]];
 
-    if (backgroundImage)
-    {
-        [self setBackgroundView:[[[UIView alloc] initWithFrame:[self bounds]] autorelease]];
-        self.backgroundView.layer.contents = (id)backgroundImage.CGImage;
-    }
-    else
-    {
-        _loadingTileView = [[[RMLoadingTileView alloc] initWithFrame:self.bounds] autorelease];
-        [self setBackgroundView:_loadingTileView];
-    }
+    [self setBackgroundImage:backgroundImage];
 
     if (initialTileSourceMinZoomLevel < newTilesource.minZoom) initialTileSourceMinZoomLevel = newTilesource.minZoom;
     if (initialTileSourceMaxZoomLevel > newTilesource.maxZoom) initialTileSourceMaxZoomLevel = newTilesource.maxZoom;
@@ -1980,6 +1971,22 @@
     _backgroundView.frame = [self bounds];
 
     [self insertSubview:_backgroundView atIndex:0];
+}
+
+- (void)setBackgroundImage:(UIImage *)backgroundImage
+{
+    if (backgroundImage)
+    {
+        _loadingTileView = nil;
+        [self setBackgroundView:[[[UIView alloc] initWithFrame:[self bounds]] autorelease]];
+        self.backgroundView.layer.contents = (id)backgroundImage.CGImage;
+    }
+    else
+    {
+        _loadingTileView = [[[RMLoadingTileView alloc] initWithFrame:self.bounds] autorelease];
+        [self setBackgroundView:_loadingTileView];
+;
+    }
 }
 
 - (double)metersPerPixel

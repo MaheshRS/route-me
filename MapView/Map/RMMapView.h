@@ -129,6 +129,8 @@ typedef enum : NSUInteger {
 /** A custom, static view to use behind the map tiles. The default behavior is to use grid imagery that moves with map panning like MapKit. */
 @property (nonatomic, retain) UIView *backgroundView;
 
+- (void)setBackgroundImage:(UIImage *)backgroundImage;
+
 /** A Boolean value indicating whether to draw tile borders and z/x/y numbers on tile images for debugging purposes. Defaults to `NO`. */
 @property (nonatomic, assign) BOOL debugTiles;
 
