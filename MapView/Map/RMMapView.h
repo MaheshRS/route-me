@@ -323,6 +323,9 @@ typedef enum : NSUInteger {
 /** Whether to position cluster markers at the weighted center of the points they represent. If `YES`, position clusters in weighted fashion. If `NO`, position them on a rectangular grid. Defaults to `NO`. */
 @property (nonatomic, assign) BOOL positionClusterMarkersAtTheGravityCenter;
 
+/** Order markers on the z axis in increasing y-position. */
+@property (nonatomic, assign) BOOL orderMarkersByYPosition;
+
 /** Whether to order cluster markers above non-clustered markers. Defaults to `NO`. */
 @property (nonatomic, assign) BOOL orderClusterMarkersAboveOthers;
 

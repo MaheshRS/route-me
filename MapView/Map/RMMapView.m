@@ -74,6 +74,7 @@
 
 - (void)correctPositionOfAllAnnotations;
 - (void)correctPositionOfAllAnnotationsIncludingInvisibles:(BOOL)correctAllLayers animated:(BOOL)animated;
+- (void)correctOrderingOfAllAnnotations;
 
 - (void)correctMinZoomScaleForBoundingMask;
 
@@ -111,7 +112,6 @@
     BOOL _delegateHasAfterMapZoom;
     BOOL _delegateHasMapViewRegionDidChange;
     BOOL _delegateHasDoubleTapOnMap;
-    BOOL _delegateHasDoubleTapTwoFingersOnMap;
     BOOL _delegateHasSingleTapOnMap;
     BOOL _delegateHasSingleTapTwoFingersOnMap;
     BOOL _delegateHasLongSingleTapOnMap;
@@ -184,6 +184,7 @@
 @synthesize quadTree = _quadTree;
 @synthesize enableClustering = _enableClustering;
 @synthesize positionClusterMarkersAtTheGravityCenter = _positionClusterMarkersAtTheGravityCenter;
+@synthesize orderMarkersByYPosition = _orderMarkersByYPosition;
 @synthesize orderClusterMarkersAboveOthers = _orderClusterMarkersAboveOthers;
 @synthesize clusterMarkerSize = _clusterMarkerSize, clusterAreaSize = _clusterAreaSize;
 @synthesize adjustTilesForRetinaDisplay = _adjustTilesForRetinaDisplay;
@@ -213,7 +214,7 @@
     self.backgroundColor = [UIColor grayColor];
 
     self.clipsToBounds = YES;
-    
+
     _tileSourcesContainer = [RMTileSourcesContainer new];
     _tiledLayersSuperview = nil;
 
@@ -228,6 +229,9 @@
     _adjustTilesForRetinaDisplay = NO;
     _missingTilesDepth = 0;
     _debugTiles = NO;
+
+    _orderMarkersByYPosition = NO;
+    _orderClusterMarkersAboveOthers = YES;
 
     _annotations = [NSMutableSet new];
     _visibleAnnotations = [NSMutableSet new];
@@ -464,7 +468,6 @@
     _delegateHasMapViewRegionDidChange = [_delegate respondsToSelector:@selector(mapViewRegionDidChange:)];
 
     _delegateHasDoubleTapOnMap = [_delegate respondsToSelector:@selector(doubleTapOnMap:at:)];
-    _delegateHasDoubleTapTwoFingersOnMap = [_delegate respondsToSelector:@selector(doubleTapTwoFingersOnMap:at:)];
     _delegateHasSingleTapOnMap = [_delegate respondsToSelector:@selector(singleTapOnMap:at:)];
     _delegateHasSingleTapTwoFingersOnMap = [_delegate respondsToSelector:@selector(singleTapTwoFingersOnMap:at:)];
     _delegateHasLongSingleTapOnMap = [_delegate respondsToSelector:@selector(longSingleTapOnMap:at:)];
@@ -1148,19 +1151,11 @@
     [self addGestureRecognizer:doubleTapRecognizer];
     [self addGestureRecognizer:longPressRecognizer];
 
-    // two finger taps
-    UITapGestureRecognizer *twoFingerDoubleTapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTwoFingerDoubleTap:)] autorelease];
-    twoFingerDoubleTapRecognizer.numberOfTapsRequired = 2;
-    twoFingerDoubleTapRecognizer.numberOfTouchesRequired = 2;
-    twoFingerDoubleTapRecognizer.delegate = self;
-
     UITapGestureRecognizer *twoFingerSingleTapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTwoFingerSingleTap:)] autorelease];
     twoFingerSingleTapRecognizer.numberOfTouchesRequired = 2;
-    [twoFingerSingleTapRecognizer requireGestureRecognizerToFail:twoFingerDoubleTapRecognizer];
     twoFingerSingleTapRecognizer.delegate = self;
 
     [self addGestureRecognizer:twoFingerSingleTapRecognizer];
-    [self addGestureRecognizer:twoFingerDoubleTapRecognizer];
 
     // pan
     UIPanGestureRecognizer *panGestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)] autorelease];
@@ -1506,21 +1501,6 @@
     {
         [self doubleTapAtPoint:[recognizer locationInView:self]];
     }
-}
-
-- (void)handleTwoFingerDoubleTap:(UIGestureRecognizer *)recognizer
-{
-    [self registerZoomEventByUser:YES];
-
-    CGPoint centerPoint = [self convertPoint:self.center fromView:self.superview];
-
-    if (self.userTrackingMode != RMUserTrackingModeNone)
-        centerPoint = [self coordinateToPixel:self.userLocation.location.coordinate];
-
-    [self zoomOutToNextNativeZoomAt:centerPoint animated:YES];
-
-    if (_delegateHasDoubleTapTwoFingersOnMap)
-        [_delegate doubleTapTwoFingersOnMap:self at:[recognizer locationInView:self]];
 }
 
 - (void)handleTwoFingerSingleTap:(UIGestureRecognizer *)recognizer
@@ -2576,35 +2556,7 @@
         }
     }
 
-    NSMutableArray *sortedAnnotations = [NSMutableArray arrayWithArray:[_visibleAnnotations allObjects]];
-
-    [sortedAnnotations filterUsingPredicate:[NSPredicate predicateWithFormat:@"isUserLocationAnnotation = NO"]];
-
-    [sortedAnnotations sortUsingComparator:^(id obj1, id obj2)
-    {
-        RMAnnotation *annotation1 = (RMAnnotation *)obj1;
-        RMAnnotation *annotation2 = (RMAnnotation *)obj2;
-
-        if (   [annotation1.annotationType isEqualToString:kRMClusterAnnotationTypeName] && ! [annotation2.annotationType isEqualToString:kRMClusterAnnotationTypeName])
-            return (_orderClusterMarkersAboveOthers ? NSOrderedDescending : NSOrderedAscending);
-
-        if ( ! [annotation1.annotationType isEqualToString:kRMClusterAnnotationTypeName] &&   [annotation2.annotationType isEqualToString:kRMClusterAnnotationTypeName])
-            return (_orderClusterMarkersAboveOthers ? NSOrderedAscending : NSOrderedDescending);
-
-        CGPoint obj1Point = [self convertPoint:annotation1.position fromView:_overlayView];
-        CGPoint obj2Point = [self convertPoint:annotation2.position fromView:_overlayView];
-
-        if (obj1Point.y > obj2Point.y)
-            return NSOrderedDescending;
-
-        if (obj1Point.y < obj2Point.y)
-            return NSOrderedAscending;
-
-        return NSOrderedSame;
-    }];
-
-    for (CGFloat i = 0; i < [sortedAnnotations count]; i++)
-        ((RMAnnotation *)[sortedAnnotations objectAtIndex:i]).layer.zPosition = (CGFloat)i;
+    [self correctOrderingOfAllAnnotations];
 
     [CATransaction commit];
 }
@@ -2612,6 +2564,56 @@
 - (void)correctPositionOfAllAnnotations
 {
     [self correctPositionOfAllAnnotationsIncludingInvisibles:YES animated:NO];
+}
+
+- (void)correctOrderingOfAllAnnotations
+{
+    if ( ! _orderMarkersByYPosition)
+        return;
+
+    // sort annotation layer z-indexes so that they overlap properly
+    //
+    NSMutableArray *sortedAnnotations = [NSMutableArray arrayWithArray:[_visibleAnnotations allObjects]];
+
+    [sortedAnnotations filterUsingPredicate:[NSPredicate predicateWithFormat:@"isUserLocationAnnotation = NO"]];
+
+    [sortedAnnotations sortUsingComparator:^(id obj1, id obj2)
+     {
+         RMAnnotation *annotation1 = (RMAnnotation *)obj1;
+         RMAnnotation *annotation2 = (RMAnnotation *)obj2;
+
+         // clusters above/below non-clusters (based on _orderClusterMarkersAboveOthers)
+         //
+         if (   [annotation1.annotationType isEqualToString:kRMClusterAnnotationTypeName] && ! [annotation2.annotationType isEqualToString:kRMClusterAnnotationTypeName])
+             return (_orderClusterMarkersAboveOthers ? NSOrderedDescending : NSOrderedAscending);
+
+         if ( ! [annotation1.annotationType isEqualToString:kRMClusterAnnotationTypeName] &&   [annotation2.annotationType isEqualToString:kRMClusterAnnotationTypeName])
+             return (_orderClusterMarkersAboveOthers ? NSOrderedAscending : NSOrderedDescending);
+
+         // markers above shapes
+         //
+         if ([annotation1.layer isKindOfClass:[RMMarker class]] && [annotation2.layer isKindOfClass:[RMShape class]])
+             return NSOrderedDescending;
+
+         if ([annotation1.layer isKindOfClass:[RMShape class]] && [annotation2.layer isKindOfClass:[RMMarker class]])
+             return NSOrderedAscending;
+
+         // the rest in increasing y-position
+         //
+         CGPoint obj1Point = [self convertPoint:annotation1.position fromView:_overlayView];
+         CGPoint obj2Point = [self convertPoint:annotation2.position fromView:_overlayView];
+
+         if (obj1Point.y > obj2Point.y)
+             return NSOrderedDescending;
+
+         if (obj1Point.y < obj2Point.y)
+             return NSOrderedAscending;
+
+         return NSOrderedSame;
+     }];
+
+    for (CGFloat i = 0; i < [sortedAnnotations count]; i++)
+        ((RMAnnotation *)[sortedAnnotations objectAtIndex:i]).layer.zPosition = (CGFloat)i;
 }
 
 - (NSArray *)annotations
@@ -2648,6 +2650,8 @@
             [_overlayView addSublayer:annotation.layer];
             [_visibleAnnotations addObject:annotation];
         }
+
+        [self correctOrderingOfAllAnnotations];
     }
 }
 
