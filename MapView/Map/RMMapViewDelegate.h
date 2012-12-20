@@ -98,7 +98,6 @@ typedef enum : NSUInteger {
 *   @param map The map that was double-tapped. 
 *   @param point The point at which the map was double-tapped. */
 - (void)doubleTapOnMap:(RMMapView *)map at:(CGPoint)point;
-- (void)doubleTapTwoFingersOnMap:(RMMapView *)map at:(CGPoint)point;
 
 /** Tells the delegate when the user taps a map view.
 *   @param map The map that was tapped.
