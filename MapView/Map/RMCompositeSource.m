@@ -140,7 +140,7 @@
     {
         id <RMTileSource> tileSource = [_tileSources objectAtIndex:u];
 
-        if (tile.zoom < tileSource.minZoom || tile.zoom > tileSource.maxZoom)
+        if (tile.zoom < tileSource.minZoom || tile.zoom > tileSource.maxZoom || ![tileSource tileSourceHasTile:tile])
             continue;
 
         UIImage *tileImage = [tileSource imageForTile:tile inCache:tileCache];
