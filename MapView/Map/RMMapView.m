@@ -378,16 +378,14 @@
 
 + (UIImage *)resourceImageNamed:(NSString *)imageName
 {
-    NSAssert([[NSBundle mainBundle] pathForResource:@"MapBox" ofType:@"bundle"], @"Resource bundle not found in application.");
-
     if ( ! [[imageName pathExtension] length])
         imageName = [imageName stringByAppendingString:@".png"];
 
-    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"MapBox" ofType:@"bundle"];
-    NSBundle *resourcesBundle = [NSBundle bundleWithPath:bundlePath];
-    NSString *imagePath = [resourcesBundle pathForResource:imageName ofType:nil];
+    UIImage *resourceImage = [UIImage imageNamed:imageName];
 
-    return [UIImage imageWithContentsOfFile:imagePath];
+    NSAssert(resourceImage != nil, @"Resource '%@' not found in application. Forgot to copy the route-me resources to the project?", imageName);
+
+    return resourceImage;
 }
 
 - (void)dealloc
