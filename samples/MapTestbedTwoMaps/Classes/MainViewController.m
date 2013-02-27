@@ -66,15 +66,16 @@
 #pragma mark -
 #pragma mark Delegate methods
 
-- (void)afterMapMove:(RMMapView *)map
+- (void)afterMapMove:(RMMapView *)map byUser:(BOOL)wasUserAction
 {
     if (map == upperMapView)
         [lowerMapView setCenterCoordinate:upperMapView.centerCoordinate animated:NO];
 }
 
-- (void)afterMapZoom:(RMMapView *)map
+- (void)afterMapZoom:(RMMapView *)map byUser:(BOOL)wasUserAction
 {
-    if (map == upperMapView) {
+    if (map == upperMapView)
+    {
         lowerMapView.zoom = upperMapView.zoom;
         [lowerMapView setCenterCoordinate:upperMapView.centerCoordinate animated:NO];
     }
@@ -87,9 +88,9 @@
 {
 	static int outstandingTiles = 0;
     
-	if (notification.name == RMTileRequested)
+	if ([notification.name isEqualToString:RMTileRequested])
 		outstandingTiles++;
-	else if(notification.name == RMTileRetrieved)
+	else if ([notification.name isEqualToString:RMTileRetrieved])
 		outstandingTiles--;
     
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:(outstandingTiles > 0)];

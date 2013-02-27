@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1601CA0116DE1DEB000C34AE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1601CA0016DE1DEB000C34AE /* Default-568h@2x.png */; };
 		1653151515FF9232007EA6C0 /* HeadingAngleSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1653150515FF9232007EA6C0 /* HeadingAngleSmall.png */; };
 		1653151615FF9232007EA6C0 /* HeadingAngleSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1653150615FF9232007EA6C0 /* HeadingAngleSmall@2x.png */; };
 		1653151715FF9232007EA6C0 /* LoadingTile.png in Resources */ = {isa = PBXBuildFile; fileRef = 1653150715FF9232007EA6C0 /* LoadingTile.png */; };
@@ -44,6 +45,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1601C9FE16DE1DE9000C34AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBE3696D0F673B95003DC21C /* MapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DD6A83751644A20C0097F31F;
+			remoteInfo = Resources;
+		};
 		2BB42BEE0F678951009967BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EBE3696D0F673B95003DC21C /* MapView.xcodeproj */;
@@ -61,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1601CA0016DE1DEB000C34AE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1653150515FF9232007EA6C0 /* HeadingAngleSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HeadingAngleSmall.png; sourceTree = "<group>"; };
 		1653150615FF9232007EA6C0 /* HeadingAngleSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HeadingAngleSmall@2x.png"; sourceTree = "<group>"; };
 		1653150715FF9232007EA6C0 /* LoadingTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingTile.png; sourceTree = "<group>"; };
@@ -218,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				1653150415FF9232007EA6C0 /* RouteMe */,
+				1601CA0016DE1DEB000C34AE /* Default-568h@2x.png */,
 				280E754A0DD40C5E005A515E /* FlipsideView.xib */,
 				280E754B0DD40C5E005A515E /* MainView.xib */,
 				280E754C0DD40C5E005A515E /* MainWindow.xib */,
@@ -244,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				EBE3697D0F673B95003DC21C /* libMapView.a */,
+				1601C9FF16DE1DE9000C34AE /* MapView.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -275,7 +286,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MapTestbed" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -304,6 +315,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		1601C9FF16DE1DE9000C34AE /* MapView.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MapView.bundle;
+			remoteRef = 1601C9FE16DE1DE9000C34AE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		EBE3697D0F673B95003DC21C /* libMapView.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -338,6 +356,7 @@
 				1653152215FF9232007EA6C0 /* TrackingHeading@2x.png in Resources */,
 				1653152315FF9232007EA6C0 /* TrackingLocation.png in Resources */,
 				1653152415FF9232007EA6C0 /* TrackingLocation@2x.png in Resources */,
+				1601CA0116DE1DEB000C34AE /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
