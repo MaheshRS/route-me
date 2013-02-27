@@ -31,6 +31,10 @@
 #define HTTP_404_NOT_FOUND 404
 
 @implementation RMAbstractWebMapSource
+{
+    NSMutableSet *activeDownloadsTileHashes;
+    NSCondition *activeDownloadsCondition;
+}
 
 @synthesize retryCount, requestTimeoutSeconds;
 
@@ -42,7 +46,17 @@
     self.retryCount = RMAbstractWebMapSourceDefaultRetryCount;
     self.requestTimeoutSeconds = RMAbstractWebMapSourceDefaultWaitSeconds;
 
+    activeDownloadsTileHashes = [NSMutableSet new];
+    activeDownloadsCondition = [NSCondition new];
+
     return self;
+}
+
+- (void)dealloc
+{
+    [activeDownloadsTileHashes release]; activeDownloadsTileHashes = nil;
+    [activeDownloadsCondition release]; activeDownloadsCondition = nil;
+    [super dealloc];
 }
 
 - (NSURL *)URLForTile:(RMTile)tile
@@ -83,6 +97,31 @@
 
     [tileCache retain];
 
+    // Prevent double downloads
+    NSNumber *tileHash = [NSNumber numberWithUnsignedLongLong:RMTileKey(tile)];
+
+    [activeDownloadsCondition lock];
+
+    while ([activeDownloadsTileHashes containsObject:tileHash])
+        [activeDownloadsCondition wait];
+
+    if (self.isCacheable)
+    {
+        image = [tileCache cachedImage:tile withCacheKey:[self uniqueTilecacheKey]];
+
+        if (image)
+        {
+            [activeDownloadsCondition unlock];
+            [tileCache release];
+
+            return image;
+        }
+    }
+
+    [activeDownloadsTileHashes addObject:tileHash];
+    [activeDownloadsCondition unlock];
+
+    // Load the tiles
     NSArray *URLs = [self URLsForTile:tile];
 
     if ([URLs count] > 1)
@@ -166,6 +205,11 @@
 
     if (image && self.isCacheable)
         [tileCache addImage:image forTile:tile withCacheKey:[self uniqueTilecacheKey]];
+
+    [activeDownloadsCondition lock];
+    [activeDownloadsTileHashes removeObject:tileHash];
+    [activeDownloadsCondition signal];
+    [activeDownloadsCondition unlock];
 
     [tileCache release];
 
