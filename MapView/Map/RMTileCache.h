@@ -32,10 +32,10 @@
 
 @class RMTileImage, RMMemoryCache;
 
-typedef enum : short {
+typedef NS_ENUM(short, RMCachePurgeStrategy) {
 	RMCachePurgeStrategyLRU,
 	RMCachePurgeStrategyFIFO,
-} RMCachePurgeStrategy;
+};
 
 #pragma mark -
 
@@ -111,7 +111,7 @@ typedef enum : short {
 *
 *   If the `init` method is used to initialize a cache instead, a period of `0` is used. In that case, time-based expiration of tiles is not performed, but rather the cached tile count is used instead.
 *
-*   @param period A period of time after which tiles should be expunged from the cache.
+*   @param period A period of time (in seconds) after which tiles should be expunged from the cache.
 *   @return An initialized cache object or `nil` if the object couldn't be created. */
 - (id)initWithExpiryPeriod:(NSTimeInterval)period;
 

@@ -30,10 +30,10 @@
 
 @class RMAnnotation, RMMapView;
 
-typedef enum : short {
+typedef NS_ENUM(short, RMQuadTreeNodeType) {
     nodeTypeLeaf,
     nodeTypeNode
-} RMQuadTreeNodeType;
+};
 
 #define kRMClusterAnnotationTypeName @"RMClusterAnnotation"
 

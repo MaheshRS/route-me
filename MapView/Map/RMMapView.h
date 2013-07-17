@@ -57,11 +57,11 @@ enum : NSUInteger {
 };
 
 // constants for the scrollview deceleration mode
-typedef enum : NSUInteger {
+typedef NS_ENUM(NSUInteger, RMMapDecelerationMode) {
     RMMapDecelerationNormal = 0,
     RMMapDecelerationFast   = 1, // default
     RMMapDecelerationOff    = 2
-} RMMapDecelerationMode;
+};
 
 /** An RMMapView object provides an embeddable map interface, similar to the one provided by Apple's MapKit. You use this class to display map information and to manipulate the map contents from your application. You can center the map on a given coordinate, specify the size of the area you want to display, and annotate the map with custom information.
 *

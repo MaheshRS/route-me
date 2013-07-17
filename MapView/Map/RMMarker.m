@@ -166,7 +166,7 @@
     [aLabel setBackgroundColor:backgroundColor];
     [aLabel setTextColor:textColor];
     [aLabel setFont:font];
-    [aLabel setTextAlignment:UITextAlignmentCenter];
+    [aLabel setTextAlignment:NSTextAlignmentCenter];
     [aLabel setText:text];
 
     [self setLabel:aLabel];

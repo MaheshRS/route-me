@@ -31,11 +31,11 @@
 @class RMAnnotation;
 @class RMUserLocation;
 
-typedef enum : NSUInteger {
+typedef NS_ENUM(NSUInteger, RMUserTrackingMode) {
     RMUserTrackingModeNone              = 0,
     RMUserTrackingModeFollow            = 1,
     RMUserTrackingModeFollowWithHeading = 2
-} RMUserTrackingMode;
+};
 
 /** The RMMapViewDelegate protocol defines a set of optional methods that you can use to receive map-related update messages. Because many map operations require the RMMapView class to load data asynchronously, the map view calls these methods to notify your application when specific operations complete. The map view also uses these methods to request annotation layers and to manage interactions with those layers. */
 @protocol RMMapViewDelegate <NSObject>
