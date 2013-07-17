@@ -1238,7 +1238,11 @@
     // pan recognizer of the scrollview
     [_mapScrollView addGestureRecognizer:panGestureRecognizer];
 
-    [_visibleAnnotations removeAllObjects];
+    @synchronized (_annotations)
+    {
+        [_visibleAnnotations removeAllObjects];
+    }
+
     [self correctPositionOfAllAnnotations];
 }
 
@@ -2635,12 +2639,16 @@
 
     if (self.quadTree)
     {
-        if (!correctAllAnnotations || _mapScrollViewIsZooming)
+        if (!correctAllAnnotations ||
+            _mapScrollViewIsZooming)
         {
-            for (RMAnnotation *annotation in _visibleAnnotations)
-                [self correctScreenPosition:annotation animated:animated];
+            @synchronized (_annotations)
+            {
+                for (RMAnnotation *annotation in _visibleAnnotations)
+                    [self correctScreenPosition:annotation animated:animated];
+            }
 
-//            RMLog(@"%d annotations corrected", [visibleAnnotations count]);
+//            RMLog(@"%d annotations corrected", [_visibleAnnotations count]);
 
             [CATransaction commit];
 
@@ -2660,7 +2668,13 @@
                                                          withProjectedClusterSize:RMProjectedSizeMake(self.clusterAreaSize.width * _metersPerPixel, self.clusterAreaSize.height * _metersPerPixel)
                                                     andProjectedClusterMarkerSize:RMProjectedSizeMake(self.clusterMarkerSize.width * _metersPerPixel, self.clusterMarkerSize.height * _metersPerPixel)
                                                                 findGravityCenter:self.positionClusterMarkersAtTheGravityCenter];
-        NSMutableSet *previousVisibleAnnotations = [[NSMutableSet alloc] initWithSet:_visibleAnnotations];
+
+        NSMutableSet *previousVisibleAnnotations = nil;
+
+        @synchronized (_annotations)
+        {
+            previousVisibleAnnotations = [[NSMutableSet alloc] initWithSet:_visibleAnnotations];
+        }
 
         for (RMAnnotation *annotation in annotationsToCorrect)
         {
@@ -2674,10 +2688,13 @@
                 annotation.layer.transform = _annotationTransform;
 
             // Use the zPosition property to order the layer hierarchy
-            if ( ! [_visibleAnnotations containsObject:annotation])
+            @synchronized (_annotations)
             {
-                [_overlayView addSublayer:annotation.layer];
-                [_visibleAnnotations addObject:annotation];
+                if ( ! [_visibleAnnotations containsObject:annotation])
+                {
+                    [_overlayView addSublayer:annotation.layer];
+                    [_visibleAnnotations addObject:annotation];
+                }
             }
 
             [self correctScreenPosition:annotation animated:animated];
@@ -2697,7 +2714,10 @@
                 if (_delegateHasDidHideLayerForAnnotation)
                     [_delegate mapView:self didHideLayerForAnnotation:annotation];
 
-                [_visibleAnnotations removeObject:annotation];
+                @synchronized (_annotations)
+                {
+                    [_visibleAnnotations removeObject:annotation];
+                }
             }
         }
 
@@ -2784,7 +2804,12 @@
 
     // sort annotation layer z-indexes so that they overlap properly
     //
-    NSMutableArray *sortedAnnotations = [NSMutableArray arrayWithArray:[_visibleAnnotations allObjects]];
+    NSMutableArray *sortedAnnotations = nil;
+
+    @synchronized (_annotations)
+    {
+        sortedAnnotations = [NSMutableArray arrayWithArray:[_visibleAnnotations allObjects]];
+    }
 
     [sortedAnnotations filterUsingPredicate:[NSPredicate predicateWithFormat:@"isUserLocationAnnotation = NO"]];
 
@@ -2839,7 +2864,14 @@
 
 - (NSArray *)visibleAnnotations
 {
-    return [_visibleAnnotations allObjects];
+    NSArray *visibleAnnotations = nil;
+
+    @synchronized (_annotations)
+    {
+        visibleAnnotations = [_visibleAnnotations allObjects];
+    }
+
+    return visibleAnnotations;
 }
 
 - (void)addAnnotation:(RMAnnotation *)annotation
@@ -2867,7 +2899,11 @@
         if (annotation.layer)
         {
             [_overlayView addSublayer:annotation.layer];
-            [_visibleAnnotations addObject:annotation];
+
+            @synchronized (_annotations)
+            {
+                [_visibleAnnotations addObject:annotation];
+            }
         }
 
         [self correctOrderingOfAllAnnotations];
