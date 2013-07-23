@@ -77,12 +77,12 @@
 #pragma mark -
 #pragma mark Delegate methods
 
-- (void)afterMapMove:(RMMapView *)map
+- (void)afterMapMove:(RMMapView *)map byUser:(BOOL)wasUserAction
 {
     [self updateInfo];
 }
 
-- (void)afterMapZoom:(RMMapView *)map
+- (void)afterMapZoom:(RMMapView *)map byUser:(BOOL)wasUserAction
 {
     [self updateInfo];
 }

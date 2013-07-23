@@ -2,7 +2,7 @@
 //  RMQuadTree.h
 //  MapView
 //
-// Copyright (c) 2008-2012, Route-Me Contributors
+// Copyright (c) 2008-2013, Route-Me Contributors
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -30,10 +30,10 @@
 
 @class RMAnnotation, RMMapView;
 
-typedef enum : short {
+typedef NS_ENUM(short, RMQuadTreeNodeType) {
     nodeTypeLeaf,
     nodeTypeNode
-} RMQuadTreeNodeType;
+};
 
 #define kRMClusterAnnotationTypeName @"RMClusterAnnotation"
 

@@ -115,12 +115,12 @@
 #pragma mark -
 #pragma mark Delegate methods
 
-- (void)afterMapMove:(RMMapView *)map
+- (void)afterMapMove:(RMMapView *)map byUser:(BOOL)wasUserAction
 {
     [self updateInfo];
 }
 
-- (void)afterMapZoom:(RMMapView *)map
+- (void)afterMapZoom:(RMMapView *)map byUser:(BOOL)wasUserAction
 {
     [self updateInfo];
 }
@@ -140,9 +140,9 @@
 {
 	static int outstandingTiles = 0;
 
-	if (notification.name == RMTileRequested)
+	if ([notification.name isEqualToString:RMTileRequested])
 		outstandingTiles++;
-	else if(notification.name == RMTileRetrieved)
+	else if ([notification.name isEqualToString:RMTileRetrieved])
 		outstandingTiles--;
 
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:(outstandingTiles > 0)];

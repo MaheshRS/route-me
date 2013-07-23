@@ -1,6 +1,5 @@
 //
-//  RMMapTiledLayerView.h
-//  MapView
+//  RMTileCacheDownloadOperation.h
 //
 // Copyright (c) 2008-2013, Route-Me Contributors
 // All rights reserved.
@@ -26,16 +25,14 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
+#import <Foundation/Foundation.h>
+
+#import "RMTile.h"
 #import "RMTileSource.h"
+#import "RMTileCache.h"
 
-@class RMMapView;
+@interface RMTileCacheDownloadOperation : NSOperation
 
-@interface RMMapTiledLayerView : UIView
-
-@property (nonatomic, assign) BOOL useSnapshotRenderer;
-
-@property (nonatomic, readonly) id <RMTileSource> tileSource;
-
-- (id)initWithFrame:(CGRect)frame mapView:(RMMapView *)aMapView forTileSource:(id <RMTileSource>)aTileSource;
+- (id)initWithTile:(RMTile)tile forTileSource:(id <RMTileSource>)source usingCache:(RMTileCache *)cache;
 
 @end

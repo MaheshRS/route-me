@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1601C9F016DE166D000C34AE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1601C9EF16DE166D000C34AE /* Default-568h@2x.png */; };
 		1653157115FF92BF007EA6C0 /* HeadingAngleSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1653156115FF92BF007EA6C0 /* HeadingAngleSmall.png */; };
 		1653157215FF92BF007EA6C0 /* HeadingAngleSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1653156215FF92BF007EA6C0 /* HeadingAngleSmall@2x.png */; };
 		1653157315FF92BF007EA6C0 /* LoadingTile.png in Resources */ = {isa = PBXBuildFile; fileRef = 1653156315FF92BF007EA6C0 /* LoadingTile.png */; };
@@ -43,6 +44,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1601C9F216DE166D000C34AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBE3696D0F673B95003DC21C /* MapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DD6A83751644A20C0097F31F;
+			remoteInfo = Resources;
+		};
 		2BB42BEE0F678951009967BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EBE3696D0F673B95003DC21C /* MapView.xcodeproj */;
@@ -60,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1601C9EF16DE166D000C34AE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1653156115FF92BF007EA6C0 /* HeadingAngleSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HeadingAngleSmall.png; sourceTree = "<group>"; };
 		1653156215FF92BF007EA6C0 /* HeadingAngleSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HeadingAngleSmall@2x.png"; sourceTree = "<group>"; };
 		1653156315FF92BF007EA6C0 /* LoadingTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingTile.png; sourceTree = "<group>"; };
@@ -219,6 +228,7 @@
 				280E754A0DD40C5E005A515E /* FlipsideView.xib */,
 				280E754B0DD40C5E005A515E /* MainView.xib */,
 				280E754C0DD40C5E005A515E /* MainWindow.xib */,
+				1601C9EF16DE166D000C34AE /* Default-568h@2x.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 			);
 			name = Resources;
@@ -241,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				EBE3697D0F673B95003DC21C /* libMapView.a */,
+				1601C9F316DE166D000C34AE /* MapView.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -301,6 +312,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		1601C9F316DE166D000C34AE /* MapView.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MapView.bundle;
+			remoteRef = 1601C9F216DE166D000C34AE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		EBE3697D0F673B95003DC21C /* libMapView.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -334,6 +352,7 @@
 				1653157E15FF92BF007EA6C0 /* TrackingHeading@2x.png in Resources */,
 				1653157F15FF92BF007EA6C0 /* TrackingLocation.png in Resources */,
 				1653158015FF92BF007EA6C0 /* TrackingLocation@2x.png in Resources */,
+				1601C9F016DE166D000C34AE /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

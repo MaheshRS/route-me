@@ -1,6 +1,5 @@
 //
-//  RMMapTiledLayerView.h
-//  MapView
+//  RMTileCacheDownloadOperation.m
 //
 // Copyright (c) 2008-2013, Route-Me Contributors
 // All rights reserved.
@@ -26,16 +25,50 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
-#import "RMTileSource.h"
+#import "RMTileCacheDownloadOperation.h"
 
-@class RMMapView;
+@implementation RMTileCacheDownloadOperation
+{
+    RMTile _tile;
+    id <RMTileSource>_source;
+    RMTileCache *_cache;
+}
 
-@interface RMMapTiledLayerView : UIView
+- (id)initWithTile:(RMTile)tile forTileSource:(id <RMTileSource>)source usingCache:(RMTileCache *)cache
+{
+    if (!(self = [super init]))
+        return nil;
 
-@property (nonatomic, assign) BOOL useSnapshotRenderer;
+    _tile   = tile;
+    _source = [source retain];
+    _cache  = [cache retain];
 
-@property (nonatomic, readonly) id <RMTileSource> tileSource;
+    return self;
+}
 
-- (id)initWithFrame:(CGRect)frame mapView:(RMMapView *)aMapView forTileSource:(id <RMTileSource>)aTileSource;
+- (void)main
+{
+    if ( ! _source || ! _cache)
+        [self cancel];
+
+    if ([self isCancelled])
+        return;
+
+    if ( ! [_cache cachedImage:_tile withCacheKey:[_source uniqueTilecacheKey]])
+    {
+        if ([self isCancelled])
+            return;
+
+        if ( ! [_source imageForTile:_tile inCache:_cache])
+            [self cancel];
+    }
+}
+
+- (void)dealloc
+{
+    [_source release]; _source = nil;
+    [_cache release]; _cache = nil;
+    [super dealloc];
+}
 
 @end

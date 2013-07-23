@@ -1,7 +1,7 @@
 //
 //  RMMapLayer.m
 //
-// Copyright (c) 2008-2012, Route-Me Contributors
+// Copyright (c) 2008-2013, Route-Me Contributors
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -34,6 +34,10 @@
 @synthesize projectedLocation;
 @synthesize enableDragging;
 @synthesize userInfo;
+@synthesize canShowCallout;
+@synthesize calloutOffset;
+@synthesize leftCalloutAccessoryView;
+@synthesize rightCalloutAccessoryView;
 
 - (id)init
 {
@@ -42,6 +46,7 @@
 
     self.annotation = nil;
     self.enableDragging = NO;
+    self.calloutOffset = CGPointZero;
 
 	return self;
 }
@@ -53,6 +58,7 @@
 
     self.annotation = nil;
     self.userInfo = nil;
+    self.calloutOffset = CGPointZero;
 
     return self;
 }

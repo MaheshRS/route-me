@@ -2,7 +2,7 @@
 //  RMCoordinateGridSource.h
 //  MapView
 //
-// Copyright (c) 2008-2012, Route-Me Contributors
+// Copyright (c) 2008-2013, Route-Me Contributors
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -29,11 +29,11 @@
 #import "RMAbstractMercatorTileSource.h"
 #import "RMProjection.h"
 
-typedef enum : short {
+typedef NS_ENUM(short, CoordinateGridMode) {
     GridModeGeographic, // 47˚ 33'
     GridModeGeographicDecimal, // 47.56
     GridModeUTM // 32T 5910
-} CoordinateGridMode;
+};
 
 // UTM grid is missing for now
 

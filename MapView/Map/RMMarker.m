@@ -1,7 +1,7 @@
 //
 //  RMMarker.m
 //
-// Copyright (c) 2008-2012, Route-Me Contributors
+// Copyright (c) 2008-2013, Route-Me Contributors
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -65,6 +65,7 @@
         return nil;
 
     self.contents = (id)[image CGImage];
+    self.contentsScale = image.scale;
     self.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
     self.anchorPoint = _anchorPoint;
 
@@ -165,7 +166,7 @@
     [aLabel setBackgroundColor:backgroundColor];
     [aLabel setTextColor:textColor];
     [aLabel setFont:font];
-    [aLabel setTextAlignment:UITextAlignmentCenter];
+    [aLabel setTextAlignment:NSTextAlignmentCenter];
     [aLabel setText:text];
 
     [self setLabel:aLabel];

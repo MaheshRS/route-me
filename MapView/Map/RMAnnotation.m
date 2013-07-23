@@ -2,7 +2,7 @@
 //  RMAnnotation.m
 //  MapView
 //
-// Copyright (c) 2008-2012, Route-Me Contributors
+// Copyright (c) 2008-2013, Route-Me Contributors
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -38,6 +38,7 @@
 
 @synthesize coordinate;
 @synthesize title;
+@synthesize subtitle;
 @synthesize userInfo;
 @synthesize annotationType;
 @synthesize annotationIcon, badgeIcon;
@@ -52,7 +53,7 @@
 @synthesize quadTreeNode;
 @synthesize isUserLocationAnnotation;
 
-+ (id)annotationWithMapView:(RMMapView *)aMapView coordinate:(CLLocationCoordinate2D)aCoordinate andTitle:(NSString *)aTitle
++ (instancetype)annotationWithMapView:(RMMapView *)aMapView coordinate:(CLLocationCoordinate2D)aCoordinate andTitle:(NSString *)aTitle
 {
     return [[[self alloc] initWithMapView:aMapView coordinate:aCoordinate andTitle:aTitle] autorelease];
 }
@@ -65,6 +66,7 @@
     self.mapView      = aMapView;
     self.coordinate   = aCoordinate;
     self.title        = aTitle;
+    self.subtitle     = nil;
     self.userInfo     = nil;
     self.quadTreeNode = nil;
 
@@ -86,6 +88,7 @@
 - (void)dealloc
 {
     self.title        = nil;
+    self.subtitle     = nil;
     self.userInfo     = nil;
     self.layer        = nil;
     [[self.mapView quadTree] removeAnnotation:self];
@@ -140,6 +143,8 @@
 
 - (void)setLayer:(RMMapLayer *)aLayer
 {
+    CALayer *superLayer = [layer superlayer];
+
     if (layer != aLayer)
     {
         if (layer.superlayer)
@@ -153,6 +158,7 @@
         layer = aLayer;
         [layer retain];
         layer.annotation = self;
+        [superLayer addSublayer:layer];
         [layer setPosition:self.position animated:NO];
     }
 }
