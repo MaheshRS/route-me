@@ -1,7 +1,7 @@
 //
 //  RMWMS.m
 //
-// Copyright (c) 2008-2011, Route-Me Contributors
+// Copyright (c) 2008-2013, Route-Me Contributors
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -28,191 +28,209 @@
 #import "RMWMS.h"
 
 @implementation RMWMS
+{
+    NSString *_urlPrefix;
+}
 
-@synthesize layers;
-@synthesize styles;
-@synthesize queryLayers;
-@synthesize queryable;
-@synthesize crs;
-@synthesize infoFormat;
-@synthesize format;
-@synthesize service;
-@synthesize version;
-@synthesize exceptions;
-@synthesize extraKeyValues;
+@synthesize layers = _layers;
+@synthesize styles = _styles;
+@synthesize queryLayers = _queryLayers;
+@synthesize queryable = _queryable;
+@synthesize crs = _crs;
+@synthesize infoFormat = _infoFormat;
+@synthesize format = _format;
+@synthesize service = _service;
+@synthesize version = _version;
+@synthesize exceptions = _exceptions;
+@synthesize extraKeyValues = _extraKeyValues;
 
 - (id) init
 {
-    self = [super init];
-    if (self != nil) {
-        // default values
-        [self setInfoFormat:@"text/html"];
-        [self setCrs:@"EPSG:900913"];
-        [self setLayers:@""];
-        [self setQueryLayers:@""];
-        [self setStyles:@""];
-        [self setFormat:@"image/png"];
-        [self setService:@"WMS"];
-        [self setVersion:@"1.1.1"];
-        [self setExceptions:@"application/vnd.ogc.se_inimage"];
-        [self setExtraKeyValues:@""];
-    }
+    if (!(self = [super init]))
+        return nil;
+
+    // default values
+    self.infoFormat = @"text/html";
+    self.crs = @"EPSG:900913";
+    self.layers = @"";
+    self.queryLayers = @"";
+    self.styles = @"";
+    self.format = @"image/png";
+    self.service = @"WMS";
+    self.version = @"1.1.1";
+    self.exceptions = @"application/vnd.ogc.se_inimage";
+    self.extraKeyValues = @"";
+
     return self;
 }
 
--(void)setUrlPrefix:(NSString *)newUrlPrefix
+- (void) dealloc
 {
-    if (newUrlPrefix) {
-        if (!([newUrlPrefix hasSuffix:@"?"]||[newUrlPrefix hasSuffix:@"&"])) {
-            if ([newUrlPrefix rangeOfString:@"?"].location == NSNotFound) {
+    self.urlPrefix = nil;
+    self.layers = nil;
+    self.styles = nil;
+    self.queryLayers = nil;
+    self.crs = nil;
+    self.infoFormat = nil;
+    self.format = nil;
+    self.service = nil;
+    self.version = nil;
+    self.exceptions = nil;
+    self.extraKeyValues = nil;
+    [super dealloc];
+}
+
+#pragma mark -
+
+- (NSString *)urlPrefix
+{
+    return _urlPrefix;
+}
+
+- (void)setUrlPrefix:(NSString *)newUrlPrefix
+{
+    if (newUrlPrefix)
+    {
+        if ( ! ([newUrlPrefix hasSuffix:@"?"] || [newUrlPrefix hasSuffix:@"&"]))
+        {
+            if ([newUrlPrefix rangeOfString:@"?"].location == NSNotFound)
                 newUrlPrefix = [newUrlPrefix stringByAppendingString:@"?"];
-            } else {
+            else
                 newUrlPrefix = [newUrlPrefix stringByAppendingString:@"&"];
-            }
         }
     }
-    
-    [urlPrefix release];
-    urlPrefix = [newUrlPrefix retain];
+
+    [_urlPrefix release];
+    _urlPrefix = [newUrlPrefix retain];
 }
 
--(NSString *)urlPrefix
+- (NSString *)createBaseGet:(NSString *)bbox size:(CGSize)size
 {
-    return urlPrefix;
+    return [NSString stringWithFormat:@"%@FORMAT=%@&SERVICE=%@&VERSION=%@&EXCEPTIONS=%@&SRS=%@&BBOX=%@&WIDTH=%.0f&HEIGHT=%.0f&LAYERS=%@&STYLES=%@%@", 
+            self.urlPrefix, self.format, self.service, self.version, self.exceptions, self.crs, bbox, size.width, size.height, self.layers, self.styles, self.extraKeyValues];
 }
 
--(NSString *)createBaseGet:(NSString *)bbox size:(CGSize)size
-{
-    return [NSString
-            stringWithFormat:@"%@FORMAT=%@&SERVICE=%@&VERSION=%@&EXCEPTIONS=%@&SRS=%@&BBOX=%@&WIDTH=%.0f&HEIGHT=%.0f&LAYERS=%@&STYLES=%@%@", 
-            urlPrefix, format, service, version, exceptions, crs, bbox, size.width, size.height, layers, styles, extraKeyValues];
-}
-
--(NSString *)createGetMapForBbox:(NSString *)bbox size:(CGSize)size
+- (NSString *)createGetMapForBbox:(NSString *)bbox size:(CGSize)size
 {
     return [NSString stringWithFormat:@"%@&REQUEST=GetMap", [self createBaseGet:bbox size:size]];
 }
 
--(NSString *)createGetFeatureInfoForBbox:(NSString *)bbox size:(CGSize)size point:(CGPoint)point
+- (NSString *)createGetFeatureInfoForBbox:(NSString *)bbox size:(CGSize)size point:(CGPoint)point
 {
-    return [NSString 
-            stringWithFormat:@"%@&REQUEST=GetFeatureInfo&INFO_FORMAT=%@&X=%.0f&Y=%.0f&QUERY_LAYERS=%@", 
-            [self createBaseGet:bbox size:size], infoFormat, point.x, point.y, queryLayers];
+    return [NSString stringWithFormat:@"%@&REQUEST=GetFeatureInfo&INFO_FORMAT=%@&X=%.0f&Y=%.0f&QUERY_LAYERS=%@",
+            [self createBaseGet:bbox size:size], self.infoFormat, point.x, point.y, self.queryLayers];
 }
 
--(NSString *)createGetCapabilities
+- (NSString *)createGetCapabilities
 {
-    return [NSString stringWithFormat:@"%@SERVICE=%@&VERSION=%@&REQUEST=GetCapabilities", urlPrefix, service, version];
+    return [NSString stringWithFormat:@"%@SERVICE=%@&VERSION=%@&REQUEST=GetCapabilities",
+            self.urlPrefix, self.service, self.version];
 }
 
--(BOOL)isVisible
+- (BOOL)isVisible
 {
-    return layers.length > 0;
+    return self.layers.length > 0;
 }
 
--(void)setExtraKeyValueDictionary:(NSDictionary *)kvd
+- (void)setExtraKeyValueDictionary:(NSDictionary *)kvd
 {
     NSMutableString *s = [NSMutableString string];
-    for (NSString *key in kvd) {
-        [s appendString:@"&"];
-        [s appendString:key];
-        [s appendString:@"="];
-        NSString *value = [kvd objectForKey:key];
-        [s appendString:[value stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+
+    for (NSString *key in kvd)
+    {
+        NSString *value = kvd[key];
+
+        [s appendFormat:@"&%@=%@", key, [value stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     }
+
     [self setExtraKeyValues:[NSString stringWithString:s]];
 }
 
 // [ layerA, layer B ] -> layerA,layerB
-+(NSString *)escapeAndJoin:(NSArray *)elements
++ (NSString *)escapeAndJoin:(NSArray *)elements
 {
     NSMutableArray *encoded = [NSMutableArray array];
-    for (NSString *element in elements) {
+
+    for (NSString *element in elements)
+    {
         [encoded addObject:[element stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     }
+
     return [encoded componentsJoinedByString:@","];
 }
 
 // layerA,layerB -> [ layerA, layer B ]
-+(NSArray *)splitAndDecode:(NSString *)joined
++ (NSArray *)splitAndDecode:(NSString *)joined
 {
     NSMutableArray *split = [NSMutableArray array];
-    if ([joined length] == 0) {
+
+    if ([joined length] == 0)
         return split;
-    }
-    for (NSString *element in [joined componentsSeparatedByString:@","]) {
+
+    for (NSString *element in [joined componentsSeparatedByString:@","])
+    {
         [split addObject:[element stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     }
+
     return split;
 }
 
--(NSArray *)selectedLayerNames
+- (NSArray *)selectedLayerNames
 {
-    return [RMWMS splitAndDecode:layers];
+    return [RMWMS splitAndDecode:self.layers];
 }
 
--(void)setSelectedLayerNames:(NSArray *)layerNames
+- (void)setSelectedLayerNames:(NSArray *)layerNames
 {
     [self setLayers:[RMWMS escapeAndJoin:layerNames]];
 }
 
--(NSArray *)selectedQueryLayerNames
+- (NSArray *)selectedQueryLayerNames
 {
-    return [RMWMS splitAndDecode:queryLayers];
+    return [RMWMS splitAndDecode:self.queryLayers];
 }
 
--(void)setSelectedQueryLayerNames:(NSArray *)layerNames
+- (void)setSelectedQueryLayerNames:(NSArray *)layerNames
 {
     [self setQueryLayers:[RMWMS escapeAndJoin:layerNames]];
 }
 
--(BOOL)selected:(NSString *)layerName
+- (BOOL)selected:(NSString *)layerName
 {
     return [[self selectedLayerNames] containsObject:layerName];
 }
 
--(void)select:(NSString *)layerName queryable:(BOOL)isQueryable
+- (void)select:(NSString *)layerName queryable:(BOOL)isQueryable
 {
     NSMutableArray *array = [NSMutableArray arrayWithArray:[self selectedLayerNames]];
-    if (![array containsObject:layerName]) {
+
+    if ( ! [array containsObject:layerName])
+    {
         [array addObject:layerName];
         [self setSelectedLayerNames:array];
     }
-    
-    if (isQueryable) {
+
+    if (isQueryable)
+    {
         array = [NSMutableArray arrayWithArray:[self selectedQueryLayerNames]];
-        if (![array containsObject:layerName]) {
+
+        if ( ! [array containsObject:layerName])
+        {
             [array addObject:layerName];
             [self setSelectedQueryLayerNames:array];
         }
     }
 }
 
--(void)deselect:(NSString *)layerName
+- (void)deselect:(NSString *)layerName
 {
     NSMutableArray *array = [NSMutableArray arrayWithArray:[self selectedLayerNames]];
     [array removeObject:layerName];
     [self setSelectedLayerNames:array];
-    
+
     array = [NSMutableArray arrayWithArray:[self selectedQueryLayerNames]];
     [array removeObject:layerName];
     [self setSelectedQueryLayerNames:array];
-}
-
-- (void) dealloc
-{
-    [self setUrlPrefix:nil];
-    [self setLayers:nil];
-    [self setStyles:nil];
-    [self setQueryLayers:nil];
-    [self setCrs:nil];
-    [self setInfoFormat:nil];
-    [self setFormat:nil];
-    [self setService:nil];
-    [self setVersion:nil];
-    [self setExceptions:nil];
-    [self setExtraKeyValues:nil];
-    [super dealloc];
 }
 
 @end

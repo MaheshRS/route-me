@@ -1,7 +1,7 @@
 //
 //  RMWMSSource.h
 //
-// Copyright (c) 2008-2011, Route-Me Contributors
+// Copyright (c) 2008-2013, Route-Me Contributors
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -27,56 +27,37 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RMMapView.h"
 #import "RMAbstractWebMapSource.h"
-#import "RMTile.h"
 #import "RMWMS.h"
 
 /*! 
  \brief Subclass of RMAbstractWebMapSource for access to OGC WMS Server.
  
  Example:
- RMWMS *wms = [[RMWMS alloc] init];
+ RMWMS *wms = [[[RMWMS alloc] init] autorelease];
  wms.urlPrefix = @"http://vmap0.tiles.osgeo.org/wms/vmap0";
  wms.layers = @"basic";
- RMWMSSource *wmsSource = [[RMWMSSource alloc] init];
+ RMWMSSource *wmsSource = [[[RMWMSSource alloc] init] autorelease];
  wmsSource.wms = wms;
  wmsSource.uniqueTilecacheKey = @"abc";
  [mapView setTileSource:wmsSource];
- [wms release];
- [wmsSource release];
  */
-@interface RMWMSSource : RMAbstractWebMapSource {
 
-    float initialResolution;
-    float originShift;
-    
-    float minZoom;
-    float maxZoom;
-    NSString *name;
-    NSString *shortName;
-    NSString *shortAttribution;
-    NSString *longDescription;
-    NSString *longAttribution;
-    NSString *uniqueTilecacheKey;
-    
-    RMWMS *wms;
-    
-}
+@class RMMapView;
 
-@property float minZoom;
-@property float maxZoom;
-@property (retain) NSString *name;
-@property (retain) NSString *shortName;
-@property (retain) NSString *shortAttribution;
-@property (retain) NSString *longDescription;
-@property (retain) NSString *longAttribution;
-@property (retain) NSString *uniqueTilecacheKey;
-@property (retain) RMWMS *wms;
+@interface RMWMSSource : RMAbstractWebMapSource
 
--(NSString*) bboxForTile: (RMTile) tile;
--(float) resolutionAtZoom : (int) zoom ;
--(CGPoint) pixelsToMetersAtZoom: (int) px PixelY:(int)py atResolution:(float) resolution ;
+@property (nonatomic, retain) NSString *uniqueTilecacheKey;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *shortName;
+@property (nonatomic, retain) NSString *shortAttribution;
+@property (nonatomic, retain) NSString *longDescription;
+@property (nonatomic, retain) NSString *longAttribution;
+@property (nonatomic, retain) RMWMS *wms;
+
+- (NSString *)bboxForTile:(RMTile)tile;
+- (float)resolutionAtZoom:(int)zoom;
+- (CGPoint)pixelsToMetersAtZoom:(int)px PixelY:(int)py atResolution:(float)resolution;
 
 - (NSString *)featureInfoUrlForPoint:(CGPoint)point inMap:(RMMapView *)mapView;
 

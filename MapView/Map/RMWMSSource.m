@@ -1,7 +1,7 @@
 //
 //  RMWMSSource.m
 //
-// Copyright (c) 2008-2009, Route-Me Contributors
+// Copyright (c) 2008-2013, Route-Me Contributors
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -27,66 +27,89 @@
 
 #import "RMWMSSource.h"
 
+#import "RMMapView.h"
+
 @implementation RMWMSSource
+{
+    float _initialResolution;
+    float _originShift;
+}
 
-@synthesize minZoom;
-@synthesize maxZoom;
-@synthesize name;
-@synthesize shortName;
-@synthesize shortAttribution;
-@synthesize longDescription;
-@synthesize longAttribution;
-@synthesize uniqueTilecacheKey;
-@synthesize wms;
+@synthesize uniqueTilecacheKey = _uniqueTilecacheKey;
+@synthesize name = _name;
+@synthesize shortName = _shortName;
+@synthesize shortAttribution = _shortAttribution;
+@synthesize longDescription = _longDescription;
+@synthesize longAttribution = _longAttribution;
+@synthesize wms = _wms;
 
--(id) init 
-{ 
-    if (![super init]) 
-        return nil; 
-    
+- (id)init
+{
+    if (!(self = [super init]))
+        return nil;
+
     // The code below is based on the followin URL, but fixed for this use
     // http://groups.google.com/group/route-me-map/browse_thread/thread/b6aa3757d46055aa/c93e7b0c861973e5?lnk=gst&q=900913#c93e7b0c861973e5
-    
-    initialResolution = 2 * M_PI * 6378137 / kDefaultTileSize; 
-    originShift = 2 * M_PI * 6378137 / 2.0; 
-    
-    [self setMinZoom:1.0];
-    [self setMaxZoom:18.0];
+
+    _initialResolution = 2 * M_PI * 6378137 / kDefaultTileSize;
+    _originShift = 2 * M_PI * 6378137 / 2.0;
+
+    self.minZoom = 1.0;
+    self.maxZoom = 18.0;
 
     // some default values
-    [self setName:@"wms"];
-    [self setUniqueTilecacheKey:@"wms"];
-    
+    self.name = @"wms";
+
+    self.uniqueTilecacheKey = [[NSString alloc] initWithString:@"wms"];
+
     return self; 
 } 
 
--(NSString*) bboxForTile: (RMTile) tile
+- (void) dealloc
 {
-    float resolution = [self resolutionAtZoom: tile.zoom];
-    CGPoint min = [self pixelsToMetersAtZoom: (tile.x     * kDefaultTileSize) PixelY:((tile.y+1) * kDefaultTileSize) atResolution:resolution];
-    CGPoint max = [self pixelsToMetersAtZoom: ((tile.x+1) * kDefaultTileSize) PixelY:((tile.y)   * kDefaultTileSize) atResolution:resolution];
-    return [NSString stringWithFormat:@"%f,%f,%f,%f", 
+    self.uniqueTilecacheKey = nil;
+    self.name = nil;
+    self.shortName = nil;
+    self.shortAttribution = nil;
+    self.longDescription = nil;
+    self.longAttribution = nil;
+    self.wms = nil;
+    [super dealloc];
+}
+
+#pragma mark -
+
+- (NSString *)bboxForTile:(RMTile)tile
+{
+    float resolution = [self resolutionAtZoom:tile.zoom];
+
+    CGPoint min = [self pixelsToMetersAtZoom:(tile.x * kDefaultTileSize) PixelY:((tile.y + 1) * kDefaultTileSize) atResolution:resolution];
+    CGPoint max = [self pixelsToMetersAtZoom:((tile.x + 1) * kDefaultTileSize) PixelY:(tile.y * kDefaultTileSize) atResolution:resolution];
+
+    return [NSString stringWithFormat:@"%f,%f,%f,%f",
             min.x, min.y, max.x, max.y];
 }
 
 - (NSURL *)URLForTile:(RMTile)tile
 {
     NSString *bbox = [self bboxForTile:tile];
-    return [NSURL URLWithString:[wms createGetMapForBbox:bbox size:CGSizeMake(kDefaultTileSize, kDefaultTileSize)]];
+
+    return [NSURL URLWithString:[self.wms createGetMapForBbox:bbox size:CGSizeMake(kDefaultTileSize, kDefaultTileSize)]];
 }
 
-//Resolution (meters/pixel) for given zoom level (measured at Equator) 
--(float) resolutionAtZoom : (int) zoom 
-{ 
-    return initialResolution /pow (2,zoom); 
-} 
+// Resolution (meters/pixel) for given zoom level (measured at Equator)
+- (float)resolutionAtZoom:(int)zoom
+{
+    return _initialResolution / pow(2, zoom);
+}
 
 // Converts pixel coordinates in given resolution to EPSG: 900913 
--(CGPoint) pixelsToMetersAtZoom: (int) px PixelY:(int)py atResolution:(float) resolution 
-{ 
-    CGPoint meters; 
-    meters.x = (px * resolution) - originShift; 
-    meters.y = originShift - (py * resolution); 
+- (CGPoint)pixelsToMetersAtZoom:(int)px PixelY:(int)py atResolution:(float)resolution
+{
+    CGPoint meters;
+    meters.x = (px * resolution) - _originShift;
+    meters.y = _originShift - (py * resolution);
+
     return meters; 
 }
 
@@ -99,18 +122,10 @@
     float x = kDefaultTileSize * tilePoint.offset.x;
     float y = kDefaultTileSize * tilePoint.offset.y;
     NSString *bbox = [self bboxForTile:tilePoint.tile];
-    return [wms createGetFeatureInfoForBbox:bbox
-                                       size:CGSizeMake(kDefaultTileSize, kDefaultTileSize)
-                                      point:CGPointMake(x, y)];
-}
 
-
-- (void) dealloc
-{
-    [self setName:nil];
-    [self setUniqueTilecacheKey:nil];
-    [self setWms:nil];
-    [super dealloc];
+    return [self.wms createGetFeatureInfoForBbox:bbox
+                                            size:CGSizeMake(kDefaultTileSize, kDefaultTileSize)
+                                           point:CGPointMake(x, y)];
 }
 
 @end

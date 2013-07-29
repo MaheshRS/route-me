@@ -1,7 +1,7 @@
 //
 //  RMWMS.h
 //
-// Copyright (c) 2008-2011, Route-Me Contributors
+// Copyright (c) 2008-2013, Route-Me Contributors
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -28,47 +28,32 @@
 #import <Foundation/Foundation.h>
 
 
-@interface RMWMS : NSObject {
+@interface RMWMS : NSObject
 
-    NSString *urlPrefix;
-    NSString *layers;
-    NSString *styles;
-    NSString *queryLayers;
-    NSString *crs;
-    BOOL queryable;
-    NSString *infoFormat;
-    NSString *format;
-    NSString *service;
-    NSString *version;
-    NSString *exceptions;
-    NSString *extraKeyValues;
-    
-}
+@property (nonatomic, retain) NSString *urlPrefix;
+@property (nonatomic, retain) NSString *layers;
+@property (nonatomic, retain) NSString *styles;
+@property (nonatomic, retain) NSString *queryLayers;
+@property (nonatomic, retain) NSString *crs;
+@property (nonatomic, assign) BOOL queryable;
+@property (nonatomic, retain) NSString *infoFormat;
+@property (nonatomic, retain) NSString *format;
+@property (nonatomic, retain) NSString *service;
+@property (nonatomic, retain) NSString *version;
+@property (nonatomic, retain) NSString *exceptions;
+@property (nonatomic, retain) NSString *extraKeyValues;
 
-@property (retain) NSString *urlPrefix;
-@property (retain) NSString *layers;
-@property (retain) NSString *styles;
-@property (retain) NSString *queryLayers;
-@property (retain) NSString *crs;
-@property BOOL queryable;
-@property (retain) NSString *infoFormat;
-@property (retain) NSString *format;
-@property (retain) NSString *service;
-@property (retain) NSString *version;
-@property (retain) NSString *exceptions;
-@property (retain) NSString *extraKeyValues;
+- (NSString *)createGetMapForBbox:(NSString *)bbox size:(CGSize)size;
+- (NSString *)createGetFeatureInfoForBbox:(NSString *)bbox size:(CGSize)size point:(CGPoint)point;
+- (NSString *)createGetCapabilities;
 
--(NSString *)createGetMapForBbox:(NSString *)bbox size:(CGSize)size;
--(NSString *)createGetFeatureInfoForBbox:(NSString *)bbox size:(CGSize)size point:(CGPoint)point;
--(NSString *)createGetCapabilities;
+- (BOOL)isVisible;
+- (BOOL)selected:(NSString *)layerName;
+- (void)select:(NSString *)layerName queryable:(BOOL)queryable;
+- (void)deselect:(NSString *)layerName;
+- (void)setSelectedLayerNames:(NSArray *)layerNames;
+- (NSArray *)selectedLayerNames;
 
--(BOOL)isVisible;
--(BOOL)selected:(NSString *)layerName;
--(void)select:(NSString *)layerName queryable:(BOOL)queryable;
--(void)deselect:(NSString *)layerName;
--(void)setSelectedLayerNames:(NSArray *)layerNames;
--(NSArray *)selectedLayerNames;
-
--(void)setExtraKeyValueDictionary:(NSDictionary *)kvd;
+- (void)setExtraKeyValueDictionary:(NSDictionary *)kvd;
 
 @end
