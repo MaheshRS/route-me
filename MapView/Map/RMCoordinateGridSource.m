@@ -504,9 +504,6 @@ static double coordinateGridSpacingUTM[19] = {
 
     double xMin, yMin, xMax, yMax;
 
-    RMLog(@"southwest: %f,%f", southWest.longitude, southWest.latitude);
-    RMLog(@"northeast: %f,%f", northEast.longitude, northEast.latitude);
-
     [RMProjection convertCoordinate:southWest
                     toUTMZoneNumber:&utmZoneNumberLeft
                       utmZoneLetter:&utmZoneLetterLeft
