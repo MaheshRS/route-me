@@ -16,6 +16,8 @@
 #import "RMOpenSeaMapSource.h"
 #import "RMMapQuestOSMSource.h"
 #import "RMMapQuestOpenAerialSource.h"
+#import "RMWMS.h"
+#import "RMWMSSource.h"
 
 @implementation MainViewController
 
@@ -90,30 +92,39 @@
 {
     switch (mapSelectControl.selectedSegmentIndex)
     {
-        case 1:
+        case 1: {
             [mapView setTileSource:[[[RMOpenCycleMapSource alloc] init] autorelease]];
             break;
-
-        case 2:
+        }
+        case 2: {
             [mapView setTileSource:[[[RMOpenSeaMapSource alloc] init] autorelease]];
             break;
-
-        case 3:
+        }
+        case 3: {
             [mapView setTileSource:[[[RMMapQuestOSMSource alloc] init] autorelease]];
             break;
-
-        case 4:
+        }
+        case 4: {
             [mapView setTileSource:[[[RMMapQuestOpenAerialSource alloc] init] autorelease]];
             break;
-
-        default:
+        }
+        case 5: {
+            RMWMS *wms = [[[RMWMS alloc] init] autorelease];
+            wms.urlPrefix = @"http://vmap0.tiles.osgeo.org/wms/vmap0";
+            wms.layers = @"basic";
+            RMWMSSource *wmsSource = [[[RMWMSSource alloc] init] autorelease];
+            wmsSource.wms = wms;
+            wmsSource.uniqueTilecacheKey = @"abc";
+            [mapView setTileSource:wmsSource];
+        }
+        default: {
             [mapView setTileSource:[[[RMOpenStreetMapSource alloc] init] autorelease]];
             break;
+        }
     }
 }
 
-#pragma mark -
-#pragma mark Delegate methods
+#pragma mark - Delegate methods
 
 - (void)afterMapMove:(RMMapView *)map byUser:(BOOL)wasUserAction
 {
@@ -133,8 +144,7 @@
     return marker;
 }
 
-#pragma mark -
-#pragma mark Notification methods
+#pragma mark - Notification methods
 
 - (void)tileNotification:(NSNotification *)notification
 {

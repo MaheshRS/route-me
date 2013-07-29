@@ -359,7 +359,7 @@
 				GCC_PREFIX_HEADER = MapMemoryLeaksCheck_Prefix.pch;
 				HEADER_SEARCH_PATHS = "../../MapView/**";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = MapMemoryLeaksCheck;
 			};
 			name = Debug;
@@ -373,7 +373,7 @@
 				GCC_PREFIX_HEADER = MapMemoryLeaksCheck_Prefix.pch;
 				HEADER_SEARCH_PATHS = "../../MapView/**";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = MapMemoryLeaksCheck;
 			};
 			name = Release;

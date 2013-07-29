@@ -353,6 +353,7 @@
 				GCC_PREFIX_HEADER = LayeredMap_Prefix.pch;
 				HEADER_SEARCH_PATHS = "../../MapView/**";
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = LayeredMap;
 			};
 			name = Debug;
@@ -366,6 +367,7 @@
 				GCC_PREFIX_HEADER = LayeredMap_Prefix.pch;
 				HEADER_SEARCH_PATHS = "../../MapView/**";
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = LayeredMap;
 			};
 			name = Release;
