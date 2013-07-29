@@ -395,6 +395,7 @@
 				GCC_PREFIX_HEADER = MapTestbedTwoMaps_Prefix.pch;
 				HEADER_SEARCH_PATHS = "../../MapView/**";
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TwoMaps;
 			};
@@ -410,6 +411,7 @@
 				GCC_PREFIX_HEADER = MapTestbedTwoMaps_Prefix.pch;
 				HEADER_SEARCH_PATHS = "../../MapView/**";
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TwoMaps;
 			};
