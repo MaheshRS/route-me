@@ -223,3 +223,8 @@ void RMLogProjectedRect(RMProjectedRect rect)
 {
     printf("ProjectedRect at (%.0f,%.0f), size (%.0f,%.0f)\n", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
 }
+
+void RMLogProjectedSize(RMProjectedSize size)
+{
+    printf("ProjectedSize (%.0f,%.0f)\n", size.width, size.height);
+}

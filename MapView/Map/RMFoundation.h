@@ -102,5 +102,6 @@ double RMEuclideanDistanceBetweenProjectedPoints(RMProjectedPoint point1, RMProj
 
 void RMLogProjectedPoint(RMProjectedPoint point);
 void RMLogProjectedRect(RMProjectedRect rect);
+void RMLogProjectedSize(RMProjectedSize size);
 
 #endif
