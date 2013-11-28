@@ -1391,6 +1391,10 @@
     if (RMProjectedSizeContainsProjectedSize(_constrainingProjectedBounds.size, projectedSize))
         return;
 
+    // Check if we reached the maximum zoom
+    if (projectedSize.width <= _constrainingProjectedBounds.size.width || projectedSize.height <= _constrainingProjectedBounds.size.height)
+        return;
+
     CGFloat factor = 1.0;
     if (projectedSize.width > _constrainingProjectedBounds.size.width)
         factor = (projectedSize.width / _constrainingProjectedBounds.size.width);
