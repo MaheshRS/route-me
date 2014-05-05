@@ -131,6 +131,10 @@
         [db setShouldCacheStatements:TRUE];
     }];
 
+    [[NSURL fileURLWithPath:path] setResourceValue:@(YES)
+                                            forKey:NSURLIsExcludedFromBackupKey
+                                             error:NULL];
+
 	[self configureDBForFirstUse];
 
     _tileCount = [self countTiles];
