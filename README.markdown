@@ -1,6 +1,10 @@
 Route-Me: iOS map library (Alpstein fork)
 -----------------------------------------
 
+Discontinued, we don't use this project any more at this moment. Please have a look at the [MapBox fork][7].
+
+---
+
 Route-Me is an open source map library that runs natively on iOS.  It's designed to look and feel much like the built-in iOS map library, but it's entirely open, and works with any map source.
 
 Currently, [OpenStreetMap][1], [OpenCycleMap][2], [OpenSeaMap][3], [MapQuest OSM][4], [MapQuest Open Aerial][5] and an offline, database-backed format called DBMap are supported as map sources.
@@ -15,6 +19,7 @@ MapBox users might be interested in the [MapBox fork][6], which includes lots of
    [4]: http://developer.mapquest.com/web/products/open/map
    [5]: http://developer.mapquest.com/web/products/open/map
    [6]: http://mapbox.com/mobile
+   [7]: https://github.com/mapbox/mapbox-ios-sdk
 
 
 Installation
