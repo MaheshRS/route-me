@@ -63,6 +63,8 @@ typedef NS_ENUM(short, RMQuadTreeNodeType) {
 @property (weak, nonatomic, readonly) NSArray *enclosedAnnotations;
 @property (weak, nonatomic, readonly) NSArray *unclusteredAnnotations;
 
+- (void)annotationDidChangeBoundingBox:(RMAnnotation *)annotation;
+
 @end
 
 #pragma mark - RMQuadTree
