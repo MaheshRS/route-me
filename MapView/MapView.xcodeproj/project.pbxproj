@@ -54,6 +54,7 @@
 		96492C400FA8AD3400EBA6D2 /* RMGlobalConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 96492C3F0FA8AD3400EBA6D2 /* RMGlobalConstants.h */; };
 		ABE0585D1C748D2C00AF68F5 /* NSString+Attributes.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE0585B1C748D2C00AF68F5 /* NSString+Attributes.h */; };
 		ABE0585E1C748D2C00AF68F5 /* NSString+Attributes.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE0585C1C748D2C00AF68F5 /* NSString+Attributes.m */; };
+		ABE0587C1C74A18300AF68F5 /* libProj4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE0587B1C74A18300AF68F5 /* libProj4.a */; };
 		B1EB26C610B5D8E6009F8658 /* RMNotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = B1EB26C510B5D8E6009F8658 /* RMNotifications.h */; };
 		B8474BA40EB40094006A0BC1 /* RMDatabaseCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B8474B980EB40094006A0BC1 /* RMDatabaseCache.h */; };
 		B8474BA50EB40094006A0BC1 /* RMDatabaseCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B8474B990EB40094006A0BC1 /* RMDatabaseCache.m */; };
@@ -124,7 +125,6 @@
 		DD932BBE165C287000D69D49 /* TrackingHeading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD932BB0165C287000D69D49 /* TrackingHeading@2x.png */; };
 		DD932BBF165C287000D69D49 /* TrackingLocation.png in Resources */ = {isa = PBXBuildFile; fileRef = DD932BB1165C287000D69D49 /* TrackingLocation.png */; };
 		DD932BC0165C287000D69D49 /* TrackingLocation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD932BB2165C287000D69D49 /* TrackingLocation@2x.png */; };
-		DD97C11616489678007C4652 /* libProj4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD97C11516489678007C4652 /* libProj4.a */; };
 		DDA6B8BD155CAB67003DB5D8 /* RMUserTrackingBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = DDA6B8BB155CAB67003DB5D8 /* RMUserTrackingBarButtonItem.h */; };
 		DDA6B8BE155CAB67003DB5D8 /* RMUserTrackingBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA6B8BC155CAB67003DB5D8 /* RMUserTrackingBarButtonItem.m */; };
 /* End PBXBuildFile section */
@@ -194,6 +194,7 @@
 		AB0BC5EE1C740A7E00C07AE5 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		ABE0585B1C748D2C00AF68F5 /* NSString+Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Attributes.h"; path = "Categories/NSString+Attributes.h"; sourceTree = "<group>"; };
 		ABE0585C1C748D2C00AF68F5 /* NSString+Attributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Attributes.m"; path = "Categories/NSString+Attributes.m"; sourceTree = "<group>"; };
+		ABE0587B1C74A18300AF68F5 /* libProj4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libProj4.a; path = Map/Proj4/libProj4.a; sourceTree = "<group>"; };
 		B1EB26C510B5D8E6009F8658 /* RMNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNotifications.h; sourceTree = "<group>"; };
 		B83E64B60E80E73F001663B6 /* RMPixel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPixel.h; sourceTree = "<group>"; };
 		B83E64B70E80E73F001663B6 /* RMPixel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = RMPixel.c; sourceTree = "<group>"; };
@@ -262,7 +263,6 @@
 		DD932BB0165C287000D69D49 /* TrackingHeading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TrackingHeading@2x.png"; path = "Map/Resources/TrackingHeading@2x.png"; sourceTree = "<group>"; };
 		DD932BB1165C287000D69D49 /* TrackingLocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TrackingLocation.png; path = Map/Resources/TrackingLocation.png; sourceTree = "<group>"; };
 		DD932BB2165C287000D69D49 /* TrackingLocation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TrackingLocation@2x.png"; path = "Map/Resources/TrackingLocation@2x.png"; sourceTree = "<group>"; };
-		DD97C11516489678007C4652 /* libProj4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libProj4.a; path = ../Proj4/libProj4.a; sourceTree = "<group>"; };
 		DDA6B8BB155CAB67003DB5D8 /* RMUserTrackingBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMUserTrackingBarButtonItem.h; sourceTree = "<group>"; };
 		DDA6B8BC155CAB67003DB5D8 /* RMUserTrackingBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMUserTrackingBarButtonItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -275,9 +275,9 @@
 				B8C974500E8A19B2007D16AD /* CoreFoundation.framework in Frameworks */,
 				B8C974510E8A19B2007D16AD /* CoreGraphics.framework in Frameworks */,
 				B8C974520E8A19B2007D16AD /* CoreLocation.framework in Frameworks */,
+				ABE0587C1C74A18300AF68F5 /* libProj4.a in Frameworks */,
 				B8C974530E8A19B2007D16AD /* UIKit.framework in Frameworks */,
 				B8C974540E8A19B2007D16AD /* QuartzCore.framework in Frameworks */,
-				DD97C11616489678007C4652 /* libProj4.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,7 +566,7 @@
 		DDDFF7FE165D5BA200A9D877 /* Proj4 */ = {
 			isa = PBXGroup;
 			children = (
-				DD97C11516489678007C4652 /* libProj4.a */,
+				ABE0587B1C74A18300AF68F5 /* libProj4.a */,
 			);
 			name = Proj4;
 			sourceTree = "<group>";
@@ -808,10 +808,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MapView_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
-				HEADER_SEARCH_PATHS = ../Proj4;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Map/Proj4\"";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../Proj4\"",
+					"$(PROJECT_DIR)/Map/Proj4",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -834,10 +835,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MapView_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "NS_BLOCK_ASSERTIONS=1";
-				HEADER_SEARCH_PATHS = ../Proj4;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Map/Proj4\"";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../Proj4\"",
+					"$(PROJECT_DIR)/Map/Proj4",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
