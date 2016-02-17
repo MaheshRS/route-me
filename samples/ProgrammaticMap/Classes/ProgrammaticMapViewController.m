@@ -37,6 +37,10 @@
     [super dealloc];
 }
 
+- (void)beforeMapMove:(RMMapView *)map byUser:(BOOL)wasUserAction {
+    [map removeAllCachedImages];
+}
+
 - (IBAction)doTheTest:(id)sender
 {
     CLLocationCoordinate2D secondLocation;

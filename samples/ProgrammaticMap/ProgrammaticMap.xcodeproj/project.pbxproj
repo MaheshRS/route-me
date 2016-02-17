@@ -36,7 +36,6 @@
 		28D7ACF80DDB3853001CB0EB /* ProgrammaticMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* ProgrammaticMapViewController.m */; };
 		2BE5B4F60F7AF4BF00EF8CC6 /* libMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE5B4F50F7AF4AE00EF8CC6 /* libMapView.a */; };
 		2BE5B5040F7AF56F00EF8CC6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE5B5030F7AF56F00EF8CC6 /* QuartzCore.framework */; };
-		2BE5B5080F7AF58000EF8CC6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE5B5070F7AF58000EF8CC6 /* libsqlite3.dylib */; };
 		2BE5B50A0F7AF58900EF8CC6 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE5B5090F7AF58900EF8CC6 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +100,7 @@
 		2BE5B5090F7AF58900EF8CC6 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* ProgrammaticMap_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgrammaticMap_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB0BC5F01C740E0E00C07AE5 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,6 @@
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				2BE5B4F60F7AF4BF00EF8CC6 /* libMapView.a in Frameworks */,
 				2BE5B5040F7AF56F00EF8CC6 /* QuartzCore.framework in Frameworks */,
-				2BE5B5080F7AF58000EF8CC6 /* libsqlite3.dylib in Frameworks */,
 				2BE5B50A0F7AF58900EF8CC6 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +202,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB0BC5F01C740E0E00C07AE5 /* libsqlite3.dylib */,
 				2BE5B5090F7AF58900EF8CC6 /* CoreFoundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 				165315E415FF9372007EA6C0 /* CoreLocation.framework */,
@@ -358,6 +358,10 @@
 				HEADER_SEARCH_PATHS = "../../MapView/**";
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = (
+					"-lsqlite3",
+					"-all_load",
+				);
 				PRODUCT_NAME = ProgrammaticMap;
 			};
 			name = Debug;
@@ -372,6 +376,10 @@
 				HEADER_SEARCH_PATHS = "../../MapView/**";
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = (
+					"-lsqlite3",
+					"-all_load",
+				);
 				PRODUCT_NAME = ProgrammaticMap;
 			};
 			name = Release;

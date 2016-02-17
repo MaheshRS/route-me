@@ -51,7 +51,7 @@
 @synthesize lineDashLengths;
 @synthesize scaleLineDash;
 @synthesize shadowBlur;
-@synthesize shadowOffset;
+@synthesize shadowOffsetSize;
 @synthesize enableShadow;
 @synthesize pathBoundingBox;
 
@@ -520,14 +520,14 @@
     [self setNeedsDisplay];
 }
 
-- (CGSize)shadowOffset
+- (CGSize)shadowOffsetSize
 {
     return shapeLayer.shadowOffset;
 }
 
-- (void)setShadowOffset:(CGSize)offset
+- (void)setShadowOffsetSize:(CGSize)size
 {
-    shapeLayer.shadowOffset = offset;
+    shapeLayer.shadowOffset = size;
     [self setNeedsDisplay];
 }
 

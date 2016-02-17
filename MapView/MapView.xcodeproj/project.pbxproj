@@ -52,7 +52,6 @@
 		444FEC2017A5BF7100F3798C /* RMWMSSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 444FEC1C17A5BF7100F3798C /* RMWMSSource.h */; };
 		444FEC2117A5BF7100F3798C /* RMWMSSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 444FEC1D17A5BF7100F3798C /* RMWMSSource.m */; };
 		96492C400FA8AD3400EBA6D2 /* RMGlobalConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 96492C3F0FA8AD3400EBA6D2 /* RMGlobalConstants.h */; };
-		AB0BC5EF1C740A7E00C07AE5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0BC5EE1C740A7E00C07AE5 /* libsqlite3.dylib */; };
 		B1EB26C610B5D8E6009F8658 /* RMNotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = B1EB26C510B5D8E6009F8658 /* RMNotifications.h */; };
 		B8474BA40EB40094006A0BC1 /* RMDatabaseCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B8474B980EB40094006A0BC1 /* RMDatabaseCache.h */; };
 		B8474BA50EB40094006A0BC1 /* RMDatabaseCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B8474B990EB40094006A0BC1 /* RMDatabaseCache.m */; };
@@ -269,7 +268,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB0BC5EF1C740A7E00C07AE5 /* libsqlite3.dylib in Frameworks */,
 				B8C974500E8A19B2007D16AD /* CoreFoundation.framework in Frameworks */,
 				B8C974510E8A19B2007D16AD /* CoreGraphics.framework in Frameworks */,
 				B8C974520E8A19B2007D16AD /* CoreLocation.framework in Frameworks */,
@@ -798,7 +796,11 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../Proj4\"",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lsqlite3",
+					"-all_load",
+				);
 				PRODUCT_NAME = MapView;
 				RUN_CLANG_STATIC_ANALYZER = NO;
 			};
@@ -818,7 +820,11 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../Proj4\"",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lsqlite3",
+					"-all_load",
+				);
 				PRODUCT_NAME = MapView;
 				ZERO_LINK = NO;
 			};

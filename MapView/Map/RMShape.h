@@ -75,7 +75,7 @@
 
 @property (nonatomic, assign) BOOL scaleLineWidth;
 @property (nonatomic, assign) CGFloat shadowBlur;
-@property (nonatomic, assign) CGSize shadowOffset;
+@property (nonatomic, assign) CGSize shadowOffsetSize;
 @property (nonatomic, assign) BOOL enableShadow;
 
 /** The bounding box of the shape in the current viewport. */
