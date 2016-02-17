@@ -40,8 +40,8 @@
 
     RMSphericalTrapezium _latitudeLongitudeBoundingBox;
 
-    float _minZoom, _maxZoom;
-    int _tileSideLength;
+    CGFloat _minZoom, _maxZoom;
+    NSUInteger _tileSideLength;
 }
 
 - (id)init

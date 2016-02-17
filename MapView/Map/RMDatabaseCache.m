@@ -182,7 +182,7 @@
 {
     _expiryPeriod = theExpiryPeriod;
     
-    srand(time(NULL));
+    srand48(time(NULL));
 }
 
 - (UIImage *)cachedImage:(RMTile)tile withCacheKey:(NSString *)aCacheKey

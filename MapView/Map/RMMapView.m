@@ -1144,7 +1144,7 @@
 
     _mapScrollViewIsZooming = NO;
 
-    int tileSideLength = [_tileSourcesContainer tileSideLength];
+    NSUInteger tileSideLength = [_tileSourcesContainer tileSideLength];
     CGSize contentSize = CGSizeMake(tileSideLength, tileSideLength); // zoom level 1
 
     _mapScrollView = [[RMMapScrollView alloc] initWithFrame:self.bounds];
@@ -1447,7 +1447,7 @@
         _accumulatedDelta.x += delta.x;
         _accumulatedDelta.y += delta.y;
 
-        if (fabsf(_accumulatedDelta.x) < kZoomRectPixelBuffer && fabsf(_accumulatedDelta.y) < kZoomRectPixelBuffer)
+        if (fabs(_accumulatedDelta.x) < kZoomRectPixelBuffer && fabs(_accumulatedDelta.y) < kZoomRectPixelBuffer)
         {
             [_overlayView moveLayersBy:_accumulatedDelta];
             [self performSelector:@selector(correctPositionOfAllAnnotations) withObject:nil afterDelay:0.1];
@@ -1556,7 +1556,7 @@
     {
         [self zoomInToNextNativeZoomAt:[self convertPoint:self.center fromView:self.superview] animated:YES];
     }
-    else if (self.userTrackingMode != RMUserTrackingModeNone && fabsf(aPoint.x - [self coordinateToPixel:self.userLocation.location.coordinate].x) < 75 && fabsf(aPoint.y - [self coordinateToPixel:self.userLocation.location.coordinate].y) < 75)
+    else if (self.userTrackingMode != RMUserTrackingModeNone && fabs(aPoint.x - [self coordinateToPixel:self.userLocation.location.coordinate].x) < 75 && fabs(aPoint.y - [self coordinateToPixel:self.userLocation.location.coordinate].y) < 75)
     {
         [self zoomInToNextNativeZoomAt:[self coordinateToPixel:self.userLocation.location.coordinate] animated:YES];
     }
@@ -2009,7 +2009,7 @@
     }
     else
     {
-        int tileSideLength = [_tileSourcesContainer tileSideLength];
+        NSUInteger tileSideLength = [_tileSourcesContainer tileSideLength];
         CGSize contentSize = CGSizeMake(tileSideLength, tileSideLength); // zoom level 1
 
         RMMapTiledLayerView *tiledLayerView = [[RMMapTiledLayerView alloc] initWithFrame:CGRectMake(0.0, 0.0, contentSize.width, contentSize.height) mapView:self forTileSource:newTileSource];
@@ -3103,7 +3103,7 @@
             [_locationManager stopUpdatingHeading];
 
             if (self.userLocation)
-                [self locationManager:_locationManager didUpdateToLocation:self.userLocation.location fromLocation:self.userLocation.location];
+                [self locationManager:_locationManager didUpdateLocations:@[self.userLocation.location]];
 
             if (_userLocationTrackingView || _userHeadingTrackingView || _userHaloTrackingView)
             {
@@ -3192,7 +3192,7 @@
                 [self zoomByFactor:exp2f(3 - [self zoom]) near:self.center animated:YES];
 
             if (self.userLocation)
-                [self locationManager:_locationManager didUpdateToLocation:self.userLocation.location fromLocation:self.userLocation.location];
+                [self locationManager:_locationManager didUpdateLocations:@[self.userLocation.location]];
 
             [self updateHeadingForDeviceOrientation];
 
@@ -3226,7 +3226,7 @@
         CGPoint mapCenterPoint    = [self convertPoint:self.center fromView:self.superview];
         CGPoint userLocationPoint = [self mapPositionForAnnotation:self.userLocation];
 
-        if (fabsf(userLocationPoint.x - mapCenterPoint.x) > 1.0 || fabsf(userLocationPoint.y - mapCenterPoint.y) > 1.0)
+        if (fabs(userLocationPoint.x - mapCenterPoint.x) > 1.0 || fabs(userLocationPoint.y - mapCenterPoint.y) > 1.0)
         {
             if (round(_zoom) >= 10)
             {
