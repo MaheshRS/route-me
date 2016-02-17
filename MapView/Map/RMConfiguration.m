@@ -57,13 +57,10 @@ static RMConfiguration *RMConfigurationSharedInstance = nil;
 
     RMLog(@"reading route-me configuration from %@", path);
 
-    NSString *error = nil;
+    NSError *error = nil;
     NSData *plistData = [NSData dataWithContentsOfFile:path];
 
-    _propertyList = [NSPropertyListSerialization propertyListFromData:plistData
-                                                      mutabilityOption:NSPropertyListImmutable
-                                                                format:NULL
-                                                      errorDescription:&error];
+    _propertyList = [NSPropertyListSerialization propertyListWithData:plistData options:NSPropertyListImmutable format:NULL error:&error];
 
     if ( ! _propertyList)
     {
