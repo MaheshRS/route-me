@@ -11,7 +11,7 @@
 
 @interface ProgrammaticMapViewController : UIViewController <RMMapViewDelegate>
 
-@property (nonatomic, retain) RMMapView *mapView;
+@property (nonatomic, strong) RMMapView *mapView;
 
 - (IBAction)doTheTest:(id)sender;
 - (IBAction)takeSnapshot:(id)sender;

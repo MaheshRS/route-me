@@ -22,7 +22,7 @@
     firstLocation.latitude = 51.2795;
     firstLocation.longitude = 1.082;
 
-    self.mapView = [[[RMMapView alloc] initWithFrame:self.view.bounds] autorelease];
+    self.mapView = [[RMMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.adjustTilesForRetinaDisplay = NO;
     self.mapView.minZoom = 1.0f;
     [self.mapView setBackgroundColor:[UIColor greenColor]];
@@ -33,8 +33,6 @@
 - (void)dealloc
 {
     [mapView removeFromSuperview];
-    self.mapView = nil;
-    [super dealloc];
 }
 
 - (void)beforeMapMove:(RMMapView *)map byUser:(BOOL)wasUserAction {
