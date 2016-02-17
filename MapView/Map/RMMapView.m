@@ -244,7 +244,7 @@
 
     _annotations = [NSMutableSet new];
     _visibleAnnotations = [NSMutableSet new];
-    [self setQuadTree:[[[RMQuadTree alloc] initWithMapView:self] autorelease]];
+    [self setQuadTree:[[RMQuadTree alloc] initWithMapView:self]];
     _enableClustering = _positionClusterMarkersAtTheGravityCenter = NO;
     _clusterMarkerSize = CGSizeMake(100.0, 100.0);
     _clusterAreaSize = CGSizeMake(150.0, 150.0);
@@ -255,7 +255,7 @@
     _zoomDelegateQueue = [NSOperationQueue new];
     [_zoomDelegateQueue setMaxConcurrentOperationCount:1];
 
-    [self setTileCache:[[RMTileCache new] autorelease]];
+    [self setTileCache:[RMTileCache new]];
 
     [self setBackgroundImage:backgroundImage];
 
@@ -303,7 +303,7 @@
 	coordinate.latitude = kDefaultInitialLatitude;
 	coordinate.longitude = kDefaultInitialLongitude;
 
-    [self performInitializationWithTilesource:[[RMOpenStreetMapSource new] autorelease]
+    [self performInitializationWithTilesource:[RMOpenStreetMapSource new]
                              centerCoordinate:coordinate
                                     zoomLevel:kDefaultInitialZoomLevel
                                  maxZoomLevel:kDefaultMaximumZoomLevel
@@ -315,7 +315,7 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-    return [self initWithFrame:frame andTilesource:[[RMOpenStreetMapSource new] autorelease]];
+    return [self initWithFrame:frame andTilesource:[RMOpenStreetMapSource new]];
 }
 
 - (id)initWithFrame:(CGRect)frame andTilesource:(id <RMTileSource>)newTilesource
@@ -392,34 +392,30 @@
 {
     [self setDelegate:nil];
     [self setBackgroundView:nil];
-    [self setQuadTree:nil];
     [_moveDelegateQueue cancelAllOperations];
-    [_moveDelegateQueue release]; _moveDelegateQueue = nil;
+     _moveDelegateQueue = nil;
     [_zoomDelegateQueue cancelAllOperations];
-    [_zoomDelegateQueue release]; _zoomDelegateQueue = nil;
-    [_draggedAnnotation release]; _draggedAnnotation = nil;
-    [_annotations release]; _annotations = nil;
-    [_visibleAnnotations release]; _visibleAnnotations = nil;
+     _zoomDelegateQueue = nil;
+     _draggedAnnotation = nil;
+     _annotations = nil;
+     _visibleAnnotations = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [_mapScrollView removeObserver:self forKeyPath:@"contentOffset"];
-    [_tiledLayersSuperview release]; _tiledLayersSuperview = nil;
-    [_mapScrollView release]; _mapScrollView = nil;
-    [_overlayView release]; _overlayView = nil;
-    [_tileSourcesContainer cancelAllDownloads]; [_tileSourcesContainer release]; _tileSourcesContainer = nil;
-    [_projection release]; _projection = nil;
-    [_mercatorToTileProjection release]; _mercatorToTileProjection = nil;
-    [self setTileCache:nil];
+     _tiledLayersSuperview = nil;
+     _mapScrollView = nil;
+     _overlayView = nil;
+    [_tileSourcesContainer cancelAllDownloads];  _tileSourcesContainer = nil;
+     _projection = nil;
+     _mercatorToTileProjection = nil;
     _locationManager.delegate = nil;
     [_locationManager stopUpdatingLocation];
     [_locationManager stopUpdatingHeading];
-    [_locationManager release]; _locationManager = nil;
-    [_userLocation release]; _userLocation = nil;
-    [_accuracyCircleAnnotation release]; _accuracyCircleAnnotation = nil;
-    [_trackingHaloAnnotation release]; _trackingHaloAnnotation = nil;
-    [_userLocationTrackingView release]; _userLocationTrackingView = nil;
-    [_userHeadingTrackingView release]; _userHeadingTrackingView = nil;
-    [_userHaloTrackingView release]; _userHaloTrackingView = nil;
-    [super dealloc];
+     _locationManager = nil;
+     _accuracyCircleAnnotation = nil;
+     _trackingHaloAnnotation = nil;
+     _userLocationTrackingView = nil;
+     _userHeadingTrackingView = nil;
+     _userHaloTrackingView = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -1129,18 +1125,18 @@
 {
     [_tileSourcesContainer cancelAllDownloads];
 
-    [_overlayView removeFromSuperview]; [_overlayView release]; _overlayView = nil;
+    [_overlayView removeFromSuperview];  _overlayView = nil;
 
-    for (RMMapTiledLayerView *tiledLayerView in _tiledLayersSuperview.subviews)
+    for (__strong RMMapTiledLayerView *tiledLayerView in _tiledLayersSuperview.subviews)
     {
         tiledLayerView.layer.contents = nil;
-        [tiledLayerView removeFromSuperview]; [tiledLayerView release]; tiledLayerView = nil;
+        [tiledLayerView removeFromSuperview];  tiledLayerView = nil;
     }
 
-    [_tiledLayersSuperview removeFromSuperview]; [_tiledLayersSuperview release]; _tiledLayersSuperview = nil;
+    [_tiledLayersSuperview removeFromSuperview];  _tiledLayersSuperview = nil;
 
     [_mapScrollView removeObserver:self forKeyPath:@"contentOffset"];
-    [_mapScrollView removeFromSuperview]; [_mapScrollView release]; _mapScrollView = nil;
+    [_mapScrollView removeFromSuperview];  _mapScrollView = nil;
 
     _mapScrollViewIsZooming = NO;
 
@@ -1203,17 +1199,17 @@
     // add gesture recognizers
 
     // one finger taps
-    UITapGestureRecognizer *doubleTapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)] autorelease];
+    UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
     doubleTapRecognizer.numberOfTouchesRequired = 1;
     doubleTapRecognizer.numberOfTapsRequired = 2;
     doubleTapRecognizer.delegate = self;
 
-    UITapGestureRecognizer *singleTapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)] autorelease];
+    UITapGestureRecognizer *singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     singleTapRecognizer.numberOfTouchesRequired = 1;
     [singleTapRecognizer requireGestureRecognizerToFail:doubleTapRecognizer];
     singleTapRecognizer.delegate = self;
 
-    UILongPressGestureRecognizer *longPressRecognizer = [[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)] autorelease];
+    UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
     longPressRecognizer.delegate = self;
 
     [self addGestureRecognizer:singleTapRecognizer];
@@ -1221,14 +1217,14 @@
     [self addGestureRecognizer:longPressRecognizer];
 
     // two finger taps
-    UITapGestureRecognizer *twoFingerSingleTapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTwoFingerSingleTap:)] autorelease];
+    UITapGestureRecognizer *twoFingerSingleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTwoFingerSingleTap:)];
     twoFingerSingleTapRecognizer.numberOfTouchesRequired = 2;
     twoFingerSingleTapRecognizer.delegate = self;
 
     [self addGestureRecognizer:twoFingerSingleTapRecognizer];
 
     // pan
-    UIPanGestureRecognizer *panGestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)] autorelease];
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
     panGestureRecognizer.minimumNumberOfTouches = 1;
     panGestureRecognizer.maximumNumberOfTouches = 1;
 
@@ -1668,8 +1664,7 @@
             return;
 
         _lastDraggingTranslation = CGPointZero;
-        [_draggedAnnotation release];
-        _draggedAnnotation = [[self findAnnotationInLayer:hit] retain];
+        _draggedAnnotation = [self findAnnotationInLayer:hit];
     }
 
     if (recognizer.state == UIGestureRecognizerStateChanged)
@@ -1686,7 +1681,7 @@
     else if (recognizer.state == UIGestureRecognizerStateEnded)
     {
         [self didEndDragAnnotation:_draggedAnnotation];
-        [_draggedAnnotation release]; _draggedAnnotation = nil;
+         _draggedAnnotation = nil;
     }
 }
 
@@ -1743,8 +1738,8 @@
         else
             [self correctPositionOfAllAnnotations];
 
-        [_currentAnnotation release]; _currentAnnotation = nil;
-        [_currentCallout release]; _currentCallout = nil;
+         _currentAnnotation = nil;
+         _currentCallout = nil;
     }
 }
 
@@ -1766,7 +1761,7 @@
 
 - (void)popupCalloutViewForAnnotation:(RMAnnotation *)anAnnotation animated:(BOOL)animated
 {
-    _currentAnnotation = [anAnnotation retain];
+    _currentAnnotation = anAnnotation;
 
     _currentCallout = [SMCalloutView new];
 
@@ -1778,7 +1773,7 @@
     if (anAnnotation.layer.leftCalloutAccessoryView)
     {
         if ([anAnnotation.layer.leftCalloutAccessoryView isKindOfClass:[UIControl class]])
-            [anAnnotation.layer.leftCalloutAccessoryView addGestureRecognizer:[[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCalloutAccessoryWithGestureRecognizer:)] autorelease]];
+            [anAnnotation.layer.leftCalloutAccessoryView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCalloutAccessoryWithGestureRecognizer:)]];
 
         _currentCallout.leftAccessoryView = anAnnotation.layer.leftCalloutAccessoryView;
     }
@@ -1786,7 +1781,7 @@
     if (anAnnotation.layer.rightCalloutAccessoryView)
     {
         if ([anAnnotation.layer.rightCalloutAccessoryView isKindOfClass:[UIControl class]])
-            [anAnnotation.layer.rightCalloutAccessoryView addGestureRecognizer:[[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCalloutAccessoryWithGestureRecognizer:)] autorelease]];
+            [anAnnotation.layer.rightCalloutAccessoryView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCalloutAccessoryWithGestureRecognizer:)]];
 
         _currentCallout.rightAccessoryView = anAnnotation.layer.rightCalloutAccessoryView;
     }
@@ -1924,7 +1919,7 @@
 
 - (RMTileSourcesContainer *)tileSourcesContainer
 {
-    return [[_tileSourcesContainer retain] autorelease];
+    return _tileSourcesContainer;
 }
 
 - (id <RMTileSource>)tileSource
@@ -1955,11 +1950,9 @@
 
     RMProjectedPoint centerPoint = [self centerProjectedPoint];
 
-    [_projection release];
-    _projection = [[_tileSourcesContainer projection] retain];
+    _projection = [_tileSourcesContainer projection];
 
-    [_mercatorToTileProjection release];
-    _mercatorToTileProjection = [[_tileSourcesContainer mercatorToTileProjection] retain];
+    _mercatorToTileProjection = [_tileSourcesContainer mercatorToTileProjection];
 
     [self setTileSourcesConstraintsFromLatitudeLongitudeBoundingBox:[_tileSourcesContainer latitudeLongitudeBoundingBox]];
 
@@ -1988,11 +1981,9 @@
 
     RMProjectedPoint centerPoint = [self centerProjectedPoint];
 
-    [_projection release];
-    _projection = [[_tileSourcesContainer projection] retain];
+    _projection = [_tileSourcesContainer projection];
 
-    [_mercatorToTileProjection release];
-    _mercatorToTileProjection = [[_tileSourcesContainer mercatorToTileProjection] retain];
+    _mercatorToTileProjection = [_tileSourcesContainer mercatorToTileProjection];
 
     [self setTileSourcesConstraintsFromLatitudeLongitudeBoundingBox:[_tileSourcesContainer latitudeLongitudeBoundingBox]];
 
@@ -2033,8 +2024,6 @@
 
     if ([_tileSourcesContainer.tileSources count] == 0)
     {
-        [_projection release];
-        [_mercatorToTileProjection release];
         _constrainMovement = NO;
     }
     else
@@ -2055,7 +2044,7 @@
     }
 
     tileSourceTiledLayerView.layer.contents = nil;
-    [tileSourceTiledLayerView removeFromSuperview]; [tileSourceTiledLayerView release]; tileSourceTiledLayerView = nil;
+    [tileSourceTiledLayerView removeFromSuperview];  tileSourceTiledLayerView = nil;
 
     [self setCenterProjectedPoint:centerPoint animated:NO];
 }
@@ -2068,8 +2057,6 @@
 
     if ([_tileSourcesContainer.tileSources count] == 0)
     {
-        [_projection release];
-        [_mercatorToTileProjection release];
         _constrainMovement = NO;
     }
     else
@@ -2081,7 +2068,7 @@
     RMMapTiledLayerView *tileSourceTiledLayerView = [_tiledLayersSuperview.subviews objectAtIndex:index];
 
     tileSourceTiledLayerView.layer.contents = nil;
-    [tileSourceTiledLayerView removeFromSuperview]; [tileSourceTiledLayerView release]; tileSourceTiledLayerView = nil;
+    [tileSourceTiledLayerView removeFromSuperview];  tileSourceTiledLayerView = nil;
 
     [self setCenterProjectedPoint:centerPoint animated:NO];
 }
@@ -2155,7 +2142,7 @@
 
 - (UIView *)backgroundView
 {
-    return [[_backgroundView retain] autorelease];
+    return _backgroundView;
 }
 
 - (void)setBackgroundView:(UIView *)aView
@@ -2166,10 +2153,9 @@
     if (_backgroundView != nil)
     {
         [_backgroundView removeFromSuperview];
-        [_backgroundView release];
     }
 
-    _backgroundView = [aView retain];
+    _backgroundView = aView;
     if (_backgroundView == nil)
         return;
 
@@ -2183,12 +2169,12 @@
     if (backgroundImage)
     {
         _loadingTileView = nil;
-        [self setBackgroundView:[[[UIView alloc] initWithFrame:[self bounds]] autorelease]];
+        [self setBackgroundView:[[UIView alloc] initWithFrame:[self bounds]]];
         self.backgroundView.layer.contents = (id)backgroundImage.CGImage;
     }
     else
     {
-        _loadingTileView = [[[RMLoadingTileView alloc] initWithFrame:self.bounds] autorelease];
+        _loadingTileView = [[RMLoadingTileView alloc] initWithFrame:self.bounds];
         [self setBackgroundView:_loadingTileView];
 ;
     }
@@ -2405,12 +2391,12 @@
 
 - (RMProjection *)projection
 {
-    return [[_projection retain] autorelease];
+    return _projection;
 }
 
 - (RMFractalTileProjection *)mercatorToTileProjection
 {
-    return [[_mercatorToTileProjection retain] autorelease];
+    return _mercatorToTileProjection;
 }
 
 - (void)setDebugTiles:(BOOL)shouldDebug;
@@ -2727,7 +2713,6 @@
             }
         }
 
-        [previousVisibleAnnotations release];
 
 //        RMLog(@"%d annotations on screen, %d total", [overlayView sublayersCount], [annotations count]);
     }
@@ -2998,7 +2983,7 @@
         [_locationManager stopUpdatingLocation];
         [_locationManager stopUpdatingHeading];
         _locationManager.delegate = nil;
-        [_locationManager release]; _locationManager = nil;
+         _locationManager = nil;
 
         if (_delegateHasDidStopLocatingUser)
             [_delegate mapViewDidStopLocatingUser:self];
@@ -3008,8 +2993,8 @@
         for (RMAnnotation *annotation in [NSArray arrayWithObjects:_trackingHaloAnnotation, _accuracyCircleAnnotation, self.userLocation, nil])
             [self removeAnnotation:annotation];
 
-        [_trackingHaloAnnotation release]; _trackingHaloAnnotation = nil;
-        [_accuracyCircleAnnotation release]; _accuracyCircleAnnotation = nil;
+         _trackingHaloAnnotation = nil;
+         _accuracyCircleAnnotation = nil;
 
         self.userLocation = nil;
     }
@@ -3019,8 +3004,7 @@
 {
     if ( ! [newUserLocation isEqual:_userLocation])
     {
-        [_userLocation release];
-        _userLocation = [newUserLocation retain];
+        _userLocation = newUserLocation;
     }
 }
 
@@ -3264,7 +3248,7 @@
 
     if ( ! _accuracyCircleAnnotation)
     {
-        _accuracyCircleAnnotation = [[RMAnnotation annotationWithMapView:self coordinate:newLocation.coordinate andTitle:nil] retain];
+        _accuracyCircleAnnotation = [RMAnnotation annotationWithMapView:self coordinate:newLocation.coordinate andTitle:nil];
         _accuracyCircleAnnotation.annotationType = kRMAccuracyCircleAnnotationTypeName;
         _accuracyCircleAnnotation.clusteringEnabled = NO;
         _accuracyCircleAnnotation.enabled = NO;
@@ -3288,7 +3272,7 @@
 
     if ( ! _trackingHaloAnnotation)
     {
-        _trackingHaloAnnotation = [[RMAnnotation annotationWithMapView:self coordinate:newLocation.coordinate andTitle:nil] retain];
+        _trackingHaloAnnotation = [RMAnnotation annotationWithMapView:self coordinate:newLocation.coordinate andTitle:nil];
         _trackingHaloAnnotation.annotationType = kRMTrackingHaloAnnotationTypeName;
         _trackingHaloAnnotation.clusteringEnabled = NO;
         _trackingHaloAnnotation.enabled = NO;
@@ -3350,7 +3334,7 @@
         //
         if ( ! [_userHaloTrackingView.layer.animationKeys count])
             for (NSString *animationKey in _trackingHaloAnnotation.layer.animationKeys)
-                [_userHaloTrackingView.layer addAnimation:[[[_trackingHaloAnnotation.layer animationForKey:animationKey] copy] autorelease] forKey:animationKey];
+                [_userHaloTrackingView.layer addAnimation:[[_trackingHaloAnnotation.layer animationForKey:animationKey] copy] forKey:animationKey];
     }
 
     if ( ! [_annotations containsObject:self.userLocation])

@@ -60,22 +60,11 @@
     // some default values
     self.name = @"wms";
 
-    self.uniqueTilecacheKey = [[NSString alloc] initWithString:@"wms"];
+    self.uniqueTilecacheKey = @"wms";
 
     return self; 
 } 
 
-- (void) dealloc
-{
-    self.uniqueTilecacheKey = nil;
-    self.name = nil;
-    self.shortName = nil;
-    self.shortAttribution = nil;
-    self.longDescription = nil;
-    self.longAttribution = nil;
-    self.wms = nil;
-    [super dealloc];
-}
 
 #pragma mark -
 

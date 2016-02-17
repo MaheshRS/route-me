@@ -67,17 +67,6 @@
 - (void) dealloc
 {
     self.urlPrefix = nil;
-    self.layers = nil;
-    self.styles = nil;
-    self.queryLayers = nil;
-    self.crs = nil;
-    self.infoFormat = nil;
-    self.format = nil;
-    self.service = nil;
-    self.version = nil;
-    self.exceptions = nil;
-    self.extraKeyValues = nil;
-    [super dealloc];
 }
 
 #pragma mark -
@@ -100,8 +89,7 @@
         }
     }
 
-    [_urlPrefix release];
-    _urlPrefix = [newUrlPrefix retain];
+    _urlPrefix = newUrlPrefix;
 }
 
 - (NSString *)createBaseGet:(NSString *)bbox size:(CGSize)size

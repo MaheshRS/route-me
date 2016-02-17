@@ -40,8 +40,8 @@
         return nil;
 
     _tile   = tile;
-    _source = [source retain];
-    _cache  = [cache retain];
+    _source = source;
+    _cache  = cache;
 
     return self;
 }
@@ -66,9 +66,8 @@
 
 - (void)dealloc
 {
-    [_source release]; _source = nil;
-    [_cache release]; _cache = nil;
-    [super dealloc];
+     _source = nil;
+     _cache = nil;
 }
 
 @end

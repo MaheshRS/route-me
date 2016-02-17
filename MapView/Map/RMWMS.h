@@ -30,18 +30,18 @@
 
 @interface RMWMS : NSObject
 
-@property (nonatomic, retain) NSString *urlPrefix;
-@property (nonatomic, retain) NSString *layers;
-@property (nonatomic, retain) NSString *styles;
-@property (nonatomic, retain) NSString *queryLayers;
-@property (nonatomic, retain) NSString *crs;
+@property (nonatomic, strong) NSString *urlPrefix;
+@property (nonatomic, strong) NSString *layers;
+@property (nonatomic, strong) NSString *styles;
+@property (nonatomic, strong) NSString *queryLayers;
+@property (nonatomic, strong) NSString *crs;
 @property (nonatomic, assign) BOOL queryable;
-@property (nonatomic, retain) NSString *infoFormat;
-@property (nonatomic, retain) NSString *format;
-@property (nonatomic, retain) NSString *service;
-@property (nonatomic, retain) NSString *version;
-@property (nonatomic, retain) NSString *exceptions;
-@property (nonatomic, retain) NSString *extraKeyValues;
+@property (nonatomic, strong) NSString *infoFormat;
+@property (nonatomic, strong) NSString *format;
+@property (nonatomic, strong) NSString *service;
+@property (nonatomic, strong) NSString *version;
+@property (nonatomic, strong) NSString *exceptions;
+@property (nonatomic, strong) NSString *extraKeyValues;
 
 - (NSString *)createGetMapForBbox:(NSString *)bbox size:(CGSize)size;
 - (NSString *)createGetFeatureInfoForBbox:(NSString *)bbox size:(CGSize)size point:(CGPoint)point;

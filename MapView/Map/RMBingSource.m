@@ -43,7 +43,7 @@
 {
     if (self = [super init])
     {
-        _mapsKey = [mapsKey retain];
+        _mapsKey = mapsKey;
 
         _imagerySet = imagerySet;
 
@@ -58,9 +58,8 @@
 
 - (void)dealloc
 {
-    [_mapsKey release]; _mapsKey = nil;
-    [_imageURLString release]; _imageURLString = nil;
-    [super dealloc];
+     _mapsKey = nil;
+     _imageURLString = nil;
 }
 
 - (NSURL *)URLForTile:(RMTile)tile

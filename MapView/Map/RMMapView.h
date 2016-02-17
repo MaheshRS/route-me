@@ -75,7 +75,7 @@ typedef NS_ENUM(NSUInteger, RMMapDecelerationMode) {
 *   A map view sends messages to its delegate regarding the loading of map data and changes in the portion of the map being displayed. The delegate also manages the annotation layers used to highlight points of interest on the map.
 *
 *   The delegate should implement the methods of the RMMapViewDelegate protocol. */
-@property (nonatomic, assign) IBOutlet id <RMMapViewDelegate>delegate;
+@property (nonatomic, weak) IBOutlet id <RMMapViewDelegate>delegate;
 
 #pragma mark - View properties
 
@@ -123,7 +123,7 @@ typedef NS_ENUM(NSUInteger, RMMapDecelerationMode) {
 @property (nonatomic, assign) NSUInteger boundingMask;
 
 /** A custom, static view to use behind the map tiles. The default behavior is to use grid imagery that moves with map panning like MapKit. */
-@property (nonatomic, retain) UIView *backgroundView;
+@property (nonatomic, strong) UIView *backgroundView;
 
 - (void)setBackgroundImage:(UIImage *)backgroundImage;
 
@@ -291,10 +291,10 @@ typedef NS_ENUM(NSUInteger, RMMapDecelerationMode) {
 /** @name Annotating the Map */
 
 /** The annotations currently added to the map. Includes user location annotations, if any. */
-@property (nonatomic, readonly) NSArray *annotations;
+@property (weak, nonatomic, readonly) NSArray *annotations;
 
 /** The annotations currently visible on the map. May include annotations currently shown in clusters. */
-@property (nonatomic, readonly) NSArray *visibleAnnotations;
+@property (weak, nonatomic, readonly) NSArray *visibleAnnotations;
 
 /** Add an annotation to the map. 
 *   @param annotation The annotation to add. */
@@ -333,11 +333,11 @@ typedef NS_ENUM(NSUInteger, RMMapDecelerationMode) {
 - (void)deselectAnnotation:(RMAnnotation *)annotation animated:(BOOL)animated;
 
 /** The annotation that is currently selected. */
-@property (nonatomic, retain) RMAnnotation *selectedAnnotation;
+@property (nonatomic, strong) RMAnnotation *selectedAnnotation;
 
 #pragma mark - TileSources
 
-@property (nonatomic, retain) RMQuadTree *quadTree;
+@property (nonatomic, strong) RMQuadTree *quadTree;
 
 /** @name Configuring Annotation Clustering */
 
@@ -356,15 +356,15 @@ typedef NS_ENUM(NSUInteger, RMMapDecelerationMode) {
 @property (nonatomic, assign) CGSize clusterMarkerSize;
 @property (nonatomic, assign) CGSize clusterAreaSize;
 
-@property (nonatomic, readonly) RMTileSourcesContainer *tileSourcesContainer;
+@property (weak, nonatomic, readonly) RMTileSourcesContainer *tileSourcesContainer;
 
 /** @name Managing Tile Sources */
 
 /** The first tile source of a map view, ordered from bottom to top. */
-@property (nonatomic, retain) id <RMTileSource> tileSource;
+@property (nonatomic, strong) id <RMTileSource> tileSource;
 
 /** All of the tile sources for a map view, ordered bottom to top. */
-@property (nonatomic, retain) NSArray *tileSources;
+@property (nonatomic, strong) NSArray *tileSources;
 
 /** Add a tile source to a map view above the current tile sources. 
 *   @param tileSource The tile source to add. */
@@ -411,7 +411,7 @@ typedef NS_ENUM(NSUInteger, RMMapDecelerationMode) {
 /** @name Managing Tile Caching Behavior */
 
 /** The tile cache for the map view, typically composed of both an in-memory RMMemoryCache and a disk-based RMDatabaseCache. */
-@property (nonatomic, retain)   RMTileCache *tileCache;
+@property (nonatomic, strong)   RMTileCache *tileCache;
 
 /** Clear all tile images from the caching system. */
 -(void)removeAllCachedImages;
@@ -419,8 +419,8 @@ typedef NS_ENUM(NSUInteger, RMMapDecelerationMode) {
 #pragma mark - Conversions
 
 // projections to convert from latitude/longitude to meters, from projected meters to tile coordinates
-@property (nonatomic, readonly) RMProjection *projection;
-@property (nonatomic, readonly) id <RMMercatorToTileProjection> mercatorToTileProjection;
+@property (weak, nonatomic, readonly) RMProjection *projection;
+@property (weak, nonatomic, readonly) id <RMMercatorToTileProjection> mercatorToTileProjection;
 
 /** @name Converting Map Coordinates */
 
@@ -478,7 +478,7 @@ typedef NS_ENUM(NSUInteger, RMMapDecelerationMode) {
 @property (nonatomic, assign)   BOOL showsUserLocation;
 
 /** The annotation object representing the user’s current location. (read-only) */
-@property (nonatomic, readonly) RMUserLocation *userLocation;
+@property (weak, nonatomic, readonly) RMUserLocation *userLocation;
 
 /** A Boolean value indicating whether the device’s current location is visible in the map view. (read-only)
 *

@@ -91,7 +91,7 @@
     scaleLineDash = NO;
     isFirstPoint = YES;
 
-    points = [[NSMutableArray array] retain];
+    points = [NSMutableArray array];
 
     [(id)self setValue:[[UIScreen mainScreen] valueForKey:@"scale"] forKey:@"contentsScale"];
 
@@ -101,10 +101,9 @@
 - (void)dealloc
 {
     mapView = nil;
-    [bezierPath release]; bezierPath = nil;
-    [shapeLayer release]; shapeLayer = nil;
-    [points release]; points = nil;
-    [super dealloc];
+     bezierPath = nil;
+     shapeLayer = nil;
+     points = nil;
 }
 
 - (id <CAAction>)actionForKey:(NSString *)key
@@ -179,7 +178,6 @@
         CGRect boundsInMercators = scaledPath.bounds;
         nonClippedBounds = CGRectInset(boundsInMercators, -scaledLineWidth - (2 * shapeLayer.shadowRadius), -scaledLineWidth - (2 * shapeLayer.shadowRadius));
 
-        [scaledPath release];
     }
 
     // if the path is not scaled, nonClippedBounds stay the same as in the previous invokation
@@ -291,7 +289,7 @@
 
 - (void)addCurveToProjectedPoint:(RMProjectedPoint)point controlPoint1:(RMProjectedPoint)controlPoint1 controlPoint2:(RMProjectedPoint)controlPoint2 withDrawing:(BOOL)isDrawing
 {
-    [points addObject:[[[CLLocation alloc] initWithLatitude:[mapView projectedPointToCoordinate:point].latitude longitude:[mapView projectedPointToCoordinate:point].longitude] autorelease]];
+    [points addObject:[[CLLocation alloc] initWithLatitude:[mapView projectedPointToCoordinate:point].latitude longitude:[mapView projectedPointToCoordinate:point].longitude]];
 
     if (isFirstPoint)
     {

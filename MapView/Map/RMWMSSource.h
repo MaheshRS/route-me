@@ -47,13 +47,13 @@
 
 @interface RMWMSSource : RMAbstractWebMapSource
 
-@property (nonatomic, retain) NSString *uniqueTilecacheKey;
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *shortName;
-@property (nonatomic, retain) NSString *shortAttribution;
-@property (nonatomic, retain) NSString *longDescription;
-@property (nonatomic, retain) NSString *longAttribution;
-@property (nonatomic, retain) RMWMS *wms;
+@property (nonatomic, strong) NSString *uniqueTilecacheKey;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *shortName;
+@property (nonatomic, strong) NSString *shortAttribution;
+@property (nonatomic, strong) NSString *longDescription;
+@property (nonatomic, strong) NSString *longAttribution;
+@property (nonatomic, strong) RMWMS *wms;
 
 - (NSString *)bboxForTile:(RMTile)tile;
 - (float)resolutionAtZoom:(int)zoom;

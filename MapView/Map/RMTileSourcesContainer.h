@@ -40,14 +40,14 @@
 // These properties are (and have to be) equal across all tile sources
 @property (nonatomic, readonly) NSUInteger tileSideLength;
 
-@property (nonatomic, readonly) RMFractalTileProjection *mercatorToTileProjection;
-@property (nonatomic, readonly) RMProjection *projection;
+@property (weak, nonatomic, readonly) RMFractalTileProjection *mercatorToTileProjection;
+@property (weak, nonatomic, readonly) RMProjection *projection;
 
 @property (nonatomic, readonly) RMSphericalTrapezium latitudeLongitudeBoundingBox;
 
 #pragma mark -
 
-@property (nonatomic, readonly) NSArray *tileSources;
+@property (weak, nonatomic, readonly) NSArray *tileSources;
 
 - (id <RMTileSource>)tileSourceForUniqueTilecacheKey:(NSString *)uniqueTilecacheKey;
 

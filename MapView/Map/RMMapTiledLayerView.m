@@ -37,7 +37,7 @@
 @implementation RMMapTiledLayerView
 {
     RMMapView *_mapView;
-    id <RMTileSource> _tileSource;
+    id <RMTileSource> __weak _tileSource;
 }
 
 @synthesize useSnapshotRenderer = _useSnapshotRenderer;
@@ -60,8 +60,8 @@
 
     self.opaque = NO;
 
-    _mapView = [aMapView retain];
-    _tileSource = [aTileSource retain];
+    _mapView = aMapView;
+    _tileSource = aTileSource;
 
     self.useSnapshotRenderer = NO;
 
@@ -78,9 +78,7 @@
 {
     [_tileSource cancelAllDownloads];
     self.layer.contents = nil;
-    [_tileSource release]; _tileSource = nil;
-    [_mapView release]; _mapView = nil;
-    [super dealloc];
+     _mapView = nil;
 }
 
 - (void)didMoveToWindow
@@ -93,171 +91,169 @@
     CGRect rect   = CGContextGetClipBoundingBox(context);
     CGRect bounds = self.bounds;
     short zoom    = log2(bounds.size.width / rect.size.width);
-
-//    NSLog(@"drawLayer: {{%f,%f},{%f,%f}}", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
-
-    NSAutoreleasePool *pool = [NSAutoreleasePool new];
-
-    if (self.useSnapshotRenderer)
-    {
-        zoom = (short)ceilf(_mapView.adjustedZoomForRetinaDisplay);
-        CGFloat rectSize = bounds.size.width / powf(2.0, (float)zoom);
-
-        int x1 = floor(rect.origin.x / rectSize),
+    
+    //    NSLog(@"drawLayer: {{%f,%f},{%f,%f}}", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
+    
+    @autoreleasepool {
+        if (self.useSnapshotRenderer)
+        {
+            zoom = (short)ceilf(_mapView.adjustedZoomForRetinaDisplay);
+            CGFloat rectSize = bounds.size.width / powf(2.0, (float)zoom);
+            
+            int x1 = floor(rect.origin.x / rectSize),
             x2 = floor((rect.origin.x + rect.size.width) / rectSize),
             y1 = floor(fabs(rect.origin.y / rectSize)),
             y2 = floor(fabs((rect.origin.y + rect.size.height) / rectSize));
-
-//        NSLog(@"Tiles from x1:%d, y1:%d to x2:%d, y2:%d @ zoom %d", x1, y1, x2, y2, zoom);
-
-        if (zoom >= _tileSource.minZoom && zoom <= _tileSource.maxZoom)
-        {
-            UIGraphicsPushContext(context);
-
-            for (int x=x1; x<=x2; ++x)
+            
+            //        NSLog(@"Tiles from x1:%d, y1:%d to x2:%d, y2:%d @ zoom %d", x1, y1, x2, y2, zoom);
+            
+            if (zoom >= _tileSource.minZoom && zoom <= _tileSource.maxZoom)
             {
-                for (int y=y1; y<=y2; ++y)
+                UIGraphicsPushContext(context);
+                
+                for (int x=x1; x<=x2; ++x)
                 {
-                    UIImage *tileImage = [_tileSource imageForTile:RMTileMake(x, y, zoom) inCache:[_mapView tileCache]];
-
-                    if (IS_VALID_TILE_IMAGE(tileImage))
-                        [tileImage drawInRect:CGRectMake(x * rectSize, y * rectSize, rectSize, rectSize)];
-                }
-            }
-
-            UIGraphicsPopContext();
-        }
-    }
-    else
-    {
-        int x = floor(rect.origin.x / rect.size.width),
-            y = floor(fabs(rect.origin.y / rect.size.height));
-
-        if (_mapView.adjustTilesForRetinaDisplay && _mapView.screenScale > 1.0)
-        {
-            zoom--;
-            x >>= 1;
-            y >>= 1;
-        }
-
-//        NSLog(@"Tile @ x:%d, y:%d, zoom:%d", x, y, zoom);
-
-        UIGraphicsPushContext(context);
-
-        UIImage *tileImage = nil;
-
-        if (zoom >= _tileSource.minZoom && zoom <= _tileSource.maxZoom)
-            tileImage = [_tileSource imageForTile:RMTileMake(x, y, zoom) inCache:[_mapView tileCache]];
-
-        if ( ! tileImage)
-        {
-            if (_mapView.missingTilesDepth == 0)
-            {
-                tileImage = [RMTileImage errorTile];
-            }
-            else
-            {
-                NSUInteger currentTileDepth = 1, currentZoom = zoom - currentTileDepth;
-
-                // tries to return lower zoom level tiles if a tile cannot be found
-                while ( !tileImage && currentZoom >= _tileSource.minZoom && currentTileDepth <= _mapView.missingTilesDepth)
-                {
-                    float nextX = x / powf(2.0, (float)currentTileDepth),
-                          nextY = y / powf(2.0, (float)currentTileDepth);
-                    float nextTileX = floor(nextX),
-                          nextTileY = floor(nextY);
-
-                    tileImage = [_tileSource imageForTile:RMTileMake((int)nextTileX, (int)nextTileY, currentZoom) inCache:[_mapView tileCache]];
-
-                    if (IS_VALID_TILE_IMAGE(tileImage))
+                    for (int y=y1; y<=y2; ++y)
                     {
-                        // crop
-                        float cropSize = 1.0 / powf(2.0, (float)currentTileDepth);
-
-                        CGRect cropBounds = CGRectMake(tileImage.size.width * (nextX - nextTileX),
-                                                       tileImage.size.height * (nextY - nextTileY),
-                                                       tileImage.size.width * cropSize,
-                                                       tileImage.size.height * cropSize);
-
-                        CGImageRef imageRef = CGImageCreateWithImageInRect([tileImage CGImage], cropBounds);
-                        tileImage = [UIImage imageWithCGImage:imageRef];
-                        CGImageRelease(imageRef);
-
-                        break;
+                        UIImage *tileImage = [_tileSource imageForTile:RMTileMake(x, y, zoom) inCache:[_mapView tileCache]];
+                        
+                        if (IS_VALID_TILE_IMAGE(tileImage))
+                            [tileImage drawInRect:CGRectMake(x * rectSize, y * rectSize, rectSize, rectSize)];
                     }
-                    else
-                    {
-                        tileImage = nil;
-                    }
-
-                    currentTileDepth++;
-                    currentZoom = zoom - currentTileDepth;
                 }
+                
+                UIGraphicsPopContext();
             }
-        }
-
-        if (IS_VALID_TILE_IMAGE(tileImage))
-        {
-            if (_mapView.adjustTilesForRetinaDisplay && _mapView.screenScale > 1.0)
-            {
-                // Crop the image
-                float xCrop = (floor(rect.origin.x / rect.size.width) / 2.0) - x;
-                float yCrop = (floor(rect.origin.y / rect.size.height) / 2.0) - y;
-
-                CGRect cropBounds = CGRectMake(tileImage.size.width * xCrop,
-                                               tileImage.size.height * yCrop,
-                                               tileImage.size.width * 0.5,
-                                               tileImage.size.height * 0.5);
-
-                CGImageRef imageRef = CGImageCreateWithImageInRect([tileImage CGImage], cropBounds);
-                tileImage = [UIImage imageWithCGImage:imageRef];
-                CGImageRelease(imageRef);
-            }
-
-            if (_mapView.debugTiles)
-            {
-                UIGraphicsBeginImageContext(tileImage.size);
-
-                CGContextRef debugContext = UIGraphicsGetCurrentContext();
-
-                CGRect debugRect = CGRectMake(0, 0, tileImage.size.width, tileImage.size.height);
-
-                [tileImage drawInRect:debugRect];
-
-                UIFont *font = [UIFont systemFontOfSize:32.0];
-
-                CGContextSetStrokeColorWithColor(debugContext, [UIColor whiteColor].CGColor);
-                CGContextSetLineWidth(debugContext, 2.0);
-                CGContextSetShadowWithColor(debugContext, CGSizeMake(0.0, 0.0), 5.0, [UIColor blackColor].CGColor);
-
-                CGContextStrokeRect(debugContext, debugRect);
-
-                CGContextSetFillColorWithColor(debugContext, [UIColor whiteColor].CGColor);
-
-                NSString *debugString = [NSString stringWithFormat:@"Zoom %d", zoom];
-                CGSize debugSize1 = [debugString sizeWithFont:font];
-                [debugString drawInRect:CGRectMake(5.0, 5.0, debugSize1.width, debugSize1.height) withFont:font];
-
-                debugString = [NSString stringWithFormat:@"(%d, %d)", x, y];
-                CGSize debugSize2 = [debugString sizeWithFont:font];
-                [debugString drawInRect:CGRectMake(5.0, 5.0 + debugSize1.height + 5.0, debugSize2.width, debugSize2.height) withFont:font];
-
-                tileImage = UIGraphicsGetImageFromCurrentImageContext();
-
-                UIGraphicsEndImageContext();
-            }
-
-            [tileImage drawInRect:rect];
         }
         else
         {
-//            NSLog(@"Invalid image for {%d,%d} @ %d", x, y, zoom);
+            int x = floor(rect.origin.x / rect.size.width),
+            y = floor(fabs(rect.origin.y / rect.size.height));
+            
+            if (_mapView.adjustTilesForRetinaDisplay && _mapView.screenScale > 1.0)
+            {
+                zoom--;
+                x >>= 1;
+                y >>= 1;
+            }
+            
+            //        NSLog(@"Tile @ x:%d, y:%d, zoom:%d", x, y, zoom);
+            
+            UIGraphicsPushContext(context);
+            
+            UIImage *tileImage = nil;
+            
+            if (zoom >= _tileSource.minZoom && zoom <= _tileSource.maxZoom)
+                tileImage = [_tileSource imageForTile:RMTileMake(x, y, zoom) inCache:[_mapView tileCache]];
+            
+            if ( ! tileImage)
+            {
+                if (_mapView.missingTilesDepth == 0)
+                {
+                    tileImage = [RMTileImage errorTile];
+                }
+                else
+                {
+                    NSUInteger currentTileDepth = 1, currentZoom = zoom - currentTileDepth;
+                    
+                    // tries to return lower zoom level tiles if a tile cannot be found
+                    while ( !tileImage && currentZoom >= _tileSource.minZoom && currentTileDepth <= _mapView.missingTilesDepth)
+                    {
+                        float nextX = x / powf(2.0, (float)currentTileDepth),
+                        nextY = y / powf(2.0, (float)currentTileDepth);
+                        float nextTileX = floor(nextX),
+                        nextTileY = floor(nextY);
+                        
+                        tileImage = [_tileSource imageForTile:RMTileMake((int)nextTileX, (int)nextTileY, currentZoom) inCache:[_mapView tileCache]];
+                        
+                        if (IS_VALID_TILE_IMAGE(tileImage))
+                        {
+                            // crop
+                            float cropSize = 1.0 / powf(2.0, (float)currentTileDepth);
+                            
+                            CGRect cropBounds = CGRectMake(tileImage.size.width * (nextX - nextTileX),
+                                                           tileImage.size.height * (nextY - nextTileY),
+                                                           tileImage.size.width * cropSize,
+                                                           tileImage.size.height * cropSize);
+                            
+                            CGImageRef imageRef = CGImageCreateWithImageInRect([tileImage CGImage], cropBounds);
+                            tileImage = [UIImage imageWithCGImage:imageRef];
+                            CGImageRelease(imageRef);
+                            
+                            break;
+                        }
+                        else
+                        {
+                            tileImage = nil;
+                        }
+                        
+                        currentTileDepth++;
+                        currentZoom = zoom - currentTileDepth;
+                    }
+                }
+            }
+            
+            if (IS_VALID_TILE_IMAGE(tileImage))
+            {
+                if (_mapView.adjustTilesForRetinaDisplay && _mapView.screenScale > 1.0)
+                {
+                    // Crop the image
+                    float xCrop = (floor(rect.origin.x / rect.size.width) / 2.0) - x;
+                    float yCrop = (floor(rect.origin.y / rect.size.height) / 2.0) - y;
+                    
+                    CGRect cropBounds = CGRectMake(tileImage.size.width * xCrop,
+                                                   tileImage.size.height * yCrop,
+                                                   tileImage.size.width * 0.5,
+                                                   tileImage.size.height * 0.5);
+                    
+                    CGImageRef imageRef = CGImageCreateWithImageInRect([tileImage CGImage], cropBounds);
+                    tileImage = [UIImage imageWithCGImage:imageRef];
+                    CGImageRelease(imageRef);
+                }
+                
+                if (_mapView.debugTiles)
+                {
+                    UIGraphicsBeginImageContext(tileImage.size);
+                    
+                    CGContextRef debugContext = UIGraphicsGetCurrentContext();
+                    
+                    CGRect debugRect = CGRectMake(0, 0, tileImage.size.width, tileImage.size.height);
+                    
+                    [tileImage drawInRect:debugRect];
+                    
+                    UIFont *font = [UIFont systemFontOfSize:32.0];
+                    
+                    CGContextSetStrokeColorWithColor(debugContext, [UIColor whiteColor].CGColor);
+                    CGContextSetLineWidth(debugContext, 2.0);
+                    CGContextSetShadowWithColor(debugContext, CGSizeMake(0.0, 0.0), 5.0, [UIColor blackColor].CGColor);
+                    
+                    CGContextStrokeRect(debugContext, debugRect);
+                    
+                    CGContextSetFillColorWithColor(debugContext, [UIColor whiteColor].CGColor);
+                    
+                    NSString *debugString = [NSString stringWithFormat:@"Zoom %d", zoom];
+                    CGSize debugSize1 = [debugString sizeWithFont:font];
+                    [debugString drawInRect:CGRectMake(5.0, 5.0, debugSize1.width, debugSize1.height) withFont:font];
+                    
+                    debugString = [NSString stringWithFormat:@"(%d, %d)", x, y];
+                    CGSize debugSize2 = [debugString sizeWithFont:font];
+                    [debugString drawInRect:CGRectMake(5.0, 5.0 + debugSize1.height + 5.0, debugSize2.width, debugSize2.height) withFont:font];
+                    
+                    tileImage = UIGraphicsGetImageFromCurrentImageContext();
+                    
+                    UIGraphicsEndImageContext();
+                }
+                
+                [tileImage drawInRect:rect];
+            }
+            else
+            {
+                //            NSLog(@"Invalid image for {%d,%d} @ %d", x, y, zoom);
+            }
+            
+            UIGraphicsPopContext();
         }
-
-        UIGraphicsPopContext();
     }
-
-    [pool release]; pool = nil;
 }
 
 @end

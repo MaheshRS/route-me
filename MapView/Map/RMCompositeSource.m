@@ -46,7 +46,7 @@
 
     if (tileCacheKey)
     {
-        _uniqueTilecacheKey = [tileCacheKey retain];
+        _uniqueTilecacheKey = tileCacheKey;
     }
     else
     {
@@ -75,14 +75,13 @@
 
 - (void)dealloc
 {
-    [_uniqueTilecacheKey release]; _uniqueTilecacheKey = nil;
-    [_tileSources release]; _tileSources = nil;
-    [super dealloc];
+     _uniqueTilecacheKey = nil;
+     _tileSources = nil;
 }
 
 - (NSArray *)tileSources
 {
-    return [[_tileSources copy] autorelease];
+    return [_tileSources copy];
 }
 
 - (NSString *)uniqueTilecacheKey
@@ -129,7 +128,6 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:RMTileRequested object:[NSNumber numberWithUnsignedLongLong:RMTileKey(tile)]];
     });
 
-    [tileCache retain];
 
     NSMutableArray *tileImages = [NSMutableArray arrayWithCapacity:[_tileSources count]];
 
@@ -179,7 +177,6 @@
     if (image && self.isCacheable)
         [tileCache addImage:image forTile:tile withCacheKey:[self uniqueTilecacheKey]];
 
-    [tileCache release];
 
     dispatch_async(dispatch_get_main_queue(), ^(void)
     {

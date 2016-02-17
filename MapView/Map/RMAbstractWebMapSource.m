@@ -54,9 +54,8 @@
 
 - (void)dealloc
 {
-    [activeDownloadsTileHashes release]; activeDownloadsTileHashes = nil;
-    [activeDownloadsCondition release]; activeDownloadsCondition = nil;
-    [super dealloc];
+     activeDownloadsTileHashes = nil;
+     activeDownloadsCondition = nil;
 }
 
 - (NSURL *)URLForTile:(RMTile)tile
@@ -95,7 +94,6 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:RMTileRequested object:[NSNumber numberWithUnsignedLongLong:RMTileKey(tile)]];
     });
 
-    [tileCache retain];
 
     // Prevent double downloads
     NSNumber *tileHash = [NSNumber numberWithUnsignedLongLong:RMTileKey(tile)];
@@ -112,7 +110,6 @@
         if (image)
         {
             [activeDownloadsCondition unlock];
-            [tileCache release];
 
             return image;
         }
@@ -165,7 +162,6 @@
         // wait for whole group of fetches (with retries) to finish, then clean up
         //
         dispatch_group_wait(fetchGroup, dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * self.requestTimeoutSeconds));
-        dispatch_release(fetchGroup);
 
         // composite the collected images together
         //
@@ -211,7 +207,6 @@
     [activeDownloadsCondition signal];
     [activeDownloadsCondition unlock];
 
-    [tileCache release];
 
     dispatch_async(dispatch_get_main_queue(), ^(void)
     {
