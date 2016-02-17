@@ -86,7 +86,6 @@ typedef enum {
 - (void)createBarButtonItem
 {
     _segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@""]];
-    _segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
     [_segmentedControl setWidth:32.0 forSegmentAtIndex:0];
     _segmentedControl.userInteractionEnabled = NO;
     _segmentedControl.tintColor = self.tintColor;

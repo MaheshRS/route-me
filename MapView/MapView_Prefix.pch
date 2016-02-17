@@ -9,6 +9,7 @@
     #import <QuartzCore/QuartzCore.h>
 
     #import "RMGlobalConstants.h"
+    #import "NSString+Attributes.h"
 #endif
 
 #if DEBUG
