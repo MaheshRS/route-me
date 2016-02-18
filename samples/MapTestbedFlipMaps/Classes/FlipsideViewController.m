@@ -48,12 +48,6 @@
     [self updateInfo];
 }
 
-- (void)dealloc
-{
-    self.infoTextView = nil; 
-    self.mapView = nil; 
-    [super dealloc];
-}
 
 - (void)updateInfo
 {
@@ -75,7 +69,7 @@
 
 - (RMMapLayer *)mapView:(RMMapView *)mapView layerForAnnotation:(RMAnnotation *)annotation
 {
-    RMMarker *marker = [[[RMMarker alloc] initWithUIImage:annotation.annotationIcon anchorPoint:annotation.anchorPoint] autorelease];
+    RMMarker *marker = [[RMMarker alloc] initWithUIImage:annotation.annotationIcon anchorPoint:annotation.anchorPoint];
     [marker setTextForegroundColor:[annotation.userInfo objectForKey:@"foregroundColor"]];
 	[marker changeLabelUsingText:annotation.title];
     return marker;

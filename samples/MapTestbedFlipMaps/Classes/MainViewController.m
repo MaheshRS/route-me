@@ -66,12 +66,6 @@
     [self updateInfo];
 }
 
-- (void)dealloc
-{
-    self.infoTextView = nil; 
-    self.mapView = nil; 
-    [super dealloc];
-}
 
 - (void)updateInfo
 {
@@ -93,32 +87,32 @@
     switch (mapSelectControl.selectedSegmentIndex)
     {
         case 1: {
-            [mapView setTileSource:[[[RMOpenCycleMapSource alloc] init] autorelease]];
+            [mapView setTileSource:[[RMOpenCycleMapSource alloc] init]];
             break;
         }
         case 2: {
-            [mapView setTileSource:[[[RMOpenSeaMapSource alloc] init] autorelease]];
+            [mapView setTileSource:[[RMOpenSeaMapSource alloc] init]];
             break;
         }
         case 3: {
-            [mapView setTileSource:[[[RMMapQuestOSMSource alloc] init] autorelease]];
+            [mapView setTileSource:[[RMMapQuestOSMSource alloc] init]];
             break;
         }
         case 4: {
-            [mapView setTileSource:[[[RMMapQuestOpenAerialSource alloc] init] autorelease]];
+            [mapView setTileSource:[[RMMapQuestOpenAerialSource alloc] init]];
             break;
         }
         case 5: {
-            RMWMS *wms = [[[RMWMS alloc] init] autorelease];
+            RMWMS *wms = [[RMWMS alloc] init];
             wms.urlPrefix = @"http://vmap0.tiles.osgeo.org/wms/vmap0";
             wms.layers = @"basic";
-            RMWMSSource *wmsSource = [[[RMWMSSource alloc] init] autorelease];
+            RMWMSSource *wmsSource = [[RMWMSSource alloc] init];
             wmsSource.wms = wms;
             wmsSource.uniqueTilecacheKey = @"abc";
             [mapView setTileSource:wmsSource];
         }
         default: {
-            [mapView setTileSource:[[[RMOpenStreetMapSource alloc] init] autorelease]];
+            [mapView setTileSource:[[RMOpenStreetMapSource alloc] init]];
             break;
         }
     }
@@ -138,7 +132,7 @@
 
 - (RMMapLayer *)mapView:(RMMapView *)mapView layerForAnnotation:(RMAnnotation *)annotation
 {
-    RMMarker *marker = [[[RMMarker alloc] initWithUIImage:annotation.annotationIcon anchorPoint:annotation.anchorPoint] autorelease];
+    RMMarker *marker = [[RMMarker alloc] initWithUIImage:annotation.annotationIcon anchorPoint:annotation.anchorPoint];
     [marker setTextForegroundColor:[annotation.userInfo objectForKey:@"foregroundColor"]];
 	[marker changeLabelUsingText:annotation.title];
     return marker;

@@ -17,12 +17,5 @@
     [window makeKeyAndVisible];
 }
 
-- (void)dealloc
-{
-    self.rootViewController = nil;
-	self.window = nil;
-    [window release];
-    [super dealloc];
-}
 
 @end

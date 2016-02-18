@@ -20,7 +20,6 @@
 
     MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainView" bundle:nil];
     self.mainViewController = viewController;
-    [viewController release];
 
     [self.view insertSubview:mainViewController.view belowSubview:infoButton];
 }
@@ -29,20 +28,16 @@
 {    
     FlipsideViewController *viewController = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
     self.flipsideViewController = viewController;
-    [viewController release];
 
     // Set up the navigation bar
     UINavigationBar *aNavigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 44.0)];
     aNavigationBar.barStyle = UIBarStyleBlackOpaque;
     self.flipsideNavigationBar = aNavigationBar;
-    [aNavigationBar release];
 
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(toggleView)];
     UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:@"MapTestbed"];
     navigationItem.rightBarButtonItem = buttonItem;
     [flipsideNavigationBar pushNavigationItem:navigationItem animated:NO];
-    [navigationItem release];
-    [buttonItem release];
 }
 
 - (IBAction)toggleView
@@ -90,13 +85,5 @@
     // Release anything that's not essential, such as cached data
 }
 
-- (void)dealloc
-{
-    [infoButton release];
-    [flipsideNavigationBar release];
-    [mainViewController release];
-    [flipsideViewController release];
-    [super dealloc];
-}
 
 @end

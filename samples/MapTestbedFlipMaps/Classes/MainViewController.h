@@ -14,8 +14,8 @@
 	IBOutlet UISegmentedControl *mapSelectControl;
 }
 
-@property (nonatomic, retain) IBOutlet RMMapView *mapView;
-@property (nonatomic, retain) IBOutlet UITextView *infoTextView;
+@property (nonatomic, strong) IBOutlet RMMapView *mapView;
+@property (nonatomic, strong) IBOutlet UITextView *infoTextView;
 
 - (IBAction) mapSelectChange;
 
