@@ -17,15 +17,8 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {    
     // Override point for customization after app launch    
-    self.window.rootViewController = [[ProgrammaticMapViewController alloc] init];
     [window makeKeyAndVisible];
 }
 
-- (void)dealloc
-{
-    [viewController release];
-    [window release];
-    [super dealloc];
-}
 
 @end

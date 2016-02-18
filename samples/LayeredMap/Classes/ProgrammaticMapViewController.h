@@ -15,7 +15,7 @@
 	RMMapView *mapView;
 }
 
-@property(nonatomic,retain)RMMapView *mapView;
+@property(nonatomic,strong)RMMapView *mapView;
 
 - (IBAction)doTheTest:(id)sender;
 

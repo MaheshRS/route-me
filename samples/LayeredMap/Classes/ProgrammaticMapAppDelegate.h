@@ -16,8 +16,8 @@
     ProgrammaticMapViewController *viewController;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet ProgrammaticMapViewController *viewController;
+@property (nonatomic, strong) IBOutlet UIWindow *window;
+@property (nonatomic, strong) IBOutlet ProgrammaticMapViewController *viewController;
 
 @end
 
