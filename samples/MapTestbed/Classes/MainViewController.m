@@ -52,12 +52,6 @@
     [self updateInfo];
 }
 
-- (void)dealloc
-{
-    self.infoTextView = nil; 
-    self.mapView = nil; 
-    [super dealloc];
-}
 
 - (void)updateInfo
 {
@@ -92,7 +86,7 @@
     if ([annotation.annotationType isEqualToString:@"path"])
     {
 //        RMPath *testPath = [[[RMPath alloc] initWithView:aMapView] autorelease];
-        RMShape *testPath = [[[RMShape alloc] initWithView:aMapView] autorelease];
+        RMShape *testPath = [[RMShape alloc] initWithView:aMapView];
         [testPath setLineColor:[annotation.userInfo objectForKey:@"lineColor"]];
         [testPath setFillColor:[annotation.userInfo objectForKey:@"fillColor"]];
         [testPath setLineWidth:[[annotation.userInfo objectForKey:@"lineWidth"] floatValue]];
@@ -111,7 +105,7 @@
 
     if ([annotation.annotationType isEqualToString:@"marker"])
     {
-        return [[[RMMarker alloc] initWithUIImage:annotation.annotationIcon anchorPoint:annotation.anchorPoint] autorelease];
+        return [[RMMarker alloc] initWithUIImage:annotation.annotationIcon anchorPoint:annotation.anchorPoint];
     }
 
     return nil;

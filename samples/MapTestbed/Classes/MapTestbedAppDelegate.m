@@ -54,10 +54,10 @@
 	[mapView zoomWithLatitudeLongitudeBoundsSouthWest:southwest northEast:northeast animated:NO];
 
     NSArray *linePoints = [NSArray arrayWithObjects:
-                           [[[CLLocation alloc] initWithLatitude:48.884238608729035f longitude:2.297086715698242f] autorelease],
-                           [[[CLLocation alloc] initWithLatitude:48.878481319827735f longitude:2.294340133666992f] autorelease],
-                           [[[CLLocation alloc] initWithLatitude:48.87351371451778f longitude:2.2948551177978516f] autorelease],
-                           [[[CLLocation alloc] initWithLatitude:48.86600492029781f longitude:2.3194026947021484f] autorelease],
+                           [[CLLocation alloc] initWithLatitude:48.884238608729035f longitude:2.297086715698242f],
+                           [[CLLocation alloc] initWithLatitude:48.878481319827735f longitude:2.294340133666992f],
+                           [[CLLocation alloc] initWithLatitude:48.87351371451778f longitude:2.2948551177978516f],
+                           [[CLLocation alloc] initWithLatitude:48.86600492029781f longitude:2.3194026947021484f],
                            nil];
 
 	// draw a green path south down an avenue and southeast on Champs-Elysees
@@ -76,7 +76,7 @@
     {
         CLLocation *currentLocation = [linePoints objectAtIndex:i];
 
-        RMAnnotation *markerAnnotation = [RMAnnotation annotationWithMapView:mapView coordinate:currentLocation.coordinate andTitle:[NSString stringWithFormat:@"R %d", i+1]];
+        RMAnnotation *markerAnnotation = [RMAnnotation annotationWithMapView:mapView coordinate:currentLocation.coordinate andTitle:[NSString stringWithFormat:@"R %lu", i+1]];
         markerAnnotation.annotationType = @"marker";
         markerAnnotation.annotationIcon = xMarkerImage;
         markerAnnotation.anchorPoint = CGPointMake(0.5, 1.0);
@@ -84,10 +84,10 @@
     }
 
     linePoints = [NSArray arrayWithObjects:
-                  [[[CLLocation alloc] initWithLatitude:48.86637615203047f longitude:2.3236513137817383f] autorelease],
-                  [[[CLLocation alloc] initWithLatitude:48.86372241857954f longitude:2.321462631225586f] autorelease],
-                  [[[CLLocation alloc] initWithLatitude:48.86087090984738f longitude:2.330174446105957f] autorelease],
-                  [[[CLLocation alloc] initWithLatitude:48.86369418661614f longitude:2.332019805908203f] autorelease],
+                  [[CLLocation alloc] initWithLatitude:48.86637615203047f longitude:2.3236513137817383f],
+                  [[CLLocation alloc] initWithLatitude:48.86372241857954f longitude:2.321462631225586f],
+                  [[CLLocation alloc] initWithLatitude:48.86087090984738f longitude:2.330174446105957f],
+                  [[CLLocation alloc] initWithLatitude:48.86369418661614f longitude:2.332019805908203f],
                   nil];
 
     pathAnnotation = [RMAnnotation annotationWithMapView:mapView coordinate:((CLLocation *)[linePoints objectAtIndex:0]).coordinate andTitle:nil];
@@ -106,10 +106,10 @@
     {
         CLLocation *currentLocation = [linePoints objectAtIndex:i];
 
-        RMAnnotation *markerAnnotation = [RMAnnotation annotationWithMapView:mapView coordinate:currentLocation.coordinate andTitle:[NSString stringWithFormat:@"S %d", i+1]];
+        RMAnnotation *markerAnnotation = [RMAnnotation annotationWithMapView:mapView coordinate:currentLocation.coordinate andTitle:[NSString stringWithFormat:@"S %lu", i+1]];
         markerAnnotation.annotationType = @"marker";
         markerAnnotation.annotationIcon = xMarkerImage;
-        markerAnnotation.anchorPoint = CGPointMake(0.5, 1.0);
+        markerAnnotation.anchorPoint = CGPointMake(0.5, 0.5);
         [mapView addAnnotation:markerAnnotation];
     }
 
@@ -125,11 +125,5 @@
 	[self performSelector:@selector(performTest) withObject:nil afterDelay:0.25f];
 }
 
-- (void)dealloc
-{
-    [rootViewController release];
-    [window release];
-    [super dealloc];
-}
 
 @end

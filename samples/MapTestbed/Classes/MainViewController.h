@@ -12,8 +12,8 @@
 	IBOutlet UITextView * infoTextView;
 }
 
-@property (nonatomic, retain) IBOutlet RMMapView *mapView;
-@property (nonatomic, retain) IBOutlet UITextView *infoTextView;
+@property (nonatomic, strong) IBOutlet RMMapView *mapView;
+@property (nonatomic, strong) IBOutlet UITextView *infoTextView;
 
 - (void)updateInfo;
 

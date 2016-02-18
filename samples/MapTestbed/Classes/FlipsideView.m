@@ -20,9 +20,5 @@
     // Drawing code
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 @end
