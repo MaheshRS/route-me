@@ -12,7 +12,7 @@
 	IBOutlet RMMapView *lowerMapView;
 }
 
-@property (nonatomic, retain) IBOutlet RMMapView *upperMapView;
-@property (nonatomic, retain) IBOutlet RMMapView *lowerMapView;
+@property (nonatomic, strong) IBOutlet RMMapView *upperMapView;
+@property (nonatomic, strong) IBOutlet RMMapView *lowerMapView;
 
 @end

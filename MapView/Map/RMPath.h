@@ -69,7 +69,7 @@
 
     // Line shadow
     CGFloat shadowBlur;
-    CGSize shadowOffset;
+    CGSize shadowOffsetSize;
     BOOL enableShadow;
 
     BOOL scaleLineWidth;
@@ -91,7 +91,7 @@
 @property (nonatomic, assign) float lineWidth;
 @property (nonatomic, assign) BOOL	scaleLineWidth;
 @property (nonatomic, assign) CGFloat shadowBlur;
-@property (nonatomic, assign) CGSize shadowOffset;
+@property (nonatomic, assign) CGSize shadowOffsetSize;
 @property (nonatomic, assign) BOOL enableShadow;
 @property (nonatomic, retain) UIColor *lineColor;
 @property (nonatomic, retain) UIColor *fillColor;

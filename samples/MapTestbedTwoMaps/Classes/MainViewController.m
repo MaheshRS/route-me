@@ -36,11 +36,11 @@
 	center.longitude = -122.333;
 
     [upperMapView setDelegate:self];
-    upperMapView.tileSource = [[[RMOpenStreetMapSource alloc] init] autorelease];
+    upperMapView.tileSource = [[RMOpenStreetMapSource alloc] init];
 	[upperMapView setCenterCoordinate:center animated:NO];
 
     [lowerMapView setDelegate:self];
-    lowerMapView.tileSource = [[[RMOpenCycleMapSource alloc] init] autorelease];
+    lowerMapView.tileSource = [[RMOpenCycleMapSource alloc] init];
 	[lowerMapView setCenterCoordinate:center animated:NO];
 
 	NSLog(@"%@ %@", upperMapView, lowerMapView);
@@ -56,12 +56,6 @@
 {
 }
 
-- (void)dealloc
-{
-    self.upperMapView = nil; 
-    self.lowerMapView = nil; 
-    [super dealloc];
-}
 
 #pragma mark -
 #pragma mark Delegate methods

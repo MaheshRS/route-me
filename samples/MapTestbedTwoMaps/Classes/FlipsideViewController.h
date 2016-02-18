@@ -16,10 +16,10 @@
     RMMapView *mapView;    
 }
 
-@property(nonatomic,retain) IBOutlet UITextField *centerLatitude;
-@property(nonatomic,retain) IBOutlet UITextField *centerLongitude;
-@property(nonatomic,retain) IBOutlet UITextField *zoomLevel;
-@property(nonatomic,retain) IBOutlet UITextField *minZoom;
-@property(nonatomic,retain) IBOutlet UITextField *maxZoom;
+@property(nonatomic,strong) IBOutlet UITextField *centerLatitude;
+@property(nonatomic,strong) IBOutlet UITextField *centerLongitude;
+@property(nonatomic,strong) IBOutlet UITextField *zoomLevel;
+@property(nonatomic,strong) IBOutlet UITextField *minZoom;
+@property(nonatomic,strong) IBOutlet UITextField *maxZoom;
 
 @end

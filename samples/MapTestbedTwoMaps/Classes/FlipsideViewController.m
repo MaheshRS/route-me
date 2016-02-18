@@ -53,14 +53,5 @@
     [mapView setMinZoom:[[minZoom text] floatValue]];
 }
 
-- (void)dealloc
-{
-    self.centerLatitude = nil;
-    self.centerLongitude = nil;
-    self.zoomLevel = nil;
-    self.minZoom = nil;
-    self.maxZoom = nil;    
-    [super dealloc];
-}
 
 @end
