@@ -27,7 +27,7 @@
     CGRect bounds = self.view.bounds;
 
     UIButton *showMapButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    showMapButton.frame = CGRectMake(10.0, bounds.size.height - 100.0, bounds.size.width-20.0, 44.0);
+    showMapButton.frame = CGRectMake(10.0, bounds.size.height - 300, bounds.size.width-20.0, 44.0);
     [showMapButton setTitle:@"Show the map" forState:UIControlStateNormal];
     [showMapButton addTarget:self action:@selector(showTheMap) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:showMapButton];
@@ -35,7 +35,7 @@
 
 - (void)showTheMap
 {
-    MapViewController *mapViewController = [[[MapViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+    MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
 

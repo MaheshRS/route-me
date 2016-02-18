@@ -8,10 +8,10 @@
 
 @interface MainViewController : UIViewController <RMMapViewDelegate>
 
-@property (nonatomic, retain) IBOutlet RMMapView *mapView;
-@property (nonatomic, retain) IBOutlet UITextView *infoTextView;
-@property (nonatomic, retain) IBOutlet UILabel *mppLabel;
-@property (nonatomic, retain) IBOutlet UIImageView *mppImage;
+@property (nonatomic, strong) IBOutlet RMMapView *mapView;
+@property (nonatomic, strong) IBOutlet UITextView *infoTextView;
+@property (nonatomic, strong) IBOutlet UILabel *mppLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *mppImage;
 
 - (void)updateInfo;
 

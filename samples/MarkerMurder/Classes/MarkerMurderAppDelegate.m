@@ -14,15 +14,9 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {    
-    [window addSubview:[rootViewController view]];
+    window.rootViewController = [[MainViewController    alloc] init];
     [window makeKeyAndVisible];
 }
 
-- (void)dealloc
-{
-    [rootViewController release];
-    [window release];
-    [super dealloc];
-}
 
 @end

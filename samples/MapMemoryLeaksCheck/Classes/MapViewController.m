@@ -22,7 +22,7 @@
 	firstLocation.latitude = 51.2795;
 	firstLocation.longitude = 1.082;
 
-	self.mapView = [[[RMMapView alloc] initWithFrame:CGRectMake(10, 20, 300, 340)] autorelease];
+	self.mapView = [[RMMapView alloc] initWithFrame:CGRectMake(10, 20, 300, 340)];
 	[mapView setBackgroundColor:[UIColor greenColor]];
 	[self.view addSubview:mapView];
 	[self.view sendSubviewToBack:mapView];
@@ -31,9 +31,11 @@
 - (void)dealloc
 {
     NSLog(@" => mapView dealloc");
+    [mapView removeAllCachedImages];
     [mapView removeFromSuperview];
-	self.mapView = nil;
-	[super dealloc];
+    
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    
 }
 
 @end

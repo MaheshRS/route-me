@@ -15,17 +15,11 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {    
-    navigationController = [[UINavigationController alloc] initWithRootViewController:[[[RootViewController alloc] initWithNibName:nil bundle:nil] autorelease]];
+    navigationController = [[UINavigationController alloc] initWithRootViewController:[[RootViewController alloc] initWithNibName:nil bundle:nil]];
 
-    [window addSubview:navigationController.view];
+    window.rootViewController = navigationController;
     [window makeKeyAndVisible];
 }
 
-- (void)dealloc
-{
-    [navigationController release];
-    [window release];
-    [super dealloc];
-}
 
 @end

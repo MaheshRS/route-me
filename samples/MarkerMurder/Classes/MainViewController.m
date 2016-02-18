@@ -234,13 +234,6 @@
     [super viewDidUnload];
 }
 
-- (void)dealloc
-{
-    self.infoTextView = nil; 
-    self.mapView = nil; 
-    self.mppLabel = nil;
-    [super dealloc];
-}
 
 - (void)updateInfo
 {
@@ -308,7 +301,7 @@
     if ([annotation.annotationType isEqualToString:kDraggableAnnotationType])
     {
         NSLog(@"Label <%@> tapped for marker <%@>",  ((RMMarker *)annotation.layer).label, (RMMarker *)annotation.layer);
-        [(RMMarker *)annotation.layer changeLabelUsingText:[NSString stringWithFormat:@"Drag me! Tap me! (%d)", ++tapCount]];
+        [(RMMarker *)annotation.layer changeLabelUsingText:[NSString stringWithFormat:@"Drag me! Tap me! (%lu)", (unsigned long)++tapCount]];
     }
 }
 
@@ -353,19 +346,19 @@
 
     if ([annotation.annotationType isEqualToString:kRMClusterAnnotationTypeName])
     {
-        marker = [[[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"marker-blue.png"] anchorPoint:CGPointMake(0.5, 1.0)] autorelease];
+        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"marker-blue.png"] anchorPoint:CGPointMake(0.5, 1.0)];
 
         if (annotation.title)
             [(RMMarker *)marker changeLabelUsingText:annotation.title];
     }
     else if ([annotation.annotationType isEqualToString:kCircleAnnotationType])
     {
-        marker = [[[RMCircle alloc] initWithView:aMapView radiusInMeters:10000.0] autorelease];
+        marker = [[RMCircle alloc] initWithView:aMapView radiusInMeters:10000.0];
         [(RMCircle *)marker setLineWidthInPixels:5.0];
     }
     else
     {
-        marker = [[[RMMarker alloc] initWithUIImage:annotation.annotationIcon anchorPoint:annotation.anchorPoint] autorelease];
+        marker = [[RMMarker alloc] initWithUIImage:annotation.annotationIcon anchorPoint:annotation.anchorPoint];
 
         if (annotation.title)
             [(RMMarker *)marker changeLabelUsingText:annotation.title];
