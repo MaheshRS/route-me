@@ -1,4 +1,4 @@
-Route-Me: iOS map library (Alpstein Copy)
+Route-Me: iOS map library 
 -----------------------------------------
 
 Route-Me is an open source map library that runs natively on iOS.  It's designed to look and feel much like the built-in iOS map library, but it's entirely open, and works with any map source.
@@ -12,7 +12,6 @@ Please note that you are responsible for getting permission to use the map data,
    [3]: http://www.openseamap.org/
    [4]: http://developer.mapquest.com/web/products/open/map
    [5]: http://developer.mapquest.com/web/products/open/map
-
 
 Installation
 ------------
@@ -85,3 +84,11 @@ Route-Me makes use of several sub-libraries, listed below. See License.txt for m
 
  * [FMDB](https://github.com/MaheshRS/fmdb) Gus Mueller fork (SQLite for caching and MBTiles)
  * [SMCalloutView](https://github.com/MaheshRS/calloutview.git) Nick Farina fork  (annotation callouts)
+ 
+ 
+![Shot 1](https://github.com/MaheshRS/route-me/blob/5a2812dcf2ff1422cbd9a9acccde4d031ae4fc2e/Screen%20Shots/Screen1.png)
+
+![Shot 2](https://github.com/MaheshRS/route-me/blob/5a2812dcf2ff1422cbd9a9acccde4d031ae4fc2e/Screen%20Shots/Screen2.png)
+
+![Shot 3](https://github.com/MaheshRS/route-me/blob/5a2812dcf2ff1422cbd9a9acccde4d031ae4fc2e/Screen%20Shots/Screen3.png)
+
