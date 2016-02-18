@@ -360,7 +360,7 @@
 				GCC_PREFIX_HEADER = MapMemoryLeaksCheck_Prefix.pch;
 				HEADER_SEARCH_PATHS = "../../MapView/**";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mobilegeographics.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = MapMemoryLeaksCheck;
 			};
@@ -376,7 +376,7 @@
 				GCC_PREFIX_HEADER = MapMemoryLeaksCheck_Prefix.pch;
 				HEADER_SEARCH_PATHS = "../../MapView/**";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mobilegeographics.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = MapMemoryLeaksCheck;
 			};
@@ -390,7 +390,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -403,7 +403,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
