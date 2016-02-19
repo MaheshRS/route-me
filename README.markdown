@@ -16,15 +16,21 @@ Please note that you are responsible for getting permission to use the map data,
 Installation
 ------------
 
-As Route-Me is undergoing some significant changes, the recommended course of action is to clone a copy of the repository:
+* Clone a copy of the repository:
 
       https://github.com/MaheshRS/route-me.git
 
-Then, update the submodules:
+ Then, update the submodules:
 
       git submodule update --init
 
-After this, copy or alias all the resources in the MapView/Map/Resources folder to your project.
+ After this, copy or alias all the resources in the MapView/Map/Resources folder to your project.
+
+ *OR*
+
+Add MapView.frame, copy or alias all the resources the MapView/Map/Resources folder to the project. 
+
+* Add `App Transport Security Settings` to the project. 
 
 See the 'samples' subdirectory for usage examples.
 
