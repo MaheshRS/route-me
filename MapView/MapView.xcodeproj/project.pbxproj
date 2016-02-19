@@ -22,89 +22,101 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		126693040EB76C0B00E002D5 /* RMConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 126692A00EB75C0A00E002D5 /* RMConfiguration.m */; };
-		1606C9FE13D86BA400547581 /* RMOpenCycleMapSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 1606C9FC13D86BA300547581 /* RMOpenCycleMapSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1606C9FF13D86BA400547581 /* RMOpenCycleMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1606C9FD13D86BA300547581 /* RMOpenCycleMapSource.m */; };
-		1607499514E120A100D535F5 /* RMGenericMapSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 1607499314E120A100D535F5 /* RMGenericMapSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1607499614E120A100D535F5 /* RMGenericMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1607499414E120A100D535F5 /* RMGenericMapSource.m */; };
-		1609AF8E14068B09008344B7 /* RMMapOverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1609AF8C14068B09008344B7 /* RMMapOverlayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1609AF8F14068B09008344B7 /* RMMapOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF8D14068B09008344B7 /* RMMapOverlayView.m */; };
-		160E535713FBDB48004F82F9 /* RMMapTiledLayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 160E535513FBDB47004F82F9 /* RMMapTiledLayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		160E535813FBDB48004F82F9 /* RMMapTiledLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 160E535613FBDB48004F82F9 /* RMMapTiledLayerView.m */; };
-		160EEDAF13D41DEC007C5501 /* RMAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 160EEDAD13D41DEC007C5501 /* RMAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		160EEDB013D41DEC007C5501 /* RMAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 160EEDAE13D41DEC007C5501 /* RMAnnotation.m */; };
-		16128CF5148D295300C23C0E /* RMOpenSeaMapSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 16128CF3148D295300C23C0E /* RMOpenSeaMapSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		16128CF6148D295300C23C0E /* RMOpenSeaMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 16128CF4148D295300C23C0E /* RMOpenSeaMapSource.m */; };
-		161E563A1594664E00B00BB6 /* RMOpenSeaMapLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 161E56381594664E00B00BB6 /* RMOpenSeaMapLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		161E563B1594664E00B00BB6 /* RMOpenSeaMapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 161E56391594664E00B00BB6 /* RMOpenSeaMapLayer.m */; };
-		1656665515A1DF7900EF3DC7 /* RMCoordinateGridSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 1656665315A1DF7900EF3DC7 /* RMCoordinateGridSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1656665615A1DF7900EF3DC7 /* RMCoordinateGridSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1656665415A1DF7900EF3DC7 /* RMCoordinateGridSource.m */; };
-		16E5A63A15E531F200C92A5A /* RMCompositeSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E5A63815E531F200C92A5A /* RMCompositeSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		16E5A63B15E531F200C92A5A /* RMCompositeSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E5A63915E531F200C92A5A /* RMCompositeSource.m */; };
-		16EC85D2133CA6C300219947 /* RMAbstractMercatorTileSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 16EC85CC133CA6C300219947 /* RMAbstractMercatorTileSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		16EC85D3133CA6C300219947 /* RMAbstractMercatorTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 16EC85CD133CA6C300219947 /* RMAbstractMercatorTileSource.m */; };
-		16EC85D4133CA6C300219947 /* RMAbstractWebMapSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 16EC85CE133CA6C300219947 /* RMAbstractWebMapSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		16EC85D5133CA6C300219947 /* RMAbstractWebMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 16EC85CF133CA6C300219947 /* RMAbstractWebMapSource.m */; };
-		16EC85D6133CA6C300219947 /* RMCacheObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 16EC85D0133CA6C300219947 /* RMCacheObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		16EC85D7133CA6C300219947 /* RMCacheObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 16EC85D1133CA6C300219947 /* RMCacheObject.m */; };
-		16F3581B15864135003A3AD9 /* RMMapScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F3581915864135003A3AD9 /* RMMapScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		16F3581C15864135003A3AD9 /* RMMapScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F3581A15864135003A3AD9 /* RMMapScrollView.m */; };
-		16F98C961590CFF000FF90CE /* RMShape.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98C941590CFF000FF90CE /* RMShape.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		16F98C971590CFF000FF90CE /* RMShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98C951590CFF000FF90CE /* RMShape.m */; };
-		16FAB66413E03D55002F4E1C /* RMQuadTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FAB66213E03D55002F4E1C /* RMQuadTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		16FAB66513E03D55002F4E1C /* RMQuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FAB66313E03D55002F4E1C /* RMQuadTree.m */; };
-		16FBF07615936BF1004ECAD1 /* RMTileSourcesContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FBF07415936BF1004ECAD1 /* RMTileSourcesContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		16FBF07715936BF1004ECAD1 /* RMTileSourcesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FBF07515936BF1004ECAD1 /* RMTileSourcesContainer.m */; };
-		16FFF2CB14E3DBF700A170EC /* RMMapQuestOpenAerialSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FFF2C914E3DBF700A170EC /* RMMapQuestOpenAerialSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		16FFF2CC14E3DBF700A170EC /* RMMapQuestOpenAerialSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FFF2CA14E3DBF700A170EC /* RMMapQuestOpenAerialSource.m */; };
 		17F02BB11319BA4B00260C6B /* RouteMe.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F02BB01319BA4B00260C6B /* RouteMe.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		23A0AAE90EB90A99003A4521 /* RMFoundation.c in Sources */ = {isa = PBXBuildFile; fileRef = 23A0AAE80EB90A99003A4521 /* RMFoundation.c */; };
-		23A0AAEB0EB90AA6003A4521 /* RMFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 23A0AAEA0EB90AA6003A4521 /* RMFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		25757F4F1291C8640083D504 /* RMCircle.h in Headers */ = {isa = PBXBuildFile; fileRef = 25757F4D1291C8640083D504 /* RMCircle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		25757F501291C8640083D504 /* RMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 25757F4E1291C8640083D504 /* RMCircle.m */; };
-		444FEC1E17A5BF7100F3798C /* RMWMS.h in Headers */ = {isa = PBXBuildFile; fileRef = 444FEC1A17A5BF7100F3798C /* RMWMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		444FEC1F17A5BF7100F3798C /* RMWMS.m in Sources */ = {isa = PBXBuildFile; fileRef = 444FEC1B17A5BF7100F3798C /* RMWMS.m */; };
-		444FEC2017A5BF7100F3798C /* RMWMSSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 444FEC1C17A5BF7100F3798C /* RMWMSSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		444FEC2117A5BF7100F3798C /* RMWMSSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 444FEC1D17A5BF7100F3798C /* RMWMSSource.m */; };
 		96492C400FA8AD3400EBA6D2 /* RMGlobalConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 96492C3F0FA8AD3400EBA6D2 /* RMGlobalConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727B21C774D850046A771 /* RMAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727A61C774D850046A771 /* RMAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727B31C774D850046A771 /* RMAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727A71C774D850046A771 /* RMAnnotation.m */; };
+		AB7727B41C774D850046A771 /* RMCircle.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727A81C774D850046A771 /* RMCircle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727B51C774D850046A771 /* RMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727A91C774D850046A771 /* RMCircle.m */; };
+		AB7727B61C774D850046A771 /* RMMapLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727AA1C774D850046A771 /* RMMapLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727B71C774D850046A771 /* RMMapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727AB1C774D850046A771 /* RMMapLayer.m */; };
+		AB7727B81C774D850046A771 /* RMMarker.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727AC1C774D850046A771 /* RMMarker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727B91C774D850046A771 /* RMMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727AD1C774D850046A771 /* RMMarker.m */; };
+		AB7727BA1C774D850046A771 /* RMQuadTree.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727AE1C774D850046A771 /* RMQuadTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727BB1C774D850046A771 /* RMQuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727AF1C774D850046A771 /* RMQuadTree.m */; };
+		AB7727BC1C774D850046A771 /* RMShape.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727B01C774D850046A771 /* RMShape.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727BD1C774D850046A771 /* RMShape.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727B11C774D850046A771 /* RMShape.m */; };
+		AB7727C21C774DBF0046A771 /* RMUserLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727BE1C774DBF0046A771 /* RMUserLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727C31C774DBF0046A771 /* RMUserLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727BF1C774DBF0046A771 /* RMUserLocation.m */; };
+		AB7727C41C774DBF0046A771 /* RMUserTrackingBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727C01C774DBF0046A771 /* RMUserTrackingBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727C51C774DBF0046A771 /* RMUserTrackingBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727C11C774DBF0046A771 /* RMUserTrackingBarButtonItem.m */; };
+		AB7727C81C774DD60046A771 /* RMConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727C61C774DD60046A771 /* RMConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727C91C774DD60046A771 /* RMConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727C71C774DD60046A771 /* RMConfiguration.m */; };
+		AB7727D11C774E040046A771 /* RMFoundation.c in Sources */ = {isa = PBXBuildFile; fileRef = AB7727CA1C774E040046A771 /* RMFoundation.c */; };
+		AB7727D21C774E040046A771 /* RMFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727CB1C774E040046A771 /* RMFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727D41C774E040046A771 /* RMPixel.c in Sources */ = {isa = PBXBuildFile; fileRef = AB7727CD1C774E040046A771 /* RMPixel.c */; };
+		AB7727D51C774E040046A771 /* RMPixel.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727CE1C774E040046A771 /* RMPixel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727D61C774E040046A771 /* RMTile.c in Sources */ = {isa = PBXBuildFile; fileRef = AB7727CF1C774E040046A771 /* RMTile.c */; };
+		AB7727D71C774E040046A771 /* RMTile.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727D01C774E040046A771 /* RMTile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727DC1C774E140046A771 /* RMFractalTileProjection.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727D81C774E140046A771 /* RMFractalTileProjection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727DD1C774E140046A771 /* RMFractalTileProjection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727D91C774E140046A771 /* RMFractalTileProjection.m */; };
+		AB7727DE1C774E140046A771 /* RMProjection.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727DA1C774E140046A771 /* RMProjection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727DF1C774E140046A771 /* RMProjection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727DB1C774E140046A771 /* RMProjection.m */; };
+		AB7727EA1C774E240046A771 /* RMLoadingTileView.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727E01C774E240046A771 /* RMLoadingTileView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727EB1C774E240046A771 /* RMLoadingTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727E11C774E240046A771 /* RMLoadingTileView.m */; };
+		AB7727EC1C774E240046A771 /* RMMapOverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727E21C774E240046A771 /* RMMapOverlayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727ED1C774E240046A771 /* RMMapOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727E31C774E240046A771 /* RMMapOverlayView.m */; };
+		AB7727EE1C774E240046A771 /* RMMapScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727E41C774E240046A771 /* RMMapScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727EF1C774E240046A771 /* RMMapScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727E51C774E240046A771 /* RMMapScrollView.m */; };
+		AB7727F01C774E240046A771 /* RMMapTiledLayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727E61C774E240046A771 /* RMMapTiledLayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727F11C774E240046A771 /* RMMapTiledLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727E71C774E240046A771 /* RMMapTiledLayerView.m */; };
+		AB7727F21C774E240046A771 /* RMTileImage.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727E81C774E240046A771 /* RMTileImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727F31C774E240046A771 /* RMTileImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727E91C774E240046A771 /* RMTileImage.m */; };
+		AB7727FE1C774EA00046A771 /* RMCacheObject.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727F41C774EA00046A771 /* RMCacheObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7727FF1C774EA00046A771 /* RMCacheObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727F51C774EA00046A771 /* RMCacheObject.m */; };
+		AB7728001C774EA00046A771 /* RMDatabaseCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727F61C774EA00046A771 /* RMDatabaseCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728011C774EA00046A771 /* RMDatabaseCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727F71C774EA00046A771 /* RMDatabaseCache.m */; };
+		AB7728021C774EA00046A771 /* RMMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727F81C774EA00046A771 /* RMMemoryCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728031C774EA00046A771 /* RMMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727F91C774EA00046A771 /* RMMemoryCache.m */; };
+		AB7728041C774EA00046A771 /* RMTileCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727FA1C774EA00046A771 /* RMTileCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728051C774EA00046A771 /* RMTileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727FB1C774EA00046A771 /* RMTileCache.m */; };
+		AB7728061C774EA00046A771 /* RMTileCacheDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7727FC1C774EA00046A771 /* RMTileCacheDownloadOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728071C774EA00046A771 /* RMTileCacheDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7727FD1C774EA00046A771 /* RMTileCacheDownloadOperation.m */; };
+		AB7728221C774F1B0046A771 /* RMBingSource.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7728081C774F1B0046A771 /* RMBingSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728231C774F1B0046A771 /* RMBingSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7728091C774F1B0046A771 /* RMBingSource.m */; };
+		AB7728241C774F1B0046A771 /* RMCompositeSource.h in Headers */ = {isa = PBXBuildFile; fileRef = AB77280A1C774F1B0046A771 /* RMCompositeSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728251C774F1B0046A771 /* RMCompositeSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AB77280B1C774F1B0046A771 /* RMCompositeSource.m */; };
+		AB7728261C774F1B0046A771 /* RMCoordinateGridSource.h in Headers */ = {isa = PBXBuildFile; fileRef = AB77280C1C774F1B0046A771 /* RMCoordinateGridSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728271C774F1B0046A771 /* RMCoordinateGridSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AB77280D1C774F1B0046A771 /* RMCoordinateGridSource.m */; };
+		AB7728281C774F1B0046A771 /* RMDBMapSource.h in Headers */ = {isa = PBXBuildFile; fileRef = AB77280E1C774F1B0046A771 /* RMDBMapSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728291C774F1B0046A771 /* RMDBMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AB77280F1C774F1B0046A771 /* RMDBMapSource.m */; };
+		AB77282A1C774F1B0046A771 /* RMGenericMapSource.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7728101C774F1B0046A771 /* RMGenericMapSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB77282B1C774F1B0046A771 /* RMGenericMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7728111C774F1B0046A771 /* RMGenericMapSource.m */; };
+		AB77282C1C774F1B0046A771 /* RMMapQuestOpenAerialSource.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7728121C774F1B0046A771 /* RMMapQuestOpenAerialSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB77282D1C774F1B0046A771 /* RMMapQuestOpenAerialSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7728131C774F1B0046A771 /* RMMapQuestOpenAerialSource.m */; };
+		AB77282E1C774F1B0046A771 /* RMMapQuestOSMSource.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7728141C774F1B0046A771 /* RMMapQuestOSMSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB77282F1C774F1B0046A771 /* RMMapQuestOSMSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7728151C774F1B0046A771 /* RMMapQuestOSMSource.m */; };
+		AB7728301C774F1B0046A771 /* RMOpenCycleMapSource.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7728161C774F1B0046A771 /* RMOpenCycleMapSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728311C774F1B0046A771 /* RMOpenCycleMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7728171C774F1B0046A771 /* RMOpenCycleMapSource.m */; };
+		AB7728321C774F1B0046A771 /* RMOpenSeaMapLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7728181C774F1B0046A771 /* RMOpenSeaMapLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728331C774F1B0046A771 /* RMOpenSeaMapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7728191C774F1B0046A771 /* RMOpenSeaMapLayer.m */; };
+		AB7728341C774F1B0046A771 /* RMOpenSeaMapSource.h in Headers */ = {isa = PBXBuildFile; fileRef = AB77281A1C774F1B0046A771 /* RMOpenSeaMapSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728351C774F1B0046A771 /* RMOpenSeaMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AB77281B1C774F1B0046A771 /* RMOpenSeaMapSource.m */; };
+		AB7728361C774F1B0046A771 /* RMOpenStreetMapSource.h in Headers */ = {isa = PBXBuildFile; fileRef = AB77281C1C774F1B0046A771 /* RMOpenStreetMapSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728371C774F1B0046A771 /* RMOpenStreetMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AB77281D1C774F1B0046A771 /* RMOpenStreetMapSource.m */; };
+		AB7728381C774F1B0046A771 /* RMWMS.h in Headers */ = {isa = PBXBuildFile; fileRef = AB77281E1C774F1B0046A771 /* RMWMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728391C774F1B0046A771 /* RMWMS.m in Sources */ = {isa = PBXBuildFile; fileRef = AB77281F1C774F1B0046A771 /* RMWMS.m */; };
+		AB77283A1C774F1B0046A771 /* RMWMSSource.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7728201C774F1B0046A771 /* RMWMSSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB77283B1C774F1B0046A771 /* RMWMSSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7728211C774F1B0046A771 /* RMWMSSource.m */; };
+		AB7728431C774F3E0046A771 /* RMAbstractMercatorTileSource.h in Headers */ = {isa = PBXBuildFile; fileRef = AB77283C1C774F3E0046A771 /* RMAbstractMercatorTileSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728441C774F3E0046A771 /* RMAbstractMercatorTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AB77283D1C774F3E0046A771 /* RMAbstractMercatorTileSource.m */; };
+		AB7728451C774F3E0046A771 /* RMAbstractWebMapSource.h in Headers */ = {isa = PBXBuildFile; fileRef = AB77283E1C774F3E0046A771 /* RMAbstractWebMapSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728461C774F3E0046A771 /* RMAbstractWebMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AB77283F1C774F3E0046A771 /* RMAbstractWebMapSource.m */; };
+		AB7728471C774F3E0046A771 /* RMTileSource.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7728401C774F3E0046A771 /* RMTileSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728481C774F3E0046A771 /* RMTileSourcesContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7728411C774F3E0046A771 /* RMTileSourcesContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7728491C774F3E0046A771 /* RMTileSourcesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7728421C774F3E0046A771 /* RMTileSourcesContainer.m */; };
 		ABDA44DA1C74ACAC002EC7D7 /* libProj4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABDA44D71C74AC7F002EC7D7 /* libProj4.a */; };
 		ABE0585D1C748D2C00AF68F5 /* NSString+Attributes.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE0585B1C748D2C00AF68F5 /* NSString+Attributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABE0585E1C748D2C00AF68F5 /* NSString+Attributes.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE0585C1C748D2C00AF68F5 /* NSString+Attributes.m */; };
 		B1EB26C610B5D8E6009F8658 /* RMNotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = B1EB26C510B5D8E6009F8658 /* RMNotifications.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8474BA40EB40094006A0BC1 /* RMDatabaseCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B8474B980EB40094006A0BC1 /* RMDatabaseCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8474BA50EB40094006A0BC1 /* RMDatabaseCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B8474B990EB40094006A0BC1 /* RMDatabaseCache.m */; };
 		B8800FF20EC3A239003E9CDD /* RMMapViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 12F2031E0EBB65E9003D7B6B /* RMMapViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8800FF30EC3A23D003E9CDD /* RMConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 1266929F0EB75C0A00E002D5 /* RMConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8C974220E8A19B2007D16AD /* RMProjection.h in Headers */ = {isa = PBXBuildFile; fileRef = B83E64E30E80E73F001663B6 /* RMProjection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8C974230E8A19B2007D16AD /* RMTileCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B83E64D00E80E73F001663B6 /* RMTileCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8C974250E8A19B2007D16AD /* RMOpenStreetMapSource.h in Headers */ = {isa = PBXBuildFile; fileRef = B83E64ED0E80E73F001663B6 /* RMOpenStreetMapSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8C974260E8A19B2007D16AD /* RMTile.h in Headers */ = {isa = PBXBuildFile; fileRef = B83E64D60E80E73F001663B6 /* RMTile.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8C974270E8A19B2007D16AD /* RMPixel.h in Headers */ = {isa = PBXBuildFile; fileRef = B83E64B60E80E73F001663B6 /* RMPixel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8C9742A0E8A19B2007D16AD /* RMTileImage.h in Headers */ = {isa = PBXBuildFile; fileRef = B83E64D80E80E73F001663B6 /* RMTileImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8C9742B0E8A19B2007D16AD /* RMMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B83E64D20E80E73F001663B6 /* RMMemoryCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8C9742D0E8A19B2007D16AD /* RMFractalTileProjection.h in Headers */ = {isa = PBXBuildFile; fileRef = B83E64E90E80E73F001663B6 /* RMFractalTileProjection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8C9742F0E8A19B2007D16AD /* RMMapLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = B86F26AC0E87442C007A3773 /* RMMapLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8C9743F0E8A19B2007D16AD /* RMTileImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64D90E80E73F001663B6 /* RMTileImage.m */; };
-		B8C974400E8A19B2007D16AD /* RMTile.c in Sources */ = {isa = PBXBuildFile; fileRef = B83E64D70E80E73F001663B6 /* RMTile.c */; };
-		B8C974410E8A19B2007D16AD /* RMOpenStreetMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64EE0E80E73F001663B6 /* RMOpenStreetMapSource.m */; };
-		B8C974420E8A19B2007D16AD /* RMMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64D30E80E73F001663B6 /* RMMemoryCache.m */; };
-		B8C974430E8A19B2007D16AD /* RMPixel.c in Sources */ = {isa = PBXBuildFile; fileRef = B83E64B70E80E73F001663B6 /* RMPixel.c */; };
-		B8C974440E8A19B2007D16AD /* RMFractalTileProjection.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64EA0E80E73F001663B6 /* RMFractalTileProjection.m */; };
-		B8C974480E8A19B2007D16AD /* RMTileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64D10E80E73F001663B6 /* RMTileCache.m */; };
-		B8C9744A0E8A19B2007D16AD /* RMProjection.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64E40E80E73F001663B6 /* RMProjection.m */; };
 		B8C974500E8A19B2007D16AD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B83E65590E80E7EB001663B6 /* CoreFoundation.framework */; };
 		B8C974510E8A19B2007D16AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		B8C974520E8A19B2007D16AD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B83E65630E80E81C001663B6 /* CoreLocation.framework */; };
 		B8C974530E8A19B2007D16AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		B8C974540E8A19B2007D16AD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B83E65680E80E830001663B6 /* QuartzCore.framework */; };
-		B8C974620E8A19E8007D16AD /* RMTileSource.h in Headers */ = {isa = PBXBuildFile; fileRef = B83E64EC0E80E73F001663B6 /* RMTileSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8C9746B0E8A1A50007D16AD /* RMMapView.h in Headers */ = {isa = PBXBuildFile; fileRef = B8C974690E8A1A50007D16AD /* RMMapView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8C9746C0E8A1A50007D16AD /* RMMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C9746A0E8A1A50007D16AD /* RMMapView.m */; };
-		B8F3FC610EA2B382004D8F85 /* RMMapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F3FC600EA2B382004D8F85 /* RMMapLayer.m */; };
-		B8F3FC640EA2E792004D8F85 /* RMMarker.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F3FC620EA2E792004D8F85 /* RMMarker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8F3FC650EA2E792004D8F85 /* RMMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F3FC630EA2E792004D8F85 /* RMMarker.m */; };
-		D1437B36122869E400888DAE /* RMDBMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D1437B32122869E400888DAE /* RMDBMapSource.m */; };
-		D1437B37122869E400888DAE /* RMDBMapSource.h in Headers */ = {isa = PBXBuildFile; fileRef = D1437B33122869E400888DAE /* RMDBMapSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD1E3C6E161F954F004FC649 /* SMCalloutView.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1E3C6C161F954F004FC649 /* SMCalloutView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD1E3C6F161F954F004FC649 /* SMCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1E3C6D161F954F004FC649 /* SMCalloutView.m */; };
 		DD2B374514CF8041008DE8CB /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = DD2B373F14CF8041008DE8CB /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -117,17 +129,7 @@
 		DD2B375014CF814F008DE8CB /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2B374C14CF814F008DE8CB /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DD2B375114CF814F008DE8CB /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = DD2B374D14CF814F008DE8CB /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD2B375214CF814F008DE8CB /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2B374E14CF814F008DE8CB /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DD4195C9162356900049E6BA /* RMBingSource.h in Headers */ = {isa = PBXBuildFile; fileRef = DD4195C7162356900049E6BA /* RMBingSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DD4195CA162356900049E6BA /* RMBingSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4195C8162356900049E6BA /* RMBingSource.m */; };
-		DD41960116250ED40049E6BA /* RMTileCacheDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = DD4195FF16250ED40049E6BA /* RMTileCacheDownloadOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DD41960216250ED40049E6BA /* RMTileCacheDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DD41960016250ED40049E6BA /* RMTileCacheDownloadOperation.m */; };
-		DD5FA1EB15E2B020004EB6C5 /* RMLoadingTileView.h in Headers */ = {isa = PBXBuildFile; fileRef = DD5FA1E915E2B020004EB6C5 /* RMLoadingTileView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DD5FA1EC15E2B020004EB6C5 /* RMLoadingTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5FA1EA15E2B020004EB6C5 /* RMLoadingTileView.m */; };
 		DD6B651B16A9ECD8007D1CBA /* MapView_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = DD6B651A16A9ECD8007D1CBA /* MapView_Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
-		DD8CDB4A14E0507100B73EB9 /* RMMapQuestOSMSource.h in Headers */ = {isa = PBXBuildFile; fileRef = DD8CDB4814E0507100B73EB9 /* RMMapQuestOSMSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DD8CDB4B14E0507100B73EB9 /* RMMapQuestOSMSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8CDB4914E0507100B73EB9 /* RMMapQuestOSMSource.m */; };
-		DD8FD7541559E4A40044D96F /* RMUserLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = DD8FD7521559E4A40044D96F /* RMUserLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DD8FD7551559E4A40044D96F /* RMUserLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8FD7531559E4A40044D96F /* RMUserLocation.m */; };
 		DD932BB5165C287000D69D49 /* TrackingDot.png in Resources */ = {isa = PBXBuildFile; fileRef = DD932BA7165C287000D69D49 /* TrackingDot.png */; };
 		DD932BB6165C287000D69D49 /* TrackingDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD932BA8165C287000D69D49 /* TrackingDot@2x.png */; };
 		DD932BB7165C287000D69D49 /* HeadingAngleSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = DD932BA9165C287000D69D49 /* HeadingAngleSmall.png */; };
@@ -140,8 +142,6 @@
 		DD932BBE165C287000D69D49 /* TrackingHeading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD932BB0165C287000D69D49 /* TrackingHeading@2x.png */; };
 		DD932BBF165C287000D69D49 /* TrackingLocation.png in Resources */ = {isa = PBXBuildFile; fileRef = DD932BB1165C287000D69D49 /* TrackingLocation.png */; };
 		DD932BC0165C287000D69D49 /* TrackingLocation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD932BB2165C287000D69D49 /* TrackingLocation@2x.png */; };
-		DDA6B8BD155CAB67003DB5D8 /* RMUserTrackingBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = DDA6B8BB155CAB67003DB5D8 /* RMUserTrackingBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DDA6B8BE155CAB67003DB5D8 /* RMUserTrackingBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA6B8BC155CAB67003DB5D8 /* RMUserTrackingBarButtonItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,93 +176,105 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1266929F0EB75C0A00E002D5 /* RMConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMConfiguration.h; sourceTree = "<group>"; };
-		126692A00EB75C0A00E002D5 /* RMConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMConfiguration.m; sourceTree = "<group>"; };
 		12F2031E0EBB65E9003D7B6B /* RMMapViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMapViewDelegate.h; sourceTree = "<group>"; };
-		1606C9FC13D86BA300547581 /* RMOpenCycleMapSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMOpenCycleMapSource.h; sourceTree = "<group>"; };
-		1606C9FD13D86BA300547581 /* RMOpenCycleMapSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMOpenCycleMapSource.m; sourceTree = "<group>"; };
-		1607499314E120A100D535F5 /* RMGenericMapSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGenericMapSource.h; sourceTree = "<group>"; };
-		1607499414E120A100D535F5 /* RMGenericMapSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGenericMapSource.m; sourceTree = "<group>"; };
-		1609AF8C14068B09008344B7 /* RMMapOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMapOverlayView.h; sourceTree = "<group>"; };
-		1609AF8D14068B09008344B7 /* RMMapOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMapOverlayView.m; sourceTree = "<group>"; };
-		160E535513FBDB47004F82F9 /* RMMapTiledLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMapTiledLayerView.h; sourceTree = "<group>"; };
-		160E535613FBDB48004F82F9 /* RMMapTiledLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMapTiledLayerView.m; sourceTree = "<group>"; };
-		160EEDAD13D41DEC007C5501 /* RMAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAnnotation.h; sourceTree = "<group>"; };
-		160EEDAE13D41DEC007C5501 /* RMAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAnnotation.m; sourceTree = "<group>"; };
-		16128CF3148D295300C23C0E /* RMOpenSeaMapSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMOpenSeaMapSource.h; sourceTree = "<group>"; };
-		16128CF4148D295300C23C0E /* RMOpenSeaMapSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMOpenSeaMapSource.m; sourceTree = "<group>"; };
-		161E56381594664E00B00BB6 /* RMOpenSeaMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMOpenSeaMapLayer.h; sourceTree = "<group>"; };
-		161E56391594664E00B00BB6 /* RMOpenSeaMapLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMOpenSeaMapLayer.m; sourceTree = "<group>"; };
-		1656665315A1DF7900EF3DC7 /* RMCoordinateGridSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMCoordinateGridSource.h; sourceTree = "<group>"; };
-		1656665415A1DF7900EF3DC7 /* RMCoordinateGridSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMCoordinateGridSource.m; sourceTree = "<group>"; };
-		16E5A63815E531F200C92A5A /* RMCompositeSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMCompositeSource.h; sourceTree = "<group>"; };
-		16E5A63915E531F200C92A5A /* RMCompositeSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMCompositeSource.m; sourceTree = "<group>"; };
-		16EC85CC133CA6C300219947 /* RMAbstractMercatorTileSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAbstractMercatorTileSource.h; sourceTree = "<group>"; };
-		16EC85CD133CA6C300219947 /* RMAbstractMercatorTileSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAbstractMercatorTileSource.m; sourceTree = "<group>"; };
-		16EC85CE133CA6C300219947 /* RMAbstractWebMapSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAbstractWebMapSource.h; sourceTree = "<group>"; };
-		16EC85CF133CA6C300219947 /* RMAbstractWebMapSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAbstractWebMapSource.m; sourceTree = "<group>"; };
-		16EC85D0133CA6C300219947 /* RMCacheObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMCacheObject.h; sourceTree = "<group>"; };
-		16EC85D1133CA6C300219947 /* RMCacheObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMCacheObject.m; sourceTree = "<group>"; };
-		16F3581915864135003A3AD9 /* RMMapScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMapScrollView.h; sourceTree = "<group>"; };
-		16F3581A15864135003A3AD9 /* RMMapScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMapScrollView.m; sourceTree = "<group>"; };
-		16F98C941590CFF000FF90CE /* RMShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMShape.h; sourceTree = "<group>"; };
-		16F98C951590CFF000FF90CE /* RMShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMShape.m; sourceTree = "<group>"; };
-		16FAB66213E03D55002F4E1C /* RMQuadTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMQuadTree.h; sourceTree = "<group>"; };
-		16FAB66313E03D55002F4E1C /* RMQuadTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMQuadTree.m; sourceTree = "<group>"; };
-		16FBF07415936BF1004ECAD1 /* RMTileSourcesContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTileSourcesContainer.h; sourceTree = "<group>"; };
-		16FBF07515936BF1004ECAD1 /* RMTileSourcesContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTileSourcesContainer.m; sourceTree = "<group>"; };
-		16FFF2C914E3DBF700A170EC /* RMMapQuestOpenAerialSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMapQuestOpenAerialSource.h; sourceTree = "<group>"; };
-		16FFF2CA14E3DBF700A170EC /* RMMapQuestOpenAerialSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMapQuestOpenAerialSource.m; sourceTree = "<group>"; };
 		17F02BB01319BA4B00260C6B /* RouteMe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteMe.h; sourceTree = "<group>"; };
 		17F31EFA1331050A00122B16 /* libMapView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMapView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		23A0AAE80EB90A99003A4521 /* RMFoundation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = RMFoundation.c; sourceTree = "<group>"; };
-		23A0AAEA0EB90AA6003A4521 /* RMFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMFoundation.h; sourceTree = "<group>"; };
-		25757F4D1291C8640083D504 /* RMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMCircle.h; sourceTree = "<group>"; };
-		25757F4E1291C8640083D504 /* RMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMCircle.m; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		444FEC1A17A5BF7100F3798C /* RMWMS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMWMS.h; sourceTree = "<group>"; };
-		444FEC1B17A5BF7100F3798C /* RMWMS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMWMS.m; sourceTree = "<group>"; };
-		444FEC1C17A5BF7100F3798C /* RMWMSSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMWMSSource.h; sourceTree = "<group>"; };
-		444FEC1D17A5BF7100F3798C /* RMWMSSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMWMSSource.m; sourceTree = "<group>"; };
 		96492C3F0FA8AD3400EBA6D2 /* RMGlobalConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGlobalConstants.h; sourceTree = "<group>"; };
 		AB0BC5EE1C740A7E00C07AE5 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
+		AB7727A61C774D850046A771 /* RMAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMAnnotation.h; path = "Annotation Layers/RMAnnotation.h"; sourceTree = "<group>"; };
+		AB7727A71C774D850046A771 /* RMAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMAnnotation.m; path = "Annotation Layers/RMAnnotation.m"; sourceTree = "<group>"; };
+		AB7727A81C774D850046A771 /* RMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMCircle.h; path = "Annotation Layers/RMCircle.h"; sourceTree = "<group>"; };
+		AB7727A91C774D850046A771 /* RMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMCircle.m; path = "Annotation Layers/RMCircle.m"; sourceTree = "<group>"; };
+		AB7727AA1C774D850046A771 /* RMMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMMapLayer.h; path = "Annotation Layers/RMMapLayer.h"; sourceTree = "<group>"; };
+		AB7727AB1C774D850046A771 /* RMMapLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMMapLayer.m; path = "Annotation Layers/RMMapLayer.m"; sourceTree = "<group>"; };
+		AB7727AC1C774D850046A771 /* RMMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMMarker.h; path = "Annotation Layers/RMMarker.h"; sourceTree = "<group>"; };
+		AB7727AD1C774D850046A771 /* RMMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMMarker.m; path = "Annotation Layers/RMMarker.m"; sourceTree = "<group>"; };
+		AB7727AE1C774D850046A771 /* RMQuadTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMQuadTree.h; path = "Annotation Layers/RMQuadTree.h"; sourceTree = "<group>"; };
+		AB7727AF1C774D850046A771 /* RMQuadTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMQuadTree.m; path = "Annotation Layers/RMQuadTree.m"; sourceTree = "<group>"; };
+		AB7727B01C774D850046A771 /* RMShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMShape.h; path = "Annotation Layers/RMShape.h"; sourceTree = "<group>"; };
+		AB7727B11C774D850046A771 /* RMShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMShape.m; path = "Annotation Layers/RMShape.m"; sourceTree = "<group>"; };
+		AB7727BE1C774DBF0046A771 /* RMUserLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMUserLocation.h; path = "User Location/RMUserLocation.h"; sourceTree = "<group>"; };
+		AB7727BF1C774DBF0046A771 /* RMUserLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMUserLocation.m; path = "User Location/RMUserLocation.m"; sourceTree = "<group>"; };
+		AB7727C01C774DBF0046A771 /* RMUserTrackingBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMUserTrackingBarButtonItem.h; path = "User Location/RMUserTrackingBarButtonItem.h"; sourceTree = "<group>"; };
+		AB7727C11C774DBF0046A771 /* RMUserTrackingBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMUserTrackingBarButtonItem.m; path = "User Location/RMUserTrackingBarButtonItem.m"; sourceTree = "<group>"; };
+		AB7727C61C774DD60046A771 /* RMConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMConfiguration.h; path = Configuration/RMConfiguration.h; sourceTree = "<group>"; };
+		AB7727C71C774DD60046A771 /* RMConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMConfiguration.m; path = Configuration/RMConfiguration.m; sourceTree = "<group>"; };
+		AB7727CA1C774E040046A771 /* RMFoundation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RMFoundation.c; path = "Low Level Details/Coordinate Systems/RMFoundation.c"; sourceTree = "<group>"; };
+		AB7727CB1C774E040046A771 /* RMFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMFoundation.h; path = "Low Level Details/Coordinate Systems/RMFoundation.h"; sourceTree = "<group>"; };
+		AB7727CD1C774E040046A771 /* RMPixel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RMPixel.c; path = "Low Level Details/Coordinate Systems/RMPixel.c"; sourceTree = "<group>"; };
+		AB7727CE1C774E040046A771 /* RMPixel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMPixel.h; path = "Low Level Details/Coordinate Systems/RMPixel.h"; sourceTree = "<group>"; };
+		AB7727CF1C774E040046A771 /* RMTile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RMTile.c; path = "Low Level Details/Coordinate Systems/RMTile.c"; sourceTree = "<group>"; };
+		AB7727D01C774E040046A771 /* RMTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMTile.h; path = "Low Level Details/Coordinate Systems/RMTile.h"; sourceTree = "<group>"; };
+		AB7727D81C774E140046A771 /* RMFractalTileProjection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMFractalTileProjection.h; path = "Low Level Details/Projections/RMFractalTileProjection.h"; sourceTree = "<group>"; };
+		AB7727D91C774E140046A771 /* RMFractalTileProjection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMFractalTileProjection.m; path = "Low Level Details/Projections/RMFractalTileProjection.m"; sourceTree = "<group>"; };
+		AB7727DA1C774E140046A771 /* RMProjection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMProjection.h; path = "Low Level Details/Projections/RMProjection.h"; sourceTree = "<group>"; };
+		AB7727DB1C774E140046A771 /* RMProjection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMProjection.m; path = "Low Level Details/Projections/RMProjection.m"; sourceTree = "<group>"; };
+		AB7727E01C774E240046A771 /* RMLoadingTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMLoadingTileView.h; path = "Low Level Details/Tile & Overlay Rendering/RMLoadingTileView.h"; sourceTree = "<group>"; };
+		AB7727E11C774E240046A771 /* RMLoadingTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMLoadingTileView.m; path = "Low Level Details/Tile & Overlay Rendering/RMLoadingTileView.m"; sourceTree = "<group>"; };
+		AB7727E21C774E240046A771 /* RMMapOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMMapOverlayView.h; path = "Low Level Details/Tile & Overlay Rendering/RMMapOverlayView.h"; sourceTree = "<group>"; };
+		AB7727E31C774E240046A771 /* RMMapOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMMapOverlayView.m; path = "Low Level Details/Tile & Overlay Rendering/RMMapOverlayView.m"; sourceTree = "<group>"; };
+		AB7727E41C774E240046A771 /* RMMapScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMMapScrollView.h; path = "Low Level Details/Tile & Overlay Rendering/RMMapScrollView.h"; sourceTree = "<group>"; };
+		AB7727E51C774E240046A771 /* RMMapScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMMapScrollView.m; path = "Low Level Details/Tile & Overlay Rendering/RMMapScrollView.m"; sourceTree = "<group>"; };
+		AB7727E61C774E240046A771 /* RMMapTiledLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMMapTiledLayerView.h; path = "Low Level Details/Tile & Overlay Rendering/RMMapTiledLayerView.h"; sourceTree = "<group>"; };
+		AB7727E71C774E240046A771 /* RMMapTiledLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMMapTiledLayerView.m; path = "Low Level Details/Tile & Overlay Rendering/RMMapTiledLayerView.m"; sourceTree = "<group>"; };
+		AB7727E81C774E240046A771 /* RMTileImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMTileImage.h; path = "Low Level Details/Tile & Overlay Rendering/RMTileImage.h"; sourceTree = "<group>"; };
+		AB7727E91C774E240046A771 /* RMTileImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMTileImage.m; path = "Low Level Details/Tile & Overlay Rendering/RMTileImage.m"; sourceTree = "<group>"; };
+		AB7727F41C774EA00046A771 /* RMCacheObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMCacheObject.h; path = "Tile Cache/RMCacheObject.h"; sourceTree = "<group>"; };
+		AB7727F51C774EA00046A771 /* RMCacheObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMCacheObject.m; path = "Tile Cache/RMCacheObject.m"; sourceTree = "<group>"; };
+		AB7727F61C774EA00046A771 /* RMDatabaseCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMDatabaseCache.h; path = "Tile Cache/RMDatabaseCache.h"; sourceTree = "<group>"; };
+		AB7727F71C774EA00046A771 /* RMDatabaseCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMDatabaseCache.m; path = "Tile Cache/RMDatabaseCache.m"; sourceTree = "<group>"; };
+		AB7727F81C774EA00046A771 /* RMMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMMemoryCache.h; path = "Tile Cache/RMMemoryCache.h"; sourceTree = "<group>"; };
+		AB7727F91C774EA00046A771 /* RMMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMMemoryCache.m; path = "Tile Cache/RMMemoryCache.m"; sourceTree = "<group>"; };
+		AB7727FA1C774EA00046A771 /* RMTileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMTileCache.h; path = "Tile Cache/RMTileCache.h"; sourceTree = "<group>"; };
+		AB7727FB1C774EA00046A771 /* RMTileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMTileCache.m; path = "Tile Cache/RMTileCache.m"; sourceTree = "<group>"; };
+		AB7727FC1C774EA00046A771 /* RMTileCacheDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMTileCacheDownloadOperation.h; path = "Tile Cache/RMTileCacheDownloadOperation.h"; sourceTree = "<group>"; };
+		AB7727FD1C774EA00046A771 /* RMTileCacheDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMTileCacheDownloadOperation.m; path = "Tile Cache/RMTileCacheDownloadOperation.m"; sourceTree = "<group>"; };
+		AB7728081C774F1B0046A771 /* RMBingSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMBingSource.h; path = "Tile Sources/Map Sources/RMBingSource.h"; sourceTree = "<group>"; };
+		AB7728091C774F1B0046A771 /* RMBingSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMBingSource.m; path = "Tile Sources/Map Sources/RMBingSource.m"; sourceTree = "<group>"; };
+		AB77280A1C774F1B0046A771 /* RMCompositeSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMCompositeSource.h; path = "Tile Sources/Map Sources/RMCompositeSource.h"; sourceTree = "<group>"; };
+		AB77280B1C774F1B0046A771 /* RMCompositeSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMCompositeSource.m; path = "Tile Sources/Map Sources/RMCompositeSource.m"; sourceTree = "<group>"; };
+		AB77280C1C774F1B0046A771 /* RMCoordinateGridSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMCoordinateGridSource.h; path = "Tile Sources/Map Sources/RMCoordinateGridSource.h"; sourceTree = "<group>"; };
+		AB77280D1C774F1B0046A771 /* RMCoordinateGridSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMCoordinateGridSource.m; path = "Tile Sources/Map Sources/RMCoordinateGridSource.m"; sourceTree = "<group>"; };
+		AB77280E1C774F1B0046A771 /* RMDBMapSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMDBMapSource.h; path = "Tile Sources/Map Sources/RMDBMapSource.h"; sourceTree = "<group>"; };
+		AB77280F1C774F1B0046A771 /* RMDBMapSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMDBMapSource.m; path = "Tile Sources/Map Sources/RMDBMapSource.m"; sourceTree = "<group>"; };
+		AB7728101C774F1B0046A771 /* RMGenericMapSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMGenericMapSource.h; path = "Tile Sources/Map Sources/RMGenericMapSource.h"; sourceTree = "<group>"; };
+		AB7728111C774F1B0046A771 /* RMGenericMapSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMGenericMapSource.m; path = "Tile Sources/Map Sources/RMGenericMapSource.m"; sourceTree = "<group>"; };
+		AB7728121C774F1B0046A771 /* RMMapQuestOpenAerialSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMMapQuestOpenAerialSource.h; path = "Tile Sources/Map Sources/RMMapQuestOpenAerialSource.h"; sourceTree = "<group>"; };
+		AB7728131C774F1B0046A771 /* RMMapQuestOpenAerialSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMMapQuestOpenAerialSource.m; path = "Tile Sources/Map Sources/RMMapQuestOpenAerialSource.m"; sourceTree = "<group>"; };
+		AB7728141C774F1B0046A771 /* RMMapQuestOSMSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMMapQuestOSMSource.h; path = "Tile Sources/Map Sources/RMMapQuestOSMSource.h"; sourceTree = "<group>"; };
+		AB7728151C774F1B0046A771 /* RMMapQuestOSMSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMMapQuestOSMSource.m; path = "Tile Sources/Map Sources/RMMapQuestOSMSource.m"; sourceTree = "<group>"; };
+		AB7728161C774F1B0046A771 /* RMOpenCycleMapSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMOpenCycleMapSource.h; path = "Tile Sources/Map Sources/RMOpenCycleMapSource.h"; sourceTree = "<group>"; };
+		AB7728171C774F1B0046A771 /* RMOpenCycleMapSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMOpenCycleMapSource.m; path = "Tile Sources/Map Sources/RMOpenCycleMapSource.m"; sourceTree = "<group>"; };
+		AB7728181C774F1B0046A771 /* RMOpenSeaMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMOpenSeaMapLayer.h; path = "Tile Sources/Map Sources/RMOpenSeaMapLayer.h"; sourceTree = "<group>"; };
+		AB7728191C774F1B0046A771 /* RMOpenSeaMapLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMOpenSeaMapLayer.m; path = "Tile Sources/Map Sources/RMOpenSeaMapLayer.m"; sourceTree = "<group>"; };
+		AB77281A1C774F1B0046A771 /* RMOpenSeaMapSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMOpenSeaMapSource.h; path = "Tile Sources/Map Sources/RMOpenSeaMapSource.h"; sourceTree = "<group>"; };
+		AB77281B1C774F1B0046A771 /* RMOpenSeaMapSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMOpenSeaMapSource.m; path = "Tile Sources/Map Sources/RMOpenSeaMapSource.m"; sourceTree = "<group>"; };
+		AB77281C1C774F1B0046A771 /* RMOpenStreetMapSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMOpenStreetMapSource.h; path = "Tile Sources/Map Sources/RMOpenStreetMapSource.h"; sourceTree = "<group>"; };
+		AB77281D1C774F1B0046A771 /* RMOpenStreetMapSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMOpenStreetMapSource.m; path = "Tile Sources/Map Sources/RMOpenStreetMapSource.m"; sourceTree = "<group>"; };
+		AB77281E1C774F1B0046A771 /* RMWMS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMWMS.h; path = "Tile Sources/Map Sources/RMWMS.h"; sourceTree = "<group>"; };
+		AB77281F1C774F1B0046A771 /* RMWMS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMWMS.m; path = "Tile Sources/Map Sources/RMWMS.m"; sourceTree = "<group>"; };
+		AB7728201C774F1B0046A771 /* RMWMSSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMWMSSource.h; path = "Tile Sources/Map Sources/RMWMSSource.h"; sourceTree = "<group>"; };
+		AB7728211C774F1B0046A771 /* RMWMSSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMWMSSource.m; path = "Tile Sources/Map Sources/RMWMSSource.m"; sourceTree = "<group>"; };
+		AB77283C1C774F3E0046A771 /* RMAbstractMercatorTileSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMAbstractMercatorTileSource.h; path = "Tile Sources/RMAbstractMercatorTileSource.h"; sourceTree = "<group>"; };
+		AB77283D1C774F3E0046A771 /* RMAbstractMercatorTileSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMAbstractMercatorTileSource.m; path = "Tile Sources/RMAbstractMercatorTileSource.m"; sourceTree = "<group>"; };
+		AB77283E1C774F3E0046A771 /* RMAbstractWebMapSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMAbstractWebMapSource.h; path = "Tile Sources/RMAbstractWebMapSource.h"; sourceTree = "<group>"; };
+		AB77283F1C774F3E0046A771 /* RMAbstractWebMapSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMAbstractWebMapSource.m; path = "Tile Sources/RMAbstractWebMapSource.m"; sourceTree = "<group>"; };
+		AB7728401C774F3E0046A771 /* RMTileSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMTileSource.h; path = "Tile Sources/RMTileSource.h"; sourceTree = "<group>"; };
+		AB7728411C774F3E0046A771 /* RMTileSourcesContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMTileSourcesContainer.h; path = "Tile Sources/RMTileSourcesContainer.h"; sourceTree = "<group>"; };
+		AB7728421C774F3E0046A771 /* RMTileSourcesContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMTileSourcesContainer.m; path = "Tile Sources/RMTileSourcesContainer.m"; sourceTree = "<group>"; };
 		ABDA44D21C74AC7F002EC7D7 /* Proj4.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Proj4.xcodeproj; path = Map/Proj4/Proj4.xcodeproj; sourceTree = "<group>"; };
 		ABE0585B1C748D2C00AF68F5 /* NSString+Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Attributes.h"; path = "Categories/NSString+Attributes.h"; sourceTree = "<group>"; };
 		ABE0585C1C748D2C00AF68F5 /* NSString+Attributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Attributes.m"; path = "Categories/NSString+Attributes.m"; sourceTree = "<group>"; };
 		B1EB26C510B5D8E6009F8658 /* RMNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNotifications.h; sourceTree = "<group>"; };
-		B83E64B60E80E73F001663B6 /* RMPixel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPixel.h; sourceTree = "<group>"; };
-		B83E64B70E80E73F001663B6 /* RMPixel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = RMPixel.c; sourceTree = "<group>"; };
-		B83E64D00E80E73F001663B6 /* RMTileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTileCache.h; sourceTree = "<group>"; };
-		B83E64D10E80E73F001663B6 /* RMTileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTileCache.m; sourceTree = "<group>"; };
-		B83E64D20E80E73F001663B6 /* RMMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMemoryCache.h; sourceTree = "<group>"; };
-		B83E64D30E80E73F001663B6 /* RMMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMemoryCache.m; sourceTree = "<group>"; };
-		B83E64D60E80E73F001663B6 /* RMTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTile.h; sourceTree = "<group>"; };
-		B83E64D70E80E73F001663B6 /* RMTile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = RMTile.c; sourceTree = "<group>"; };
-		B83E64D80E80E73F001663B6 /* RMTileImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTileImage.h; sourceTree = "<group>"; };
-		B83E64D90E80E73F001663B6 /* RMTileImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTileImage.m; sourceTree = "<group>"; };
-		B83E64E30E80E73F001663B6 /* RMProjection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMProjection.h; sourceTree = "<group>"; };
-		B83E64E40E80E73F001663B6 /* RMProjection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMProjection.m; sourceTree = "<group>"; };
-		B83E64E90E80E73F001663B6 /* RMFractalTileProjection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMFractalTileProjection.h; sourceTree = "<group>"; };
-		B83E64EA0E80E73F001663B6 /* RMFractalTileProjection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMFractalTileProjection.m; sourceTree = "<group>"; };
-		B83E64EC0E80E73F001663B6 /* RMTileSource.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = RMTileSource.h; sourceTree = "<group>"; };
-		B83E64ED0E80E73F001663B6 /* RMOpenStreetMapSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMOpenStreetMapSource.h; sourceTree = "<group>"; };
-		B83E64EE0E80E73F001663B6 /* RMOpenStreetMapSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMOpenStreetMapSource.m; sourceTree = "<group>"; };
 		B83E65590E80E7EB001663B6 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		B83E65630E80E81C001663B6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B83E65680E80E830001663B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		B8474B980EB40094006A0BC1 /* RMDatabaseCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDatabaseCache.h; sourceTree = "<group>"; };
-		B8474B990EB40094006A0BC1 /* RMDatabaseCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDatabaseCache.m; sourceTree = "<group>"; };
 		B8474BC00EB4019A006A0BC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		B86F26AC0E87442C007A3773 /* RMMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMapLayer.h; sourceTree = "<group>"; };
 		B8C974690E8A1A50007D16AD /* RMMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMapView.h; sourceTree = "<group>"; };
 		B8C9746A0E8A1A50007D16AD /* RMMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMapView.m; sourceTree = "<group>"; };
-		B8F3FC600EA2B382004D8F85 /* RMMapLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMapLayer.m; sourceTree = "<group>"; };
-		B8F3FC620EA2E792004D8F85 /* RMMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMarker.h; sourceTree = "<group>"; };
-		B8F3FC630EA2E792004D8F85 /* RMMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMarker.m; sourceTree = "<group>"; };
-		D1437B32122869E400888DAE /* RMDBMapSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDBMapSource.m; sourceTree = "<group>"; };
-		D1437B33122869E400888DAE /* RMDBMapSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDBMapSource.h; sourceTree = "<group>"; };
 		DD1E3C6C161F954F004FC649 /* SMCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMCalloutView.h; path = SMCalloutView/SMCalloutView.h; sourceTree = "<group>"; };
 		DD1E3C6D161F954F004FC649 /* SMCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMCalloutView.m; path = SMCalloutView/SMCalloutView.m; sourceTree = "<group>"; };
 		DD2B373F14CF8041008DE8CB /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -275,18 +287,8 @@
 		DD2B374C14CF814F008DE8CB /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
 		DD2B374D14CF814F008DE8CB /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
 		DD2B374E14CF814F008DE8CB /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
-		DD4195C7162356900049E6BA /* RMBingSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMBingSource.h; sourceTree = "<group>"; };
-		DD4195C8162356900049E6BA /* RMBingSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMBingSource.m; sourceTree = "<group>"; };
-		DD4195FF16250ED40049E6BA /* RMTileCacheDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTileCacheDownloadOperation.h; sourceTree = "<group>"; };
-		DD41960016250ED40049E6BA /* RMTileCacheDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTileCacheDownloadOperation.m; sourceTree = "<group>"; };
-		DD5FA1E915E2B020004EB6C5 /* RMLoadingTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMLoadingTileView.h; sourceTree = "<group>"; };
-		DD5FA1EA15E2B020004EB6C5 /* RMLoadingTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMLoadingTileView.m; sourceTree = "<group>"; };
 		DD6A83751644A20C0097F31F /* MapView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6B651A16A9ECD8007D1CBA /* MapView_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView_Prefix.pch; sourceTree = SOURCE_ROOT; };
-		DD8CDB4814E0507100B73EB9 /* RMMapQuestOSMSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMapQuestOSMSource.h; sourceTree = "<group>"; };
-		DD8CDB4914E0507100B73EB9 /* RMMapQuestOSMSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMapQuestOSMSource.m; sourceTree = "<group>"; };
-		DD8FD7521559E4A40044D96F /* RMUserLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMUserLocation.h; sourceTree = "<group>"; };
-		DD8FD7531559E4A40044D96F /* RMUserLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMUserLocation.m; sourceTree = "<group>"; };
 		DD932BA7165C287000D69D49 /* TrackingDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TrackingDot.png; path = Map/Resources/TrackingDot.png; sourceTree = "<group>"; };
 		DD932BA8165C287000D69D49 /* TrackingDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TrackingDot@2x.png"; path = "Map/Resources/TrackingDot@2x.png"; sourceTree = "<group>"; };
 		DD932BA9165C287000D69D49 /* HeadingAngleSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeadingAngleSmall.png; path = Map/Resources/HeadingAngleSmall.png; sourceTree = "<group>"; };
@@ -299,8 +301,6 @@
 		DD932BB0165C287000D69D49 /* TrackingHeading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TrackingHeading@2x.png"; path = "Map/Resources/TrackingHeading@2x.png"; sourceTree = "<group>"; };
 		DD932BB1165C287000D69D49 /* TrackingLocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TrackingLocation.png; path = Map/Resources/TrackingLocation.png; sourceTree = "<group>"; };
 		DD932BB2165C287000D69D49 /* TrackingLocation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TrackingLocation@2x.png"; path = "Map/Resources/TrackingLocation@2x.png"; sourceTree = "<group>"; };
-		DDA6B8BB155CAB67003DB5D8 /* RMUserTrackingBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMUserTrackingBarButtonItem.h; sourceTree = "<group>"; };
-		DDA6B8BC155CAB67003DB5D8 /* RMUserTrackingBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMUserTrackingBarButtonItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,8 +323,8 @@
 		1266929E0EB75BEA00E002D5 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				1266929F0EB75C0A00E002D5 /* RMConfiguration.h */,
-				126692A00EB75C0A00E002D5 /* RMConfiguration.m */,
+				AB7727C61C774DD60046A771 /* RMConfiguration.h */,
+				AB7727C71C774DD60046A771 /* RMConfiguration.m */,
 			);
 			name = Configuration;
 			sourceTree = "<group>";
@@ -332,32 +332,32 @@
 		16EC85CB133CA69A00219947 /* Map Sources */ = {
 			isa = PBXGroup;
 			children = (
-				16E5A63815E531F200C92A5A /* RMCompositeSource.h */,
-				16E5A63915E531F200C92A5A /* RMCompositeSource.m */,
-				1656665315A1DF7900EF3DC7 /* RMCoordinateGridSource.h */,
-				1656665415A1DF7900EF3DC7 /* RMCoordinateGridSource.m */,
-				D1437B33122869E400888DAE /* RMDBMapSource.h */,
-				D1437B32122869E400888DAE /* RMDBMapSource.m */,
-				1607499314E120A100D535F5 /* RMGenericMapSource.h */,
-				1607499414E120A100D535F5 /* RMGenericMapSource.m */,
-				16FFF2C914E3DBF700A170EC /* RMMapQuestOpenAerialSource.h */,
-				16FFF2CA14E3DBF700A170EC /* RMMapQuestOpenAerialSource.m */,
-				DD8CDB4814E0507100B73EB9 /* RMMapQuestOSMSource.h */,
-				DD8CDB4914E0507100B73EB9 /* RMMapQuestOSMSource.m */,
-				1606C9FC13D86BA300547581 /* RMOpenCycleMapSource.h */,
-				1606C9FD13D86BA300547581 /* RMOpenCycleMapSource.m */,
-				16128CF3148D295300C23C0E /* RMOpenSeaMapSource.h */,
-				16128CF4148D295300C23C0E /* RMOpenSeaMapSource.m */,
-				161E56381594664E00B00BB6 /* RMOpenSeaMapLayer.h */,
-				161E56391594664E00B00BB6 /* RMOpenSeaMapLayer.m */,
-				B83E64ED0E80E73F001663B6 /* RMOpenStreetMapSource.h */,
-				B83E64EE0E80E73F001663B6 /* RMOpenStreetMapSource.m */,
-				DD4195C7162356900049E6BA /* RMBingSource.h */,
-				DD4195C8162356900049E6BA /* RMBingSource.m */,
-				444FEC1A17A5BF7100F3798C /* RMWMS.h */,
-				444FEC1B17A5BF7100F3798C /* RMWMS.m */,
-				444FEC1C17A5BF7100F3798C /* RMWMSSource.h */,
-				444FEC1D17A5BF7100F3798C /* RMWMSSource.m */,
+				AB7728081C774F1B0046A771 /* RMBingSource.h */,
+				AB7728091C774F1B0046A771 /* RMBingSource.m */,
+				AB77280A1C774F1B0046A771 /* RMCompositeSource.h */,
+				AB77280B1C774F1B0046A771 /* RMCompositeSource.m */,
+				AB77280C1C774F1B0046A771 /* RMCoordinateGridSource.h */,
+				AB77280D1C774F1B0046A771 /* RMCoordinateGridSource.m */,
+				AB77280E1C774F1B0046A771 /* RMDBMapSource.h */,
+				AB77280F1C774F1B0046A771 /* RMDBMapSource.m */,
+				AB7728101C774F1B0046A771 /* RMGenericMapSource.h */,
+				AB7728111C774F1B0046A771 /* RMGenericMapSource.m */,
+				AB7728121C774F1B0046A771 /* RMMapQuestOpenAerialSource.h */,
+				AB7728131C774F1B0046A771 /* RMMapQuestOpenAerialSource.m */,
+				AB7728141C774F1B0046A771 /* RMMapQuestOSMSource.h */,
+				AB7728151C774F1B0046A771 /* RMMapQuestOSMSource.m */,
+				AB7728161C774F1B0046A771 /* RMOpenCycleMapSource.h */,
+				AB7728171C774F1B0046A771 /* RMOpenCycleMapSource.m */,
+				AB7728181C774F1B0046A771 /* RMOpenSeaMapLayer.h */,
+				AB7728191C774F1B0046A771 /* RMOpenSeaMapLayer.m */,
+				AB77281A1C774F1B0046A771 /* RMOpenSeaMapSource.h */,
+				AB77281B1C774F1B0046A771 /* RMOpenSeaMapSource.m */,
+				AB77281C1C774F1B0046A771 /* RMOpenStreetMapSource.h */,
+				AB77281D1C774F1B0046A771 /* RMOpenStreetMapSource.m */,
+				AB77281E1C774F1B0046A771 /* RMWMS.h */,
+				AB77281F1C774F1B0046A771 /* RMWMS.m */,
+				AB7728201C774F1B0046A771 /* RMWMSSource.h */,
+				AB7728211C774F1B0046A771 /* RMWMSSource.m */,
 			);
 			name = "Map Sources";
 			sourceTree = "<group>";
@@ -417,16 +417,16 @@
 		B83E64CE0E80E73F001663B6 /* Tile & Overlay Rendering */ = {
 			isa = PBXGroup;
 			children = (
-				B83E64D80E80E73F001663B6 /* RMTileImage.h */,
-				B83E64D90E80E73F001663B6 /* RMTileImage.m */,
-				160E535513FBDB47004F82F9 /* RMMapTiledLayerView.h */,
-				160E535613FBDB48004F82F9 /* RMMapTiledLayerView.m */,
-				1609AF8C14068B09008344B7 /* RMMapOverlayView.h */,
-				1609AF8D14068B09008344B7 /* RMMapOverlayView.m */,
-				16F3581915864135003A3AD9 /* RMMapScrollView.h */,
-				16F3581A15864135003A3AD9 /* RMMapScrollView.m */,
-				DD5FA1E915E2B020004EB6C5 /* RMLoadingTileView.h */,
-				DD5FA1EA15E2B020004EB6C5 /* RMLoadingTileView.m */,
+				AB7727E01C774E240046A771 /* RMLoadingTileView.h */,
+				AB7727E11C774E240046A771 /* RMLoadingTileView.m */,
+				AB7727E21C774E240046A771 /* RMMapOverlayView.h */,
+				AB7727E31C774E240046A771 /* RMMapOverlayView.m */,
+				AB7727E41C774E240046A771 /* RMMapScrollView.h */,
+				AB7727E51C774E240046A771 /* RMMapScrollView.m */,
+				AB7727E61C774E240046A771 /* RMMapTiledLayerView.h */,
+				AB7727E71C774E240046A771 /* RMMapTiledLayerView.m */,
+				AB7727E81C774E240046A771 /* RMTileImage.h */,
+				AB7727E91C774E240046A771 /* RMTileImage.m */,
 			);
 			name = "Tile & Overlay Rendering";
 			sourceTree = "<group>";
@@ -434,16 +434,16 @@
 		B83E64CF0E80E73F001663B6 /* Tile Cache */ = {
 			isa = PBXGroup;
 			children = (
-				16EC85D0133CA6C300219947 /* RMCacheObject.h */,
-				16EC85D1133CA6C300219947 /* RMCacheObject.m */,
-				B83E64D00E80E73F001663B6 /* RMTileCache.h */,
-				B83E64D10E80E73F001663B6 /* RMTileCache.m */,
-				DD4195FF16250ED40049E6BA /* RMTileCacheDownloadOperation.h */,
-				DD41960016250ED40049E6BA /* RMTileCacheDownloadOperation.m */,
-				B83E64D20E80E73F001663B6 /* RMMemoryCache.h */,
-				B83E64D30E80E73F001663B6 /* RMMemoryCache.m */,
-				B8474B980EB40094006A0BC1 /* RMDatabaseCache.h */,
-				B8474B990EB40094006A0BC1 /* RMDatabaseCache.m */,
+				AB7727F41C774EA00046A771 /* RMCacheObject.h */,
+				AB7727F51C774EA00046A771 /* RMCacheObject.m */,
+				AB7727F61C774EA00046A771 /* RMDatabaseCache.h */,
+				AB7727F71C774EA00046A771 /* RMDatabaseCache.m */,
+				AB7727F81C774EA00046A771 /* RMMemoryCache.h */,
+				AB7727F91C774EA00046A771 /* RMMemoryCache.m */,
+				AB7727FA1C774EA00046A771 /* RMTileCache.h */,
+				AB7727FB1C774EA00046A771 /* RMTileCache.m */,
+				AB7727FC1C774EA00046A771 /* RMTileCacheDownloadOperation.h */,
+				AB7727FD1C774EA00046A771 /* RMTileCacheDownloadOperation.m */,
 			);
 			name = "Tile Cache";
 			sourceTree = "<group>";
@@ -451,10 +451,10 @@
 		B83E64E20E80E73F001663B6 /* Projections */ = {
 			isa = PBXGroup;
 			children = (
-				B83E64E30E80E73F001663B6 /* RMProjection.h */,
-				B83E64E40E80E73F001663B6 /* RMProjection.m */,
-				B83E64E90E80E73F001663B6 /* RMFractalTileProjection.h */,
-				B83E64EA0E80E73F001663B6 /* RMFractalTileProjection.m */,
+				AB7727D81C774E140046A771 /* RMFractalTileProjection.h */,
+				AB7727D91C774E140046A771 /* RMFractalTileProjection.m */,
+				AB7727DA1C774E140046A771 /* RMProjection.h */,
+				AB7727DB1C774E140046A771 /* RMProjection.m */,
 			);
 			name = Projections;
 			sourceTree = "<group>";
@@ -462,14 +462,14 @@
 		B83E64EB0E80E73F001663B6 /* Tile Sources */ = {
 			isa = PBXGroup;
 			children = (
+				AB77283C1C774F3E0046A771 /* RMAbstractMercatorTileSource.h */,
+				AB77283D1C774F3E0046A771 /* RMAbstractMercatorTileSource.m */,
+				AB77283E1C774F3E0046A771 /* RMAbstractWebMapSource.h */,
+				AB77283F1C774F3E0046A771 /* RMAbstractWebMapSource.m */,
+				AB7728401C774F3E0046A771 /* RMTileSource.h */,
+				AB7728411C774F3E0046A771 /* RMTileSourcesContainer.h */,
+				AB7728421C774F3E0046A771 /* RMTileSourcesContainer.m */,
 				16EC85CB133CA69A00219947 /* Map Sources */,
-				B83E64EC0E80E73F001663B6 /* RMTileSource.h */,
-				16FBF07415936BF1004ECAD1 /* RMTileSourcesContainer.h */,
-				16FBF07515936BF1004ECAD1 /* RMTileSourcesContainer.m */,
-				16EC85CC133CA6C300219947 /* RMAbstractMercatorTileSource.h */,
-				16EC85CD133CA6C300219947 /* RMAbstractMercatorTileSource.m */,
-				16EC85CE133CA6C300219947 /* RMAbstractWebMapSource.h */,
-				16EC85CF133CA6C300219947 /* RMAbstractWebMapSource.m */,
 			);
 			name = "Tile Sources";
 			sourceTree = "<group>";
@@ -495,18 +495,18 @@
 		B86F26A80E8742ED007A3773 /* Annotation Layers */ = {
 			isa = PBXGroup;
 			children = (
-				160EEDAD13D41DEC007C5501 /* RMAnnotation.h */,
-				160EEDAE13D41DEC007C5501 /* RMAnnotation.m */,
-				16FAB66213E03D55002F4E1C /* RMQuadTree.h */,
-				16FAB66313E03D55002F4E1C /* RMQuadTree.m */,
-				B86F26AC0E87442C007A3773 /* RMMapLayer.h */,
-				B8F3FC600EA2B382004D8F85 /* RMMapLayer.m */,
-				B8F3FC620EA2E792004D8F85 /* RMMarker.h */,
-				B8F3FC630EA2E792004D8F85 /* RMMarker.m */,
-				16F98C941590CFF000FF90CE /* RMShape.h */,
-				16F98C951590CFF000FF90CE /* RMShape.m */,
-				25757F4D1291C8640083D504 /* RMCircle.h */,
-				25757F4E1291C8640083D504 /* RMCircle.m */,
+				AB7727A61C774D850046A771 /* RMAnnotation.h */,
+				AB7727A71C774D850046A771 /* RMAnnotation.m */,
+				AB7727A81C774D850046A771 /* RMCircle.h */,
+				AB7727A91C774D850046A771 /* RMCircle.m */,
+				AB7727AA1C774D850046A771 /* RMMapLayer.h */,
+				AB7727AB1C774D850046A771 /* RMMapLayer.m */,
+				AB7727AC1C774D850046A771 /* RMMarker.h */,
+				AB7727AD1C774D850046A771 /* RMMarker.m */,
+				AB7727AE1C774D850046A771 /* RMQuadTree.h */,
+				AB7727AF1C774D850046A771 /* RMQuadTree.m */,
+				AB7727B01C774D850046A771 /* RMShape.h */,
+				AB7727B11C774D850046A771 /* RMShape.m */,
 			);
 			name = "Annotation Layers";
 			sourceTree = "<group>";
@@ -535,12 +535,12 @@
 		B8C974B30E8A23C5007D16AD /* Coordinate Systems */ = {
 			isa = PBXGroup;
 			children = (
-				23A0AAEA0EB90AA6003A4521 /* RMFoundation.h */,
-				23A0AAE80EB90A99003A4521 /* RMFoundation.c */,
-				B83E64D60E80E73F001663B6 /* RMTile.h */,
-				B83E64D70E80E73F001663B6 /* RMTile.c */,
-				B83E64B60E80E73F001663B6 /* RMPixel.h */,
-				B83E64B70E80E73F001663B6 /* RMPixel.c */,
+				AB7727CA1C774E040046A771 /* RMFoundation.c */,
+				AB7727CB1C774E040046A771 /* RMFoundation.h */,
+				AB7727CD1C774E040046A771 /* RMPixel.c */,
+				AB7727CE1C774E040046A771 /* RMPixel.h */,
+				AB7727CF1C774E040046A771 /* RMTile.c */,
+				AB7727D01C774E040046A771 /* RMTile.h */,
 			);
 			name = "Coordinate Systems";
 			sourceTree = "<group>";
@@ -558,10 +558,10 @@
 		DD8FD7571559ED930044D96F /* User Location */ = {
 			isa = PBXGroup;
 			children = (
-				DD8FD7521559E4A40044D96F /* RMUserLocation.h */,
-				DD8FD7531559E4A40044D96F /* RMUserLocation.m */,
-				DDA6B8BB155CAB67003DB5D8 /* RMUserTrackingBarButtonItem.h */,
-				DDA6B8BC155CAB67003DB5D8 /* RMUserTrackingBarButtonItem.m */,
+				AB7727BE1C774DBF0046A771 /* RMUserLocation.h */,
+				AB7727BF1C774DBF0046A771 /* RMUserLocation.m */,
+				AB7727C01C774DBF0046A771 /* RMUserTrackingBarButtonItem.h */,
+				AB7727C11C774DBF0046A771 /* RMUserTrackingBarButtonItem.m */,
 			);
 			name = "User Location";
 			sourceTree = "<group>";
@@ -622,60 +622,60 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB7728361C774F1B0046A771 /* RMOpenStreetMapSource.h in Headers */,
+				AB7728321C774F1B0046A771 /* RMOpenSeaMapLayer.h in Headers */,
+				AB7727C81C774DD60046A771 /* RMConfiguration.h in Headers */,
+				AB7727C41C774DBF0046A771 /* RMUserTrackingBarButtonItem.h in Headers */,
+				AB7727D21C774E040046A771 /* RMFoundation.h in Headers */,
+				AB7727B81C774D850046A771 /* RMMarker.h in Headers */,
+				AB7728481C774F3E0046A771 /* RMTileSourcesContainer.h in Headers */,
+				AB7728061C774EA00046A771 /* RMTileCacheDownloadOperation.h in Headers */,
+				AB77282C1C774F1B0046A771 /* RMMapQuestOpenAerialSource.h in Headers */,
+				AB7727BC1C774D850046A771 /* RMShape.h in Headers */,
+				AB77283A1C774F1B0046A771 /* RMWMSSource.h in Headers */,
+				AB7728471C774F3E0046A771 /* RMTileSource.h in Headers */,
+				AB7727EC1C774E240046A771 /* RMMapOverlayView.h in Headers */,
+				AB7727D71C774E040046A771 /* RMTile.h in Headers */,
+				AB7727DE1C774E140046A771 /* RMProjection.h in Headers */,
+				AB7727DC1C774E140046A771 /* RMFractalTileProjection.h in Headers */,
+				AB7728041C774EA00046A771 /* RMTileCache.h in Headers */,
+				AB7728241C774F1B0046A771 /* RMCompositeSource.h in Headers */,
+				AB7727F21C774E240046A771 /* RMTileImage.h in Headers */,
+				AB7727F01C774E240046A771 /* RMMapTiledLayerView.h in Headers */,
+				AB7728431C774F3E0046A771 /* RMAbstractMercatorTileSource.h in Headers */,
+				AB7727EA1C774E240046A771 /* RMLoadingTileView.h in Headers */,
+				AB7727FE1C774EA00046A771 /* RMCacheObject.h in Headers */,
+				AB7727C21C774DBF0046A771 /* RMUserLocation.h in Headers */,
+				AB7728301C774F1B0046A771 /* RMOpenCycleMapSource.h in Headers */,
+				AB77282A1C774F1B0046A771 /* RMGenericMapSource.h in Headers */,
+				AB7727B61C774D850046A771 /* RMMapLayer.h in Headers */,
+				AB7728021C774EA00046A771 /* RMMemoryCache.h in Headers */,
+				AB7727EE1C774E240046A771 /* RMMapScrollView.h in Headers */,
+				AB7728281C774F1B0046A771 /* RMDBMapSource.h in Headers */,
+				AB7728221C774F1B0046A771 /* RMBingSource.h in Headers */,
+				AB7728381C774F1B0046A771 /* RMWMS.h in Headers */,
+				AB7728341C774F1B0046A771 /* RMOpenSeaMapSource.h in Headers */,
+				AB7728451C774F3E0046A771 /* RMAbstractWebMapSource.h in Headers */,
+				AB7728261C774F1B0046A771 /* RMCoordinateGridSource.h in Headers */,
+				AB7727BA1C774D850046A771 /* RMQuadTree.h in Headers */,
+				AB7727D51C774E040046A771 /* RMPixel.h in Headers */,
+				AB77282E1C774F1B0046A771 /* RMMapQuestOSMSource.h in Headers */,
+				AB7727B41C774D850046A771 /* RMCircle.h in Headers */,
+				AB7727B21C774D850046A771 /* RMAnnotation.h in Headers */,
+				AB7728001C774EA00046A771 /* RMDatabaseCache.h in Headers */,
 				17F02BB11319BA4B00260C6B /* RouteMe.h in Headers */,
 				B8C9746B0E8A1A50007D16AD /* RMMapView.h in Headers */,
-				B8C974250E8A19B2007D16AD /* RMOpenStreetMapSource.h in Headers */,
-				B8C974220E8A19B2007D16AD /* RMProjection.h in Headers */,
-				B8C974230E8A19B2007D16AD /* RMTileCache.h in Headers */,
-				B8C974260E8A19B2007D16AD /* RMTile.h in Headers */,
-				B8C974270E8A19B2007D16AD /* RMPixel.h in Headers */,
-				B8C9742A0E8A19B2007D16AD /* RMTileImage.h in Headers */,
-				B8C9742B0E8A19B2007D16AD /* RMMemoryCache.h in Headers */,
-				B8C9742D0E8A19B2007D16AD /* RMFractalTileProjection.h in Headers */,
-				B8C9742F0E8A19B2007D16AD /* RMMapLayer.h in Headers */,
-				B8C974620E8A19E8007D16AD /* RMTileSource.h in Headers */,
-				B8F3FC640EA2E792004D8F85 /* RMMarker.h in Headers */,
-				B8474BA40EB40094006A0BC1 /* RMDatabaseCache.h in Headers */,
-				23A0AAEB0EB90AA6003A4521 /* RMFoundation.h in Headers */,
 				B8800FF20EC3A239003E9CDD /* RMMapViewDelegate.h in Headers */,
-				B8800FF30EC3A23D003E9CDD /* RMConfiguration.h in Headers */,
 				96492C400FA8AD3400EBA6D2 /* RMGlobalConstants.h in Headers */,
 				B1EB26C610B5D8E6009F8658 /* RMNotifications.h in Headers */,
-				D1437B37122869E400888DAE /* RMDBMapSource.h in Headers */,
-				25757F4F1291C8640083D504 /* RMCircle.h in Headers */,
-				16EC85D2133CA6C300219947 /* RMAbstractMercatorTileSource.h in Headers */,
-				16EC85D4133CA6C300219947 /* RMAbstractWebMapSource.h in Headers */,
 				ABE0585D1C748D2C00AF68F5 /* NSString+Attributes.h in Headers */,
-				16EC85D6133CA6C300219947 /* RMCacheObject.h in Headers */,
-				160EEDAF13D41DEC007C5501 /* RMAnnotation.h in Headers */,
-				1606C9FE13D86BA400547581 /* RMOpenCycleMapSource.h in Headers */,
-				16FAB66413E03D55002F4E1C /* RMQuadTree.h in Headers */,
-				160E535713FBDB48004F82F9 /* RMMapTiledLayerView.h in Headers */,
-				1609AF8E14068B09008344B7 /* RMMapOverlayView.h in Headers */,
-				16128CF5148D295300C23C0E /* RMOpenSeaMapSource.h in Headers */,
 				DD2B374514CF8041008DE8CB /* FMDatabase.h in Headers */,
 				DD2B374714CF8041008DE8CB /* FMDatabaseAdditions.h in Headers */,
 				DD2B374914CF8041008DE8CB /* FMResultSet.h in Headers */,
 				DD2B374F14CF814F008DE8CB /* FMDatabasePool.h in Headers */,
 				DD2B375114CF814F008DE8CB /* FMDatabaseQueue.h in Headers */,
-				DD8CDB4A14E0507100B73EB9 /* RMMapQuestOSMSource.h in Headers */,
-				1607499514E120A100D535F5 /* RMGenericMapSource.h in Headers */,
-				16FFF2CB14E3DBF700A170EC /* RMMapQuestOpenAerialSource.h in Headers */,
-				DD8FD7541559E4A40044D96F /* RMUserLocation.h in Headers */,
-				DDA6B8BD155CAB67003DB5D8 /* RMUserTrackingBarButtonItem.h in Headers */,
-				16F3581B15864135003A3AD9 /* RMMapScrollView.h in Headers */,
-				16F98C961590CFF000FF90CE /* RMShape.h in Headers */,
-				16FBF07615936BF1004ECAD1 /* RMTileSourcesContainer.h in Headers */,
-				161E563A1594664E00B00BB6 /* RMOpenSeaMapLayer.h in Headers */,
-				1656665515A1DF7900EF3DC7 /* RMCoordinateGridSource.h in Headers */,
-				16E5A63A15E531F200C92A5A /* RMCompositeSource.h in Headers */,
-				DD5FA1EB15E2B020004EB6C5 /* RMLoadingTileView.h in Headers */,
-				DD41960116250ED40049E6BA /* RMTileCacheDownloadOperation.h in Headers */,
-				DD4195C9162356900049E6BA /* RMBingSource.h in Headers */,
 				DD1E3C6E161F954F004FC649 /* SMCalloutView.h in Headers */,
 				DD6B651B16A9ECD8007D1CBA /* MapView_Prefix.pch in Headers */,
-				444FEC1E17A5BF7100F3798C /* RMWMS.h in Headers */,
-				444FEC2017A5BF7100F3798C /* RMWMSSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -826,54 +826,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8C9743F0E8A19B2007D16AD /* RMTileImage.m in Sources */,
-				B8C974400E8A19B2007D16AD /* RMTile.c in Sources */,
-				B8C974410E8A19B2007D16AD /* RMOpenStreetMapSource.m in Sources */,
-				B8C974420E8A19B2007D16AD /* RMMemoryCache.m in Sources */,
-				B8C974430E8A19B2007D16AD /* RMPixel.c in Sources */,
-				B8C974440E8A19B2007D16AD /* RMFractalTileProjection.m in Sources */,
-				B8C974480E8A19B2007D16AD /* RMTileCache.m in Sources */,
-				B8C9744A0E8A19B2007D16AD /* RMProjection.m in Sources */,
+				AB7728251C774F1B0046A771 /* RMCompositeSource.m in Sources */,
+				AB7727B31C774D850046A771 /* RMAnnotation.m in Sources */,
+				AB7727B71C774D850046A771 /* RMMapLayer.m in Sources */,
+				AB7727C91C774DD60046A771 /* RMConfiguration.m in Sources */,
+				AB7727B51C774D850046A771 /* RMCircle.m in Sources */,
+				AB7727EB1C774E240046A771 /* RMLoadingTileView.m in Sources */,
+				AB7728231C774F1B0046A771 /* RMBingSource.m in Sources */,
+				AB7728271C774F1B0046A771 /* RMCoordinateGridSource.m in Sources */,
+				AB7728461C774F3E0046A771 /* RMAbstractWebMapSource.m in Sources */,
+				AB7727D11C774E040046A771 /* RMFoundation.c in Sources */,
+				AB7728311C774F1B0046A771 /* RMOpenCycleMapSource.m in Sources */,
+				AB77282F1C774F1B0046A771 /* RMMapQuestOSMSource.m in Sources */,
+				AB7728391C774F1B0046A771 /* RMWMS.m in Sources */,
 				B8C9746C0E8A1A50007D16AD /* RMMapView.m in Sources */,
-				B8F3FC610EA2B382004D8F85 /* RMMapLayer.m in Sources */,
-				B8F3FC650EA2E792004D8F85 /* RMMarker.m in Sources */,
-				B8474BA50EB40094006A0BC1 /* RMDatabaseCache.m in Sources */,
-				126693040EB76C0B00E002D5 /* RMConfiguration.m in Sources */,
-				23A0AAE90EB90A99003A4521 /* RMFoundation.c in Sources */,
-				D1437B36122869E400888DAE /* RMDBMapSource.m in Sources */,
-				25757F501291C8640083D504 /* RMCircle.m in Sources */,
-				16EC85D3133CA6C300219947 /* RMAbstractMercatorTileSource.m in Sources */,
-				16EC85D5133CA6C300219947 /* RMAbstractWebMapSource.m in Sources */,
-				16EC85D7133CA6C300219947 /* RMCacheObject.m in Sources */,
-				160EEDB013D41DEC007C5501 /* RMAnnotation.m in Sources */,
-				1606C9FF13D86BA400547581 /* RMOpenCycleMapSource.m in Sources */,
-				16FAB66513E03D55002F4E1C /* RMQuadTree.m in Sources */,
-				160E535813FBDB48004F82F9 /* RMMapTiledLayerView.m in Sources */,
-				1609AF8F14068B09008344B7 /* RMMapOverlayView.m in Sources */,
-				16128CF6148D295300C23C0E /* RMOpenSeaMapSource.m in Sources */,
+				AB7727FF1C774EA00046A771 /* RMCacheObject.m in Sources */,
+				AB7727DD1C774E140046A771 /* RMFractalTileProjection.m in Sources */,
+				AB7727F11C774E240046A771 /* RMMapTiledLayerView.m in Sources */,
+				AB7727BD1C774D850046A771 /* RMShape.m in Sources */,
+				AB7728051C774EA00046A771 /* RMTileCache.m in Sources */,
+				AB7728331C774F1B0046A771 /* RMOpenSeaMapLayer.m in Sources */,
+				AB7727DF1C774E140046A771 /* RMProjection.m in Sources */,
+				AB77282B1C774F1B0046A771 /* RMGenericMapSource.m in Sources */,
+				AB7727D61C774E040046A771 /* RMTile.c in Sources */,
+				AB77282D1C774F1B0046A771 /* RMMapQuestOpenAerialSource.m in Sources */,
 				DD2B374614CF8041008DE8CB /* FMDatabase.m in Sources */,
+				AB7727C51C774DBF0046A771 /* RMUserTrackingBarButtonItem.m in Sources */,
 				ABE0585E1C748D2C00AF68F5 /* NSString+Attributes.m in Sources */,
 				DD2B374814CF8041008DE8CB /* FMDatabaseAdditions.m in Sources */,
 				DD2B374A14CF8041008DE8CB /* FMResultSet.m in Sources */,
 				DD2B375014CF814F008DE8CB /* FMDatabasePool.m in Sources */,
+				AB7728351C774F1B0046A771 /* RMOpenSeaMapSource.m in Sources */,
+				AB7728011C774EA00046A771 /* RMDatabaseCache.m in Sources */,
+				AB7727B91C774D850046A771 /* RMMarker.m in Sources */,
 				DD2B375214CF814F008DE8CB /* FMDatabaseQueue.m in Sources */,
-				DD8CDB4B14E0507100B73EB9 /* RMMapQuestOSMSource.m in Sources */,
-				1607499614E120A100D535F5 /* RMGenericMapSource.m in Sources */,
-				16FFF2CC14E3DBF700A170EC /* RMMapQuestOpenAerialSource.m in Sources */,
-				DD8FD7551559E4A40044D96F /* RMUserLocation.m in Sources */,
-				DDA6B8BE155CAB67003DB5D8 /* RMUserTrackingBarButtonItem.m in Sources */,
-				16F3581C15864135003A3AD9 /* RMMapScrollView.m in Sources */,
-				16F98C971590CFF000FF90CE /* RMShape.m in Sources */,
-				16FBF07715936BF1004ECAD1 /* RMTileSourcesContainer.m in Sources */,
-				161E563B1594664E00B00BB6 /* RMOpenSeaMapLayer.m in Sources */,
-				1656665615A1DF7900EF3DC7 /* RMCoordinateGridSource.m in Sources */,
-				16E5A63B15E531F200C92A5A /* RMCompositeSource.m in Sources */,
-				DD5FA1EC15E2B020004EB6C5 /* RMLoadingTileView.m in Sources */,
-				DD41960216250ED40049E6BA /* RMTileCacheDownloadOperation.m in Sources */,
-				DD4195CA162356900049E6BA /* RMBingSource.m in Sources */,
+				AB7728291C774F1B0046A771 /* RMDBMapSource.m in Sources */,
+				AB7727BB1C774D850046A771 /* RMQuadTree.m in Sources */,
+				AB7727D41C774E040046A771 /* RMPixel.c in Sources */,
+				AB7728071C774EA00046A771 /* RMTileCacheDownloadOperation.m in Sources */,
+				AB7727C31C774DBF0046A771 /* RMUserLocation.m in Sources */,
+				AB7728491C774F3E0046A771 /* RMTileSourcesContainer.m in Sources */,
+				AB7727EF1C774E240046A771 /* RMMapScrollView.m in Sources */,
+				AB7727F31C774E240046A771 /* RMTileImage.m in Sources */,
+				AB7727ED1C774E240046A771 /* RMMapOverlayView.m in Sources */,
+				AB7728031C774EA00046A771 /* RMMemoryCache.m in Sources */,
+				AB7728441C774F3E0046A771 /* RMAbstractMercatorTileSource.m in Sources */,
 				DD1E3C6F161F954F004FC649 /* SMCalloutView.m in Sources */,
-				444FEC1F17A5BF7100F3798C /* RMWMS.m in Sources */,
-				444FEC2117A5BF7100F3798C /* RMWMSSource.m in Sources */,
+				AB7728371C774F1B0046A771 /* RMOpenStreetMapSource.m in Sources */,
+				AB77283B1C774F1B0046A771 /* RMWMSSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
