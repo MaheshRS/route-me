@@ -16,7 +16,7 @@ Please note that you are responsible for getting permission to use the map data,
 Installation
 ------------
 
-* Clone a copy of the repository:
+Clone a copy of the repository:
 
       https://github.com/MaheshRS/route-me.git
 
@@ -29,8 +29,6 @@ Installation
  *OR*
 
 Add MapView.frame, copy or alias all the resources the MapView/Map/Resources folder to the project. 
-
-* Add `App Transport Security Settings` to the project. 
 
 See the 'samples' subdirectory for usage examples.
 
@@ -49,6 +47,7 @@ Once you have created a new iOS application, we will setup the Route-Me MapView 
 * Go to Build Phases > Target Dependencies > Click +, Choose MapView > MapView
 * Go to Build Phases > Link Binaries > For each of the following libraries, Click +, select the binary, and then click Add: `libMapView.a`, `CoreLocation.framework`, `QuartzCore.framework`, `Foundation.framework`, `UIKit.framework`, `CoreGraphics.framework`, `CoreFoundation.framework`
 * In your Project Settings, select Build Settings and in Build Active Architecture Only select `YES` for `debug` and `NO` for `release`
+* Add `App Transport Security Settings` to the project. 
    
 [6]: https://github.com/MaheshRS/route-me.git   
 
