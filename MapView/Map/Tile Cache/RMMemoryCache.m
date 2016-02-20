@@ -85,15 +85,13 @@
 
 - (UIImage *)cachedImage:(RMTile)tile withCacheKey:(NSString *)aCacheKey
 {
-//    RMLog(@"Memory cache check  tile %d %d %d (%@)", tile.x, tile.y, tile.zoom, [RMTileCache tileHash:tile]);
-
     __block RMCacheObject *cachedObject = nil;
     NSNumber *tileHash = [RMTileCache tileHash:tile];
-
+    
     dispatch_sync(_memoryCacheQueue, ^{
-
+        
         cachedObject = [_memoryCache objectForKey:tileHash];
-
+        
         if (cachedObject)
         {
             if ([[cachedObject cacheKey] isEqualToString:aCacheKey])
@@ -105,15 +103,13 @@
                 dispatch_barrier_async(_memoryCacheQueue, ^{
                     [_memoryCache removeObjectForKey:tileHash];
                 });
-
-                 cachedObject = nil;
+                
+                cachedObject = nil;
             }
         }
-
+        
     });
-
-//    RMLog(@"Memory cache hit    tile %d %d %d (%@)", tile.x, tile.y, tile.zoom, [RMTileCache tileHash:tile]);
-
+    
     return [cachedObject cachedObject];
 }
 
